@@ -10,6 +10,7 @@
 [build.environment]
   NODE_ENV = "production"
   NODE_VERSION = "16"
+  RUBY_VERSION = "3.0.2"
 
 # If skip_processing = true, all other settings are ignored
 [build.processing]
