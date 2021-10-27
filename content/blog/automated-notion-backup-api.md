@@ -1,0 +1,149 @@
+---
+title: Automated Notion backups using official API
+description: Learn how to back up your Notion workspace data using Notion's official API.
+---
+
+<div class="px-4 mt-24 mb-12 sm:px-6 lg:px-8">
+<div class="max-w-prose mx-auto">
+  <h1>
+    <span class="mt-2 block text-center leading-8 font-extrabold tracking-tight">Automating Backups with Notion API</span>
+  </h1>
+
+  <p class="mt-8">Backing up your data on a consistent schedule is like buying insurance: you think you don't need it until you need it. With <a class="underline" href="https://www.notion.so">Notion</a> becoming a second brain and knowledge management for many folks and organizations alike, it's paramount to have consistent backups if things go south.</p>
+
+  <p class="mt-8">Up until this point, you had two options when it came to backing up your Notion data:</p>
+  <ul class="mt-8 text-xl text-gray-700 leading-8 list-disc list-inside">
+    <li><a class="underline" href="https://www.notion.so/Back-up-your-data-1a8eb5bdfce34d19a6360fd015c0075f">Export Notion data manually</a></li>
+    <li>Duct tape by using a GitLab/Github CI with private API (the private API is subject to change at any time without notice)</li>
+  </ul>
+  <p class="mt-8">Now that <a class="underline" href="https://developers.notion.com/">Notion's API</a> is in private beta, there's a more robust way of backing up your data.</p>
+
+  <h2 class="my-8">Step 1: Create an internal integration</h2>
+  <p class="mt-8">Head over to <a class="underline" href="https://www.notion.so/my-integrations">My integrations</a> to create an internal integration. <a class="underline" href="https://developers.notion.com/docs/getting-started">Notion's docs</a> give a good overview of the process.</p>
+
+  <p class="mt-8">If you want to back up your personal workspace, choose the internal integration. Keep in mind that you have to be an admin to access the workspace data.</p>
+
+  <p class="mt-8">Once you're done, grab your Internal Integration Token. You will need it later to authenticate your API requests.</p>
+
+  <h2 class="my-8">Step 2: Share pages you want to back up</h2>
+
+  <p class="mt-8">By default, your integration doesn't have access to any page or a database. You have to manually add it to pages/databases you want to back up by using the invite function. <a class="underline" href="https://developers.notion.com/docs#share-a-database-with-your-integration">Notion's docs</a> cover this topic in more detail.</p>
+
+  <h2 class="my-8">Step 3: Query data</h2>
+
+  <p class="mt-8">Unless you intend to back up a specific page only, you'd want to grab all pages and databases. Notion API exposes a <a class="underline" href="https://developers.notion.com/reference/post-search"><code>search</code></a> endpoint that returns top-level pages and databases your integration has access to.</p>
+
+  <pre><code>import requests
+
+# replace YOUR_INTEGRATION_TOKEN with your own secret token
+headers = {
+  'Authorization': 'Bearer YOUR_INTEGRATION_TOKEN',
+  'Notion-Version': '2021-05-13',
+}
+
+response = requests.post(
+  'https://api.notion.com/v1/search',
+  headers=headers,
+)
+</code></pre>
+
+
+  <p class="mt-8">Keep in mind that <a class="underline" href="https://developers.notion.com/reference/post-search"><code>search</code></a> endpoint doesn't return child pages. To grab them, you'll have to recursively query for pages using the <a class="underline" href="https://developers.notion.com/reference/get-block-children"><code>retrieve block children</code></a> endpoint.</p>
+
+<pre><code>for block in response.json()['results']:
+  child_blocks = requests.get(
+    f'https://api.notion.com/v1/blocks/{block["id"]}/children',
+    headers=headers,
+  )
+</code></pre>
+
+  <h2 class="my-8">Step 4: Store your data</h2>
+
+  <p class="mt-8">One way of storing your Notion workspace would be to write top-level pages and databases to a file and write child pages to a directory named after their parent files.</p>
+
+<pre>
+<code>import requests
+import datetime
+import os
+import json
+
+folder = 'notionbackup-' + datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
+
+os.mkdir(folder)
+
+for block in response.json()['results']:
+  with open(f'{folder}/{block["id"]}.json', 'w') as file:
+    file.write(json.dumps(block))
+
+  child_blocks = requests.get(f'https://api.notion.com/v1/blocks/{block["id"]}/children', headers=headers)
+  if child_blocks.json()['results']:
+    os.mkdir(folder + f'/{block["id"]}')
+
+    for child in child_blocks.json()['results']:
+      with open(f'{folder}/{block["id"]}/{child["id"]}.json', 'w') as file:
+        file.write(json.dumps(child))</code>
+</pre>
+
+  <p class="mt-8">Notion's API currently can't restore data fully: you can recreate databases, but you can't recreate pages yet.</p>
+
+  <h2 class="my-8">Step 5: Set up a cron job</h2>
+
+  <p class="mt-8">Ideally, backups should be set and forget process. Otherwise, you tend to forget about them.</p>
+
+  <p class="mt-8">On UNIX-like systems (macOS, Linux, BSD), you can set up a cron job that will run a script at a specified interval.</p>
+
+  <p class="mt-8">Before setting up a cron job, save this Python script on your machine and make it executable. If your script is named <code>notionbackup.py</code>, for example, and assuming you're in the same directory as the script, run the following command from your terminal:</p>
+
+<pre><code>chmod 644 notionbackup.py</code></pre>
+
+  <p class="mt-8">Next, open up a text editor to create a cron entry:</p>
+
+<pre><code>crontab -e</code></pre>
+
+  <p class="mt-8">Crontab has a specific syntax, and there's a plenty of material  <a href="https://crontab.guru/" target="_blank" class="underline">on the Internets</a> about it. Let's say you want to run this script once every 6 hours. In the editor, opened by the previous command, write the following:</p>
+
+<pre><code>0 */6 * * * ./notionbackup.py</code></pre>
+
+  <p class="mt-8">Here's the final script for the reference:</p>
+
+<pre>
+<code>import requests
+import os
+import datetime
+import json
+
+folder = 'notionbackup-' + datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
+
+os.mkdir(folder)
+
+# replace YOUR_INTEGRATION_TOKEN with your own secret token
+headers = {
+  'Authorization': 'Bearer YOUR_INTEGRATION_TOKEN',
+  'Notion-Version': '2021-05-13',
+}
+
+response = requests.post('https://api.notion.com/v1/search', headers=headers)
+
+for block in response.json()['results']:
+  with open(f'{folder}/{block["id"]}.json', 'w') as file:
+    file.write(json.dumps(block))
+
+  child_blocks = requests.get(f'https://api.notion.com/v1/blocks/{block["id"]}/children', headers=headers)
+  if child_blocks.json()['results']:
+    os.mkdir(folder + f'/{block["id"]}')
+
+    for child in child_blocks.json()['results']:
+      with open(f'{folder}/{block["id"]}/{child["id"]}.json', 'w') as file:
+        file.write(json.dumps(child))</code>
+</pre>
+
+  <p class="my-8 text-gray-700 leading-8">You can also use <a href="/" target="_blank" class="underline">Notion Backups</a> to automatically back up your Notion data to a storage provider of your choice. That way, you don't have to worry about your Notion data being lost.</p>
+
+  <div class="mt-8 mx-4 lg:mt-0 bg-gray-900 p-12 rounded-lg">
+    <p class="mb-8 text-white text-center">Back up your Notion workspaces today.</p>
+    <a href="https://app.notionbackups.com/signup/new" class="button p-4">
+      Get started
+    </a>
+  </div>
+</div>
+</div>

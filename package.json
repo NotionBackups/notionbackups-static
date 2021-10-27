@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "npx tailwindcss-cli build -i content/assets/stylesheets/tailwind.css -o output/assets/stylesheets/tailwind.css"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.2.6",
+    "tailwindcss": "^2.2.4"
+  },
+  "devDependencies": {
+    "postcss": "^8.3.5",
+    "postcss-cli": "^8.3.1"
+  }
+}

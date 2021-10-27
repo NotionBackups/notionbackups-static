@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+# frozen_string_literal: true
+
+compile '/sitemap.erb' do
+  filter :erb
+  write '/sitemap.xml'
+end
+
+compile '/**/*.html.erb' do
+  filter :erb
+  layout '/default.*'
+  write item.identifier.without_ext
+end
+
+compile '/**/*.html' do
+  layout '/default.*'
+  write item.identifier.to_s
+end
+
+compile '/**/*.md' do
+  filter :kramdown
+  layout '/default.*'
+  write item.identifier.without_ext + '.html'
+end
+
+compile '/**/*' do
+  write item.identifier.to_s
+end
+
+layout '/**/*', :erb
