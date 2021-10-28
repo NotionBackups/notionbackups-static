@@ -8,11 +8,15 @@
   }
 
   h1 {
-    @apply text-4xl font-bold leading-tight text-gray-900;
+    @apply text-4xl font-extrabold leading-tight text-gray-900;
   }
 
   h2 {
     @apply text-3xl font-bold text-gray-900;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold text-gray-900;
   }
 
   a {
@@ -29,6 +33,10 @@
 
   pre {
     @apply my-4 border-2 rounded-md border-gray-200 shadow-sm p-4 text-green-900 overflow-scroll;
+  }
+
+  ul {
+    @apply list-disc list-inside;
   }
 
   select,
