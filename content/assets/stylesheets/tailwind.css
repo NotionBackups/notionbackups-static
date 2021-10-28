@@ -39,6 +39,10 @@
     @apply list-disc list-inside;
   }
 
+  ol {
+    @apply list-decimal list-inside;
+  }
+
   select,
   textarea,
   [type="datetime-local"],
