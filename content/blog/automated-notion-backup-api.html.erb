@@ -3,16 +3,38 @@ title: Automated Notion backups using official API
 description: Learn how to back up your Notion workspace data using Notion's official API.
 ---
 
+<% content_for :head do %>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "BlogPosting",
+    "headline": "Automated Notion backups using official API",
+    "datePublished": "2021-06-02",
+    "dateModified": "2021-10-29",
+    "description": "Learn how to back up your Notion workspace data using Notion's official API.",
+    "inLanguage": "en-US",
+    "copyrightHolder": {
+      "@type": "Organization",
+      "name": "Notion Backups"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Notion Backups"
+    }
+  }
+  </script>
+<% end %>
+
 <div class="px-4 mt-24 mb-12 sm:px-6 lg:px-8">
 <div class="max-w-prose mx-auto">
-  <h1>
-    <span class="mt-2 block text-center leading-8 font-extrabold tracking-tight">Automating Backups with Notion API</span>
+  <h1 class="mt-2 text-center leading-8 tracking-tight">
+    Automating Backups with Notion API
   </h1>
 
   <p class="mt-8">Backing up your data on a consistent schedule is like buying insurance: you think you don't need it until you need it. With <a class="underline" href="https://www.notion.so">Notion</a> becoming a second brain and knowledge management for many folks and organizations alike, it's paramount to have consistent backups if things go south.</p>
 
   <p class="mt-8">Up until this point, you had two options when it came to backing up your Notion data:</p>
-  <ul class="mt-8 text-xl text-gray-700 leading-8 list-disc list-inside">
+  <ul class="mt-8 text-xl text-gray-700 leading-8">
     <li><a class="underline" href="https://www.notion.so/Back-up-your-data-1a8eb5bdfce34d19a6360fd015c0075f">Export Notion data manually</a></li>
     <li>Duct tape by using a GitLab/Github CI with private API (the private API is subject to change at any time without notice)</li>
   </ul>
