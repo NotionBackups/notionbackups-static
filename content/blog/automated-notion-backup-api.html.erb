@@ -25,7 +25,7 @@ description: Learn how to back up your Notion workspace data using Notion's offi
   </script>
 <% end %>
 
-<div class="px-4 mt-24 mb-12 sm:px-6 lg:px-8">
+<article class="px-4 mt-24 mb-12 sm:px-6 lg:px-8">
 <div class="max-w-prose mx-auto">
   <h1 class="mt-2 text-center leading-8 tracking-tight">
     Automating Backups with Notion API
@@ -69,7 +69,6 @@ response = requests.post(
   headers=headers,
 )
 </code></pre>
-
 
   <p class="mt-8">Keep in mind that <a class="underline" href="https://developers.notion.com/reference/post-search"><code>search</code></a> endpoint doesn't return child pages. To grab them, you'll have to recursively query for pages using the <a class="underline" href="https://developers.notion.com/reference/get-block-children"><code>retrieve block children</code></a> endpoint.</p>
 
@@ -170,4 +169,4 @@ for block in response.json()['results']:
     </a>
   </div>
 </div>
-</div>
+</article>
