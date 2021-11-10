@@ -95,22 +95,22 @@
 
   <main><%= content_for(@item, :main) || yield %></main>
 
-  <footer class="bg-gray-100" aria-labelledby="footer-heading">
+  <footer class="bg-gray-900 border-t border-white" aria-labelledby="footer-heading">
     <h2 id="footer-heading" class="sr-only">Footer</h2>
-      <div class="border-t border-gray-200 pt-8">
+      <div class="pt-8">
         <div class="mx-auto flex flex-wrap justify-center">
-          <a href="/#pricing" class="p-4">Pricing</a>
-          <a href="/blog/automated-notion-backup-api.html" class="p-4">Blog</a>
-          <a href="/privacy.html" class="p-4">Privacy</a>
-          <a href="/terms.html" class="p-4">Terms</a>
+          <a href="/#pricing" class="p-4 text-white hover:text-gray-300">Pricing</a>
+          <a href="/blog/automated-notion-backup-api.html" class="p-4 text-white hover:text-gray-300">Blog</a>
+          <a href="/privacy.html" class="p-4 text-white hover:text-gray-300">Privacy</a>
+          <a href="/terms.html" class="p-4 text-white hover:text-gray-300">Terms</a>
         </div>
 
-        <p class="text-base text-gray-500 text-center mb-4">
+        <p class="text-base text-gray-400 text-center my-4">
           &copy; 2021 Forty Two Technologies, Inc.
         </p>
 
-        <p class="text-base text-gray-500 text-center pb-8">
-          Built and run by <a href="https://twitter.com/jmstfv">@jmstfv</a>
+        <p class="text-base text-gray-400 text-center pb-8">
+          Built and run by <a href="https://twitter.com/jmstfv" class="text-white hover:text-gray-300">@jmstfv</a>
         </p>
       </div>
   </footer>
