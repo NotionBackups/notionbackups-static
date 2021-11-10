@@ -10,7 +10,7 @@ description: Learn how to back up your Notion workspace data using Notion's offi
     "@type": "BlogPosting",
     "headline": "Automated Notion backups using official API",
     "datePublished": "2021-06-02",
-    "dateModified": "2021-10-29",
+    "dateModified": "2021-11-10",
     "description": "Learn how to back up your Notion workspace data using Notion's official API.",
     "inLanguage": "en-US",
     "copyrightHolder": {
@@ -60,7 +60,8 @@ description: Learn how to back up your Notion workspace data using Notion's offi
 # replace YOUR_INTEGRATION_TOKEN with your own secret token
 headers = {
   'Authorization': 'Bearer YOUR_INTEGRATION_TOKEN',
-  'Notion-Version': '2021-05-13',
+  'Notion-Version': '2021-08-16',
+  'Content-Type': 'application/json',
 }
 
 response = requests.post(
@@ -141,7 +142,8 @@ os.mkdir(folder)
 # replace YOUR_INTEGRATION_TOKEN with your own secret token
 headers = {
   'Authorization': 'Bearer YOUR_INTEGRATION_TOKEN',
-  'Notion-Version': '2021-05-13',
+  'Notion-Version': '2021-08-16',
+  'Content-Type': 'application/json',
 }
 
 response = requests.post('https://api.notion.com/v1/search', headers=headers)
