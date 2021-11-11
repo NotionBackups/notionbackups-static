@@ -9,7 +9,11 @@ module.exports = {
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        'button': '.4rem .4rem 0 0 #adc2a9'
+      },
+    },
   },
   variants: {
     extend: {},
