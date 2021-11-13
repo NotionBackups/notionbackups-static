@@ -32,7 +32,7 @@
   }
 
   pre {
-    @apply my-4 border-2 rounded-md border-gray-200 shadow-sm p-4 text-green-900 overflow-scroll;
+    @apply my-4 rounded-md shadow-sm p-6 bg-gray-900 text-white overflow-scroll;
   }
 
   ul {

@@ -4,6 +4,15 @@ description: Learn how to back up your Notion workspace data using Notion's offi
 ---
 
 <% content_for :head do %>
+  <script src="/assets/javascripts/highlight.min.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      hljs.highlightAll();
+    })
+  </script>
+
+  <link rel="stylesheet" href="/assets/stylesheets/github-dark.min.css">
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
@@ -11,7 +20,7 @@ description: Learn how to back up your Notion workspace data using Notion's offi
     "@type": "BlogPosting",
     "headline": "Automated Notion backups using official API",
     "datePublished": "2021-06-02",
-    "dateModified": "2021-11-10",
+    "dateModified": "2021-11-13",
     "description": "Learn how to back up your Notion workspace data using Notion's official API.",
     "inLanguage": "en-US",
     "copyrightHolder": {
@@ -134,7 +143,8 @@ import datetime
 import os
 import json
 
-folder = 'notionbackup-' + datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
+timestamp = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
+folder = 'notionbackup-' + timestamp
 
 os.mkdir(folder)
 
@@ -142,7 +152,10 @@ for block in response.json()['results']:
   with open(f'{folder}/{block["id"]}.json', 'w') as file:
     file.write(json.dumps(block))
 
-  child_blocks = requests.get(f'https://api.notion.com/v1/blocks/{block["id"]}/children', headers=headers)
+  child_blocks = requests.get(
+    f'https://api.notion.com/v1/blocks/{block["id"]}/children',
+    headers=headers,
+  )
   if child_blocks.json()['results']:
     os.mkdir(folder + f'/{block["id"]}')
 
@@ -179,7 +192,8 @@ import os
 import datetime
 import json
 
-folder = 'notionbackup-' + datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
+timestamp = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
+folder = 'notionbackup-' + timestamp
 
 os.mkdir(folder)
 
@@ -196,7 +210,10 @@ for block in response.json()['results']:
   with open(f'{folder}/{block["id"]}.json', 'w') as file:
     file.write(json.dumps(block))
 
-  child_blocks = requests.get(f'https://api.notion.com/v1/blocks/{block["id"]}/children', headers=headers)
+  child_blocks = requests.get(
+    f'https://api.notion.com/v1/blocks/{block["id"]}/children',
+    headers=headers,
+  )
   if child_blocks.json()['results']:
     os.mkdir(folder + f'/{block["id"]}')
 
@@ -209,7 +226,7 @@ for block in response.json()['results']:
 
   <div class="mt-8 mx-4 lg:mt-0 bg-gray-900 p-12 rounded-lg">
     <p class="mb-8 text-white text-center">Back up your Notion workspaces today.</p>
-    <a href="https://app.notionbackups.com/signup/new" class="button p-4">
+    <a href="https://app.notionbackups.com/signup/new" class="button p-4 hover:shadow-button duration-300">
       Get started
     </a>
   </div>
