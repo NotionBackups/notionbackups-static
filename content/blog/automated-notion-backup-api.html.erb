@@ -17,10 +17,11 @@ description: Learn how to back up your Notion workspace data using Notion's offi
   {
     "@context": "https://schema.org/",
     "@id": "https://notionbackups.com/blog/automated-notion-backup-api",
-    "@type": "BlogPosting",
+    "@type": "TechArticle",
     "headline": "Automated Notion backups using official API",
+    "dependencies": "Python",
     "datePublished": "2021-06-02",
-    "dateModified": "2021-11-13",
+    "dateModified": "2021-11-17",
     "description": "Learn how to back up your Notion workspace data using Notion's official API.",
     "inLanguage": "en-US",
     "copyrightHolder": {
@@ -31,50 +32,6 @@ description: Learn how to back up your Notion workspace data using Notion's offi
       "@type": "Organization",
       "name": "Notion Backups"
     }
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    "name": "Automating Backups with Notion API",
-    "mainEntityOfPage": {
-      "@type": "BlogPosting",
-      "@id": "https://notionbackups.com/blog/automated-notion-backup-api"
-    },
-    "step": [
-      {
-        "@type": "HowToStep",
-        "name": "Create an internal integration",
-        "text": "Head over to My integrations to create an internal integration",
-        "position": 1
-      },
-      {
-        "@type": "HowToStep",
-        "name": "Share pages you want to back up",
-        "text": "Manually add it to pages/databases you want to back up",
-        "position": 2
-      },
-      {
-        "@type": "HowToStep",
-        "name": "Query data",
-        "text": "Grab all pages and databases using Notion API's search endpoint",
-        "position": 3
-      },
-      {
-        "@type": "HowToStep",
-        "name": "Store your data",
-        "text": "Write top-level pages and databases to a file and write child pages to a directory named after their parent files",
-        "position": 4
-      },
-      {
-        "@type": "HowToStep",
-        "name": "Set up a cron job",
-        "text": "To back uo your workspace regularly, set up a cron job",
-        "position": 4
-      }
-    ]
   }
   </script>
 <% end %>
@@ -103,7 +60,9 @@ description: Learn how to back up your Notion workspace data using Notion's offi
 
   <h2 class="my-8">Step 2: Share pages you want to back up</h2>
 
-  <p class="mt-8">By default, your integration doesn't have access to any page or a database. You have to manually add it to pages/databases you want to back up by using the invite function. <a class="underline" href="https://developers.notion.com/docs#share-a-database-with-your-integration">Notion's docs</a> cover this topic in more detail.</p>
+  <p class="mt-8">By default, your integration doesn't have access to any page or a database. You have to manually add it to pages/databases you want to back up by using the invite function in the Share menu. Your integration won't be visible unless you click the invite field.
+
+  <a class="underline" href="https://developers.notion.com/docs#step-2-share-a-database-with-your-integration">Notion's docs</a> cover this topic in more detail.</p>
 
   <h2 class="my-8">Step 3: Query data</h2>
 
@@ -164,8 +123,6 @@ for block in response.json()['results']:
         file.write(json.dumps(child))</code>
 </pre>
 
-  <p class="mt-8">Notion's API currently can't restore data fully: you can recreate databases, but you can't recreate pages yet.</p>
-
   <h2 class="my-8">Step 5: Set up a cron job</h2>
 
   <p class="mt-8">Ideally, backups should be set and forget process. Otherwise, you tend to forget about them.</p>
@@ -180,7 +137,7 @@ for block in response.json()['results']:
 
 <pre><code>crontab -e</code></pre>
 
-  <p class="mt-8">Crontab has a specific syntax, and there's a plenty of material  <a href="https://crontab.guru/" target="_blank" class="underline">on the Internets</a> about it. Let's say you want to run this script once every 6 hours. In the editor, opened by the previous command, write the following:</p>
+  <p class="mt-8">Crontab has a specific syntax, and there's a plenty of material  <a href="https://crontab.guru/" target="_blank" class="underline">on the Internets</a> about it. Let's say you want to run this script once every 6 hours. In the editor, opened by the previous command, paste the following:</p>
 
 <pre><code>0 */6 * * * ./notionbackup.py</code></pre>
 
