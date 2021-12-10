@@ -1,13 +1,11 @@
 module.exports = {
-  mode: 'jit',
-  purge: [
+  content: [
     './content/**/*.erb',
     './content/**/*.md',
     './content/assets/**/*.js',
     './layouts/**/*.html.erb',
     './layouts/**/*.html',
   ],
-  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       boxShadow: {
@@ -20,9 +18,6 @@ module.exports = {
         },
       }
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [],
 }
