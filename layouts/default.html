@@ -14,12 +14,17 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
 
-  <meta name="twitter:card" content="summary">
+  <meta property="og:title" content="<%= @item[:title] %> - Notion Backups">
+  <meta property="og:description" content="<%= @item[:description] %>">
+  <meta property="og:image" content="https://notionbackups.com/assets/banner.png">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@notionbackups">
   <meta name="twitter:creator" content="@jmstfv">
   <meta name="twitter:title" content="<%= @item[:title] %> - Notion Backups">
   <meta name="twitter:description" content="<%= @item[:description] %>">
-  <meta name="twitter:image" content="https://notionbackups.com/assets/images/apple-touch-icon.png">
+  <meta name="twitter:image" content="https://notionbackups.com/assets/images/banner.png">
   <meta name="twitter:image:alt" content="Notion Backups' logo">
 
   <meta name="apple-mobile-web-app-capable" content="yes">
