@@ -14,9 +14,15 @@ description: Documentation for Notion Backups explaining how to authorize to Not
 
   <p class="mt-8">If you have questions about anything, feel free to <a href="mailto:support@notionbackups.com" class="underline">reach out</a>.</p>
 
+  <h2 class="my-8">Pages</h2>
+
+  <p class="mt-8">Notion Backups only has access to Notion pages you have explicitly authorized. Pages created after the authorization won't be backed up. If you want to change page access after creating a workspace, you can do so in the workspace settings.</p>
+
   <h2 class="my-8">Cloud storage providers</h2>
 
   <p class="mt-8">You need to connect at least one of the available cloud storage providers to get your workspace backed up. Currently, you can store your backups in Google Drive, Dropbox, and Amazon S3 buckets.</p>
+
+  <p class="mt-8">Google Drive and Dropbox integrations do not have access to any other folder (or file) in your account except the folder they upload backups to. With Amazon S3, you can restrict access to specific buckets only (see below).</p>
 
   <h3 class="my-8" id="amazon-s3">Amazon S3</h3>
 
@@ -30,5 +36,7 @@ description: Documentation for Notion Backups explaining how to authorize to Not
      <li>Select the "Attach existing policies directly" tab and search for the "AmazonS3FullAccess" policy<img loading="lazy" class="block my-4 rounded-md shadow" src="/assets/images/amazon-s3-policy-iam.png" alt="Attaching a policy to the IAM user"></li>
      <li>After creating a user, you can use newly-generated Access Key ID and Secret Access Key in Notion Backups <img loading="lazy" class="block my-4 rounded-md shadow" src="/assets/images/final-iam-screen.png" alt="Final screen summarizing IAM user's attributes"></li>
   </ol>
+
+  <p class="mt-8">Keep in mind that this newly-created IAM user will have access to all your S3 buckets. To restrict access to this specific bucket only, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_s3_deny-except-bucket.html" target="_blank" rel="noopener">add the following policy</a>.</p>
 </div>
 </article>
