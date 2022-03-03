@@ -24,6 +24,8 @@ description: Documentation for Notion Backups explaining how to authorize to Not
 
   <p class="mt-8">Google Drive and Dropbox integrations do not have access to any other folder (or file) in your account except the folder they upload backups to. With Amazon S3, you can restrict access to specific buckets only (see below).</p>
 
+  <p class="mt-8">When you disconnect Google Drive or Dropbox integrations, your tokens get revoked, and Notion Backups loses access to your accounts.</p>
+
   <h3 class="my-8" id="amazon-s3">Amazon S3</h3>
 
   <p class="mt-8">To let Notion Backups connect to your S3 bucket, attach the <em>AmazonS3FullAccess</em> policy to your IAM user. It's better to create a new user with only this policy attached to keep your AWS account secure.</p>
