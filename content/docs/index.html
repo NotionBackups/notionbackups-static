@@ -40,5 +40,23 @@ description: Documentation for Notion Backups explaining how to authorize to Not
   </ol>
 
   <p class="mt-8">Keep in mind that this newly-created IAM user will have access to all your S3 buckets. To restrict access to this specific bucket only, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_s3_deny-except-bucket.html" target="_blank" rel="noopener">add the following policy</a>.</p>
+
+  <h2 class="my-8">Restore</h2>
+
+  <p class="mt-8">Before you can restore your workspace content, your workspace needs to be backed up at least once.</p>
+
+  <p class="mt-8">As of now, the restore functionality works by overriding some of your Notion content, namely:</p>
+
+  <ul class="mt-8 text-xl text-gray-700 leading-8">
+    <li>Page properties, like cover or icon</li>
+    <li>Updated database/page/block content that was changed since the last backup</li>
+  </ul>
+
+  <p class="mt-8">What restore functionality won't do:</p>
+
+  <ul class="mt-8 text-xl text-gray-700 leading-8">
+    <li>Remove or override newly added content</li>
+    <li>Restore deleted content (this is in the works)</li>
+  </ul>
 </div>
 </article>
