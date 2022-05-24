@@ -1,8 +1,5 @@
 {
   "private": true,
-  "scripts": {
-    "build": "npx tailwindcss build -i content/assets/stylesheets/tailwind.css -o output/assets/stylesheets/tailwind.css --watch"
-  },
   "dependencies": {
     "tailwindcss": "^3.0.24"
   }

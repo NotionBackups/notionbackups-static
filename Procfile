@@ -1,2 +1,2 @@
 nanoc: bundle exec nanoc live --port 3001
-tailwind: npm run build
+tailwind: npx tailwindcss build -i content/assets/stylesheets/tailwind.css -o output/assets/stylesheets/tailwind.css --watch
