@@ -39,7 +39,23 @@ description: Documentation for Notion Backups explaining how to authorize to Not
      <li>After creating a user, you can use newly-generated Access Key ID and Secret Access Key in Notion Backups <img loading="lazy" class="block my-4 rounded-md shadow" src="/assets/images/final-iam-screen.png" alt="Final screen summarizing IAM user's attributes"></li>
   </ol>
 
-  <p class="mt-8">Keep in mind that this newly-created IAM user will have access to all your S3 buckets. To restrict access to this specific bucket only, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_s3_deny-except-bucket.html" target="_blank" rel="noopener">add the following policy</a>.</p>
+  <p class="mt-8">Keep in mind that this newly-created IAM user will have access to all your S3 buckets. To restrict access to a specific bucket only, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_s3_deny-except-bucket.html" target="_blank" rel="noopener">add the following policy</a>.</p>
+
+  <p class="mt-8">If you're creating an IAM user programmatically, you can use the following policy (replace <code>yourbucket</code> with your bucket's name):</p>
+
+  <pre><code>
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Sid": "GrantFullAccessToThisS3Bucket",
+        "Effect": "Allow",
+        "Action": ["s3:*"],
+        "Resource": [
+            "arn:aws:s3:::<em>yourbucket</em>",
+            "arn:aws:s3:::<em>yourbucket</em>/*"
+        ]
+    }]
+}</code></pre>
 
   <h2 class="my-8" id="restore">Restore</h2>
 
