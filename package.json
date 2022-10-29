@@ -1,6 +1,6 @@
 {
   "private": true,
   "dependencies": {
-    "tailwindcss": "^3.1.4"
+    "tailwindcss": "^3.2"
   }
 }
