@@ -1,0 +1,51 @@
+---
+title: Backups
+description: Learn which Notion data (pages, databases, blocks, comments) gets backed up
+---
+
+<% content_for :head do %>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "TechArticle",
+    "headline": "<%= @item[:title] %>",
+    "datePublished": "2022-11-02",
+    "description": "<%= @item[:description] %>",
+    "inLanguage": "en-US",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://notionbackups.com/assets/images/banner.png"
+    },
+    "copyrightHolder": {
+      "@type": "Organization",
+      "name": "Notion Backups"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Notion Backups"
+    }
+  }
+  </script>
+<% end %>
+
+<article class="px-4 mt-24 mb-12 sm:px-6 lg:px-8">
+<div class="max-w-prose mx-auto">
+
+  <h1 class="mt-2 text-center tracking-tight">
+    Backups
+  </h1>
+
+  <h2 class="my-8">Pages</h2>
+
+  <p class="mt-8">Notion Backups only has access to Notion data (pages, blocks, databases) you have explicitly authorized. Pages, and their children, like blocks, databases, and other pages created after the authorization, won't be backed up. You can always choose which pages Notion Backups has access to in your workspace settings or the Share menu inside your Notion workspace.</p>
+
+  <p class="mt-8">In general, it's a good practice to regularly review top-level pages Notion Backups have access to.</p>
+
+  <h2 class="my-8">Comments</h2>
+
+  <p class="mt-8">Notion workspaces connected before <time datetime="2022-10-30">October 30th, 2022</time>, don't have a comment capability enabled unless you have reauthorized your workspace after that date. To have your comments backed up, reauthorize your workspace.</p>
+
+  <p class="mt-8">If you have questions about anything, feel free to <a href="mailto:support@notionbackups.com" class="underline">reach out</a>.</p>
+
+</div>
+</article>

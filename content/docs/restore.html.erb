@@ -1,0 +1,58 @@
+---
+title: Restore your Notion workspace
+description: Learn how you can restore a Notion workspace from one of your backups
+---
+
+<% content_for :head do %>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "TechArticle",
+    "headline": "<%= @item[:title] %>",
+    "datePublished": "2022-11-02",
+    "description": "<%= @item[:description] %>",
+    "inLanguage": "en-US",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://notionbackups.com/assets/images/banner.png"
+    },
+    "copyrightHolder": {
+      "@type": "Organization",
+      "name": "Notion Backups"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Notion Backups"
+    }
+  }
+  </script>
+<% end %>
+
+<article class="px-4 mt-24 mb-12 sm:px-6 lg:px-8">
+<div class="max-w-prose mx-auto">
+
+  <h1 class="mt-2 text-center tracking-tight">
+    Restore Notion workspace
+  </h1>
+
+  <p class="mt-8">Before you can restore your workspace content, your workspace needs to be backed up at least once.</p>
+
+  <p class="mt-8">As of now, the restore functionality works by overwriting some of your Notion content, namely:</p>
+
+  <ul class="mt-8 text-xl text-gray-700 leading-8">
+    <li>Page properties, like cover, icon, or title</li>
+    <li>Updated database/page/block content that was changed since the last backup</li>
+  </ul>
+
+  <p class="mt-8">What restore functionality won't do:</p>
+
+  <ul class="mt-8 text-xl text-gray-700 leading-8">
+    <li>Remove or override newly added data</li>
+    <li>Restore files/media uploaded to Notion (unsupported by Notion's API)</li>
+    <li>Restore archived pages (in Trash)</li>
+    <li>Restore comments</li>
+    <li>Restore data that wasn't backed up</li>
+    <li>Restore deleted data (this is in the works)</li>
+  </ul>
+</div>
+</article>
