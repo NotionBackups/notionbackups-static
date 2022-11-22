@@ -37,12 +37,7 @@
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
 
-
 [[redirects]]
-  from = "/automated-notion-backup-api"
-  to = "/blog/automated-notion-backup-api"
-  status = 301
-
   from = "/docs/backup"
   to = "/docs/backups"
   status = 301
