@@ -10,6 +10,7 @@ description: Learn which Notion data (pages, databases, blocks, comments) gets b
     "@type": "TechArticle",
     "headline": "<%= @item[:title] %>",
     "datePublished": "2022-11-02",
+    "dateModified": "2022-11-22",
     "description": "<%= @item[:description] %>",
     "inLanguage": "en-US",
     "image": {
@@ -44,6 +45,14 @@ description: Learn which Notion data (pages, databases, blocks, comments) gets b
   <h2 class="my-8">Comments</h2>
 
   <p class="mt-8">Notion workspaces connected before <time datetime="2022-10-30">October 30th, 2022</time>, don't have a comment capability enabled unless you have reauthorized your workspace after that date. To have your comments backed up, reauthorize your workspace.</p>
+
+  <h2 class="my-8">Media files</h2>
+
+  <p class="mt-8">By default, images, audio, video, and PDF files uploaded directly to Notion will be backed up (for media files hosted externally, only URLs are backed up). This can significantly increase your backup size. You can control this setting from the workspace settings.</p>
+
+  <h2 class="my-8">Compression</h2>
+
+  <p class="mt-8">Backups are compressed before upload to save on storage space and bandwidth costs.</p>
 
   <p class="mt-8">If you have questions about anything, feel free to <a href="mailto:support@notionbackups.com" class="underline">reach out</a>.</p>
 
