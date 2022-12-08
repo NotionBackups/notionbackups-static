@@ -10,7 +10,7 @@ description: Learn which Notion data (pages, databases, blocks, comments) gets b
     "@type": "TechArticle",
     "headline": "<%= @item[:title] %>",
     "datePublished": "2022-11-02",
-    "dateModified": "2022-11-22",
+    "dateModified": "2022-12-07",
     "description": "<%= @item[:description] %>",
     "inLanguage": "en-US",
     "image": {
@@ -36,23 +36,29 @@ description: Learn which Notion data (pages, databases, blocks, comments) gets b
     Backups
   </h1>
 
+  <h2 class="my-8">Schedule</h2>
+
+  <p class="mt-8">Your first backup should start soon after you add your Notion workspace and at least one cloud storage provider. If the backup file doesn't appear in your cloud storage within 24 hours, please <a href="mailto:support@notionbackups.com" class="underline">reach out</a>.</p>
+
+  <p class="mt-8">By default, your workspace is backed up weekly, but you can change this frequency to daily or monthly in the workspace settings.</p>
+
   <h2 class="my-8">Pages</h2>
 
-  <p class="mt-8">Notion Backups only has access to Notion data (pages, blocks, databases) you have explicitly authorized. Pages, and their children, like blocks, databases, and other pages created after the authorization, won't be backed up. You can always choose which pages Notion Backups has access to in your workspace settings or the Share menu inside your Notion workspace.</p>
-
-  <p class="mt-8">In general, it's a good practice to regularly review top-level pages Notion Backups have access to.</p>
+  <p class="mt-8">Notion Backups only backs up pages you have authorized. Pages created after authorization won't be backed up. You can review and choose which pages Notion Backups has access to in your workspace settings (it's a good idea to do it regularly).</p>
 
   <h2 class="my-8">Comments</h2>
 
-  <p class="mt-8">Notion workspaces connected before <time datetime="2022-10-30">October 30th, 2022</time>, don't have a comment capability enabled unless you have reauthorized your workspace after that date. To have your comments backed up, reauthorize your workspace.</p>
+  <p class="mt-8">If you connected your Notion workspace before <time datetime="2022-10-30">October 30th, 2022</time>, comments will not be backed up unless you have reauthorized your workspace after that date.</p>
 
   <h2 class="my-8">Media files</h2>
 
-  <p class="mt-8">By default, images, audio, video, and PDF files uploaded directly to Notion will be backed up (for media files hosted externally, only URLs are backed up). This can significantly increase your backup size. You can control this setting from the workspace settings.</p>
+  <p class="mt-8">By default, media files uploaded directly to Notion (including images, audio, video, and PDF files) will be backed up. This can significantly increase your backup size. Note that only URLs for externally-hosted media files will be included in your backups, not the files themselves.</p>
+
+  <p class="mt-8">You can disable the backing up of media files in your workspace settings.</p>
 
   <h2 class="my-8">Compression</h2>
 
-  <p class="mt-8">Backups are compressed before upload to save on storage space and bandwidth costs.</p>
+  <p class="mt-8">Backups are compressed and archived in the zip file to reduce bandwidth and storage costs.</p>
 
   <p class="mt-8">If you have questions about anything, feel free to <a href="mailto:support@notionbackups.com" class="underline">reach out</a>.</p>
 
