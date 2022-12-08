@@ -14,7 +14,7 @@ description: Easily back up your Notion workspaces to Google Drive, Dropbox, and
     const interval = document.querySelector('#js-interval');
 
     monthlyToggle.addEventListener('click', () => {
-      price.textContent = "$9"
+      price.innerHTML = "<del class=\"text-gray-400 text-4xl\">$9</del>$6"
       interval.textContent = "per month";
     });
 
@@ -131,10 +131,10 @@ description: Easily back up your Notion workspaces to Google Drive, Dropbox, and
           <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
             <div class="px-6 py-8 bg-white sm:p-10 sm:pb-6">
               <p class="inline-flex px-4 py-1 rounded-full text-sm font-semibold tracking-wide uppercase bg-green-light" id="tier-starter">
-                early bird discount
+                discounted until December 19 <span class="px-1">-</span> <span class="font-extrabold"> save 33%</span>
               </p>
               <div class="mt-4 flex items-baseline text-6xl font-extrabold">
-                <span id="js-price">$9</span>
+                <span id="js-price"><del class="text-gray-400 text-4xl">$9</del>$6</span>
                 <span class="ml-2 text-3xl font-medium" id="js-interval">
                   per month
                 </span>
