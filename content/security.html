@@ -1,0 +1,24 @@
+---
+title: Security
+description: Learn about the measures we take to ensure the security of your Notion workspace and data.
+---
+
+<article class="px-4 mt-24 mb-12 sm:px-6 lg:px-8">
+<div class="max-w-prose mx-auto">
+
+<h1 class="mt-2 text-center tracking-tight">Security</h1>
+
+<h2 class="my-8">Backups</h2>
+
+<p class="mt-8">Your Notion data is only stored on our servers during the backup process; once the backup is complete, it is permanently deleted from our servers. To retain backups for the longer-term, you must connect to one of the available cloud storage providers.</p>
+
+<h2 class="my-8">Cloud storage accounts</h2>
+
+<p class="mt-8">Currently, you can store your backups in Google Drive, Dropbox, and <a href="/docs/amazon-s3.html" class="underline">Amazon S3</a> buckets.</p>
+
+<p class="mt-8">Google Drive and Dropbox integrations do not have access to any other folder (or file) in your account except the folder they upload backups to. With Amazon S3, you can <a href="/docs/amazon-s3.html#iam-policy" class="underline">restrict your key's access to specific buckets only</a>.</p>
+
+<p class="mt-8">Disconnecting your Google Drive or Dropbox account revokes your access tokens, preventing Notion Backups from accessing your accounts. Similarly, deleting your Notion Backups account automatically revokes the access tokens for your Google Drive and Dropbox accounts.</p>
+
+</div>
+</article>

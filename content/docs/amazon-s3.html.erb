@@ -1,5 +1,5 @@
 ---
-title: Back up your Notion workspace to Amazon S3 buckets
+title: Back up your Notion workspaces to Amazon S3 buckets
 description: Learn how you can back up your Notion workspaces to Amazon S3 buckets
 ---
 
@@ -10,6 +10,7 @@ description: Learn how you can back up your Notion workspaces to Amazon S3 bucke
     "@type": "TechArticle",
     "headline": "<%= @item[:title] %>",
     "datePublished": "2022-11-02",
+    "dateModified": "2022-12-11",
     "description": "<%= @item[:description] %>",
     "inLanguage": "en-US",
     "image": {
@@ -32,7 +33,7 @@ description: Learn how you can back up your Notion workspaces to Amazon S3 bucke
 <div class="max-w-prose mx-auto">
 
   <h1 class="mt-2 text-center tracking-tight">
-    Connect Amazon S3 bucket
+    Setting up Amazon S3
   </h1>
 
   <p class="mt-8">You need to connect to at least one of the available cloud storage providers to get your workspace backed up.</p>
@@ -48,11 +49,11 @@ description: Learn how you can back up your Notion workspaces to Amazon S3 bucke
      <li>After creating a user, you can use the newly-generated Access Key ID and Secret Access Key in Notion Backups <img loading="lazy" class="block my-4 rounded-md shadow" src="/assets/images/final-iam-screen.png" alt="Final screen summarizing IAM user's attributes"></li>
   </ol>
 
-  <p class="mt-8">Keep in mind that this newly-created IAM user will have access to all your S3 buckets. To restrict access to a specific bucket only, you can use the IAM policy below.</p>
+  <p class="mt-8">This new IAM user will have access to all S3 buckets. To restrict access to a specific bucket, use the IAM policy below.</p>
 
-  <h2 class="my-8">IAM policy</h2>
+  <h2 class="my-8" id="iam-policy">IAM policy</h2>
 
-  <p class="mt-8">If you're creating an IAM user programmatically, you can use the following policy (replace <code>yourbucket</code> with your bucket's name):</p>
+  <p class="mt-8">If you're creating an IAM user programmatically, you can use the following policy to limit access to a specific bucket (replace <code>yourbucket</code> with your bucket's name):</p>
 
   <pre><code>
 {
