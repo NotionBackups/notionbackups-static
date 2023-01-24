@@ -10,7 +10,7 @@ description: Learn which Notion data (pages, databases, blocks, comments) gets b
     "@type": "TechArticle",
     "headline": "<%= @item[:title] %>",
     "datePublished": "2022-11-02",
-    "dateModified": "2022-12-07",
+    "dateModified": "2023-01-24",
     "description": "<%= @item[:description] %>",
     "inLanguage": "en-US",
     "image": {
@@ -44,17 +44,19 @@ description: Learn which Notion data (pages, databases, blocks, comments) gets b
 
   <h2 class="my-8">Pages</h2>
 
-  <p class="mt-8">Notion Backups only backs up pages you have authorized. Pages created after authorization won't be backed up. You can review and choose which pages Notion Backups has access to in your workspace settings (it's a good idea to do it regularly).</p>
+  <p class="mt-8">Notion Backups only backs up data (pages, databases, and blocks) you have explicitly authorized. Pages created after authorization won't be backed up. You can review and choose which pages Notion Backups has access to in your workspace settings (it's a good idea to do it regularly).</p>
+
+  <h2 class="my-8">Media files</h2>
+
+  <p class="mt-8">By default, media files uploaded directly to Notion (including images, audio, video, and PDF files) will be backed up. This can significantly increase your backup size.</p>
+
+  <p>For <em>externally-hosted</em> media files, only URLs will be included in your backups, not the files themselves.</p>
+
+  <p class="mt-8">You can disable the backing up of media files in your workspace settings.</p>
 
   <h2 class="my-8">Comments</h2>
 
   <p class="mt-8">If you connected your Notion workspace before <time datetime="2022-10-30">October 30th, 2022</time>, comments will not be backed up unless you have reauthorized your workspace after that date.</p>
-
-  <h2 class="my-8">Media files</h2>
-
-  <p class="mt-8">By default, media files uploaded directly to Notion (including images, audio, video, and PDF files) will be backed up. This can significantly increase your backup size. Note that only URLs for externally-hosted media files will be included in your backups, not the files themselves.</p>
-
-  <p class="mt-8">You can disable the backing up of media files in your workspace settings.</p>
 
   <h2 class="my-8">Compression</h2>
 
