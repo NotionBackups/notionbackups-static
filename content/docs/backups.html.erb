@@ -1,6 +1,6 @@
 ---
 title: Backups
-description: Learn which Notion data (pages, databases, blocks, comments) gets backed up
+description: Explaining which Notion workspace data (pages, databases, blocks, media files and comments) gets backed up and how often.
 ---
 
 <% content_for :head do %>
@@ -10,7 +10,7 @@ description: Learn which Notion data (pages, databases, blocks, comments) gets b
     "@type": "TechArticle",
     "headline": "<%= @item[:title] %>",
     "datePublished": "2022-11-02",
-    "dateModified": "2023-01-24",
+    "dateModified": "2023-02-16",
     "description": "<%= @item[:description] %>",
     "inLanguage": "en-US",
     "image": {
@@ -40,11 +40,13 @@ description: Learn which Notion data (pages, databases, blocks, comments) gets b
 
   <p class="mt-8">Your first backup should start soon after you add your Notion workspace and at least one cloud storage provider. If the backup file doesn't appear in your cloud storage within 24 hours, please <a href="mailto:support@notionbackups.com" class="underline">reach out</a>.</p>
 
-  <p class="mt-8">By default, your workspace is backed up weekly, but you can change this frequency to daily or monthly in the workspace settings.</p>
+  <p class="mt-8">By default, your workspace is backed up weekly, but you can choose daily or monthly backups in the workspace settings.</p>
 
   <h2 class="my-8">Pages</h2>
 
-  <p class="mt-8">Notion Backups only backs up data (pages, databases, and blocks) you have explicitly authorized. Pages created after authorization won't be backed up. You can review and choose which pages Notion Backups has access to in your workspace settings (it's a good idea to do it regularly).</p>
+  <p class="mt-8">Notion Backups only backs up data (pages, databases, and blocks) you have explicitly authorized while connecting your Notion workspace. Pages created after authorization won't be backed up.</p>
+
+  <p class="mt-8">You can review and choose which pages Notion Backups has access to by reauthorizing in your workspace settings (it's a good idea to do it regularly).</p>
 
   <h2 class="my-8">Media files</h2>
 
@@ -57,6 +59,10 @@ description: Learn which Notion data (pages, databases, blocks, comments) gets b
   <h2 class="my-8">Comments</h2>
 
   <p class="mt-8">If you connected your Notion workspace before <time datetime="2022-10-30">October 30th, 2022</time>, comments will not be backed up unless you have reauthorized your workspace after that date.</p>
+
+  <h2 class="my-8">Auto-delete</h2>
+
+  <p class="mt-8">To preserve cloud storage space, you can choose to automatically delete backups older than 2, 4, or 8 weeks.</p>
 
   <h2 class="my-8">Compression</h2>
 
