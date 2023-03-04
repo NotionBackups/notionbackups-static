@@ -8,6 +8,19 @@ description: Learn about the measures we take to ensure the security of your Not
 
 <h1 class="mt-2 text-center tracking-tight">Security</h1>
 
+<h2 class="my-8">General practices</h2>
+
+  <ul class="mt-8 text-xl text-gray-700 leading-8">
+    <li>We stay on top of software security updates</li>
+    <li>Access to servers and third-party tools are secured with two-factor authentication</li>
+    <li>Passwords are hashed with a strong hashing algorithm</li>
+    <li>Servers are accessed via SSH with a password-protected key only</li>
+    <li>Multiple firewalls blocking unauthorized access</li>
+    <li>Database and server backups are encrypted</li>
+    <li>All connections going in and out of Notion Backups are encrypted</li>
+    <li>Payment information is transmitted and processed securely in a PCI-compliant manner</li>
+  </ul>
+
 <h2 class="my-8">Backups</h2>
 
 <p class="mt-8">Your Notion data is only stored on our servers during the backup process; once the backup is complete, it is permanently deleted from our servers. To retain backups for the longer-term, you must connect to one of the available cloud storage providers.</p>
@@ -19,6 +32,10 @@ description: Learn about the measures we take to ensure the security of your Not
 <p class="mt-8">Google Drive and Dropbox integrations do not have access to any other folders or files in your account except the ones they have created. With Amazon S3, you can <a href="/docs/amazon-s3.html" class="underline">restrict your IAM user's access to specific buckets only</a>.</p>
 
 <p class="mt-8">Disconnecting your Google Drive or Dropbox account revokes your access tokens, preventing Notion Backups from accessing your accounts in the future. Similarly, deleting your Notion Backups account automatically revokes access to your Google Drive and Dropbox accounts.</p>
+
+<h2 class="my-8">Disclosures</h2>
+
+<p class="mt-8">To report a security vulnerability, please reach out to <a href="mailto:security@notionbackups.com" class="underline">security@notionbackups.com</a>.</p>
 
 </div>
 </article>
