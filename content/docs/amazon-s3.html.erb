@@ -1,6 +1,6 @@
 ---
-title: Back up your Notion workspaces to Amazon S3 buckets
-description: Learn how you can back up your Notion workspaces to Amazon S3 buckets
+title: Back up your Notion workspaces to Amazon S3
+description: Learn how to back up your Notion workspace to an Amazon S3 bucket and properly configure an IAM policy for secure storage of your backups.
 ---
 
 <% content_for :head do %>
@@ -10,7 +10,7 @@ description: Learn how you can back up your Notion workspaces to Amazon S3 bucke
     "@type": "TechArticle",
     "headline": "<%= @item[:title] %>",
     "datePublished": "2022-11-02",
-    "dateModified": "2023-02-12",
+    "dateModified": "2023-03-12",
     "dependencies": "AWS",
     "description": "<%= @item[:description] %>",
     "inLanguage": "en-US",
@@ -62,7 +62,7 @@ description: Learn how you can back up your Notion workspaces to Amazon S3 bucke
 
   <h2 class="my-8">Prefix</h2>
 
-  <p class="mt-8">You can choose to organize your backups in a folder by specifying the prefix.</p>
+  <p class="mt-8">You can choose to organize your backups in a folder by specifying the prefix in the dashboard.</p>
 
   <p class="mt-8">Furthermore, to limit your IAM user's access to a specific folder, include the prefix after the bucket name in your policy. For example, if you want to restrict access to the "notion_backups" folder within <em>yourbucket</em>, you can define your Resource in the following way:</p>
 
