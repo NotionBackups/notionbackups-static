@@ -10,7 +10,7 @@ description: Learn how you can back up your Notion workspaces to Backblaze B2 bu
     "@type": "TechArticle",
     "headline": "<%= @item[:title] %>",
     "datePublished": "2023-03-08",
-    "dateModified": "2023-03-08",
+    "dateModified": "2023-03-12",
     "dependencies": "Backblaze",
     "description": "<%= @item[:description] %>",
     "inLanguage": "en-US",
@@ -38,16 +38,16 @@ description: Learn how you can back up your Notion workspaces to Backblaze B2 bu
 
     <h2 class="my-8">Configuring bucket</h2>
 
-    <p class="mt-8">Make sure you enable <a href="https://www.backblaze.com/b2/docs/server_side_encryption.html" target="_blank" rel="noopener" class="underline">encryption</a> and set file visibility to private.</p>
+    <p class="mt-8">To better protect your backups, set file visibility to private and enable <a href="https://www.backblaze.com/b2/docs/server_side_encryption.html" target="_blank" rel="noopener" class="underline">encryption</a> on your bucket.</p>
 
     <p class="mt-8">For data integrity, consider adding <a href="https://help.backblaze.com/hc/en-us/articles/360052973274-Object-Lock-FAQs" target="_blank" rel="noopener" class="underline">object lock</a> on files in your bucket, but be wary of implications - locked objects can't be deleted until after they expire.</p>
 
     <h2 class="my-8">Generating application key</h2>
 
-    <p class="mt-8">Once you have created your bucket, head over to the App Keys page, and generate a new application key. Make sure to give it the least amount of permissions needed, namely:</p>
+    <p class="mt-8">Once you have created your bucket, head over to the App Keys page and generate a new application key. Give it the least amount of permissions needed, namely:</p>
 
     <ul class="mt-8 text-xl text-gray-700 leading-8">
-      <li>Restrict access to a newly-created bucket only</li>
+      <li>Restrict access to a single bucket only</li>
       <li>Do not allow <em>List Buckets</em> permission</li>
     </ul>
 
