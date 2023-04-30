@@ -12,7 +12,7 @@ gem 'nokogiri', '~> 1.13.1'
 group :development do
   gem 'adsf', '~> 1.4.5'
   gem 'minitest', '~> 5.14.3'
-  gem "puma", "~> 5.4"
+  gem "puma", "~> 6.2"
 end
 
 group :nanoc do
