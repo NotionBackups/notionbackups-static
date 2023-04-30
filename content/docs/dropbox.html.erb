@@ -1,0 +1,55 @@
+---
+title: Back up your Notion workspaces to Dropbox
+description: Learn how you can back up Notion workspaces to your Dropbox account
+---
+
+<% content_for :head do %>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "TechArticle",
+    "headline": "<%= @item[:title] %>",
+    "datePublished": "2023-04-30",
+    "dateModified": "2023-04-30",
+    "dependencies": "Dropbox",
+    "description": "<%= @item[:description] %>",
+    "inLanguage": "en-US",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://notionbackups.com/assets/images/banner.png"
+    },
+    "copyrightHolder": {
+      "@type": "Organization",
+      "name": "Notion Backups"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Notion Backups"
+    }
+  }
+  </script>
+<% end %>
+
+<article class="px-4 mt-24 mb-12 sm:px-6 lg:px-8">
+  <div class="max-w-prose mx-auto">
+    <h1 class="mt-2 text-center">
+      Dropbox
+    </h1>
+
+    <h2 class="my-8">Backup folder</h2>
+
+    <p class="mt-8">By default, your backups will be stored in a folder called "Apps/Notion Backups/backups".</p>
+
+    <p class="mt-8">Renaming individual backup files may prevent you from restoring your workspace from them.</p>
+
+    <h2 class="my-8">Security</h2>
+
+    <p class="mt-8">Dropbox integration doesn't have access to any other folders or files in your account except the contents of the "Apps/Notion Backups" folder.</p>
+
+    <p class="mt-8">If you disconnect your Dropbox account from the dashboard, Notion Backups won't be able to access your account anymore (you can always reauthorize later). You can also revoke access from <a href="https://www.dropbox.com/account/connected_apps" target="_blank" rel="noopener">your Dropbox account</a>.</p>
+
+    <p class="my-8">Deleting your Notion Backups account will also revoke our access to your Dropbox account.</p>
+
+    <p class="mt-8">If you have questions about Dropbox integration or anything else, feel free to <a href="mailto:support@notionbackups.com" class="underline">reach out</a>.</p>
+  </div>
+</article>
