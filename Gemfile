@@ -7,7 +7,7 @@ ruby "3.1.3"
 gem 'builder', '~> 3.2.4'
 gem "kramdown", "~> 2.4"
 gem "nanoc", "~> 4.12"
-gem 'nokogiri', '~> 1.13.1'
+gem "nokogiri", "~> 1.14"
 
 group :development do
   gem 'adsf', '~> 1.4.5'
