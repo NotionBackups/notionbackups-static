@@ -21,7 +21,7 @@ description: Learn how to back up your Notion workspace data using Python and No
     "headline": "Automating Notion backups using Notion's API",
     "dependencies": "Python",
     "datePublished": "2021-06-02",
-    "dateModified": "2023-01-24",
+    "dateModified": "2023-05-02",
     "image": "https://notionbackups.com/assets/images/banner.png",
     "description": "Learn how to back up your Notion workspace data using Python and Notion's official API.",
     "inLanguage": "en-US",
@@ -35,6 +35,107 @@ description: Learn how to back up your Notion workspace data using Python and No
     }
   }
   </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to back up your Notion workspace with API",
+    "description": "A step-by-step guide on backing up your Notion workspace data using Python and Notion's official API.",
+    "author": {
+      "@type": "Organization",
+      "name": "Notion Backups"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Notion Backups"
+    },
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Create an internal integration",
+        "itemListElement": [
+          {
+            "@type": "HowToDirection",
+            "text": "Create an internal integration on the My Integrations page in Notion. Once you're done, grab your Internal Integration Token."
+          },
+          {
+            "@type": "HowToTip",
+            "text": "https://notion.so/my-integrations"
+          },
+          {
+            "@type": "HowToTip",
+            "text": "You have to be an admin to access the workspace data."
+          }
+        ]
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Share pages you want to back up",
+        "itemListElement": [
+          {
+            "@type": "HowToDirection",
+            "text": "You have to manually add your integration to pages and databases you want to back up by using the invite function in the Share menu."
+          },
+          {
+            "@type": "HowToTip",
+            "text": "By default, your integration doesn't have access to any pages or databases."
+          }
+        ]
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Query data",
+        "itemListElement": [
+          {
+            "@type": "HowToDirection",
+            "text": "Unless you intend to back up a specific page only, you'd want to grab all pages and databases. The Notion API exposes a /search endpoint that returns the top-level pages and databases your integration has access to."
+          },
+          {
+            "@type": "HowToTip",
+            "text": "Keep in mind that the search endpoint doesn't return child pages. To grab them, you'll have to query for pages using the retrieve block children endpoint."
+          },
+          {
+            "@type": "HowToTip",
+            "text": "In large workspaces, results are more likely to be paginated. To obtain all items, you will have to recursively query the search endpoint until the has_more parameter returns false."
+          }
+        ]
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Store your data",
+        "itemListElement": [
+          {
+            "@type": "HowToDirection",
+            "text": "Write top-level pages and databases to separate JSON files and write child pages under a directory named after their parent files."
+          }
+        ]
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Set up a cron job",
+        "itemListElement": [
+          {
+            "@type": "HowToDirection",
+            "text": "You can run this Python script periodically using a cron job."
+          }
+        ]
+      }
+    ],
+    "estimatedCost": {
+      "@type": "MonetaryAmount",
+      "currency": "USD",
+      "value": "0"
+    },
+    "totalTime": "PT15M"
+  }
+  </script>
+
 <% end %>
 
 <article class="px-4 mt-24 mb-12 sm:px-6 lg:px-8">
@@ -43,7 +144,7 @@ description: Learn how to back up your Notion workspace data using Python and No
     Automating Backups with Notion's API
   </h1>
 
-  <p class="mt-6 text-base text-gray-600 text-center">Updated: <time datetime="2023-01-24">January 24, 2023</time></p>
+  <p class="mt-6 text-base text-gray-600 text-center">Updated: <time datetime="2023-05-02">May 2, 2023</time></p>
 
   <p class="mt-8">Backing up your data on a consistent schedule is like buying insurance: you think you don't need it until you need it. With <a class="underline" target="_blank" rel="noopener" href="https://www.notion.so">Notion</a> becoming a second brain and knowledge management for many folks and organizations alike, it's paramount to have consistent backups if things go south.</p>
 
@@ -56,7 +157,7 @@ description: Learn how to back up your Notion workspace data using Python and No
 
   <h2 class="my-8">Step 1: Create an internal integration</h2>
 
-  <p class="mt-8">Head over to <a class="underline" target="_blank" rel="noopener" href="https://www.notion.so/my-integrations">My integrations</a> to create an internal integration. <a class="underline" target="_blank" rel="noopener" href="https://developers.notion.com/docs#internal-notion-integrations">Notion's docs</a> give a good overview of the process.</p>
+  <p class="mt-8">Head over to <a class="underline" target="_blank" rel="noopener" href="https://www.notion.so/my-integrations">My integrations</a> page to create an internal integration. <a class="underline" target="_blank" rel="noopener" href="https://developers.notion.com/docs#internal-notion-integrations">Notion's docs</a> give a good overview of the process.</p>
 
   <p class="mt-8">If you want to back up your personal workspace, choose the internal integration. Keep in mind that you have to be an admin to access the workspace data.</p>
 
@@ -64,13 +165,13 @@ description: Learn how to back up your Notion workspace data using Python and No
 
   <h2 class="my-8">Step 2: Share pages you want to back up</h2>
 
-  <p class="mt-8">By default, your integration doesn't have access to any page or a database. You have to manually add it to pages/databases you want to back up by using the invite function in the Share menu. Your integration won't be visible unless you click on the invite field.
+  <p class="mt-8">By default, your integration doesn't have access to any pages or databases. You have to manually add it to pages and databases you want to back up by using the invite function in the Share menu. Your integration won't be visible unless you click on the invite field.</p>
 
   <a class="underline" target="_blank" rel="noopener" href="https://developers.notion.com/docs#step-2-share-a-database-with-your-integration">Notion's docs</a> cover this topic in more detail.</p>
 
   <h2 class="my-8">Step 3: Query data</h2>
 
-  <p class="mt-8">Unless you intend to back up a specific page only, you'd want to grab all pages and databases. Notion API exposes a <a class="underline" target="_blank" rel="noopener" href="https://developers.notion.com/reference/post-search">search</a> endpoint that returns top-level pages and databases your integration has access to.</p>
+  <p class="mt-8">Unless you intend to back up a specific page only, you'd want to grab all pages and databases. The Notion API exposes a <a class="underline" target="_blank" rel="noopener" href="https://developers.notion.com/reference/post-search">search</a> endpoint that returns the top-level pages and databases your integration has access to.</p>
 
   <pre><code>import requests
 
@@ -100,7 +201,7 @@ response = requests.post(
 
   <h2 class="my-8">Step 4: Store your data</h2>
 
-  <p class="mt-8">One way of storing your Notion workspace would be to write top-level pages and databases to a file and write child pages to a directory named after their parent files.</p>
+  <p class="mt-8">One way of storing your Notion workspace data is to write top-level pages and databases to separate JSON files and write child pages under a directory named after their parent files.</p>
 
   <p class="mt-8">Here's how the final script looks like:</p>
 
@@ -146,17 +247,17 @@ for block in response.json()['results']:
 
   <p class="mt-8">On UNIX-like systems (macOS, Linux, BSD), you can set up a cron job that will run a script at a specified interval.</p>
 
-  <p class="mt-8">Before setting up a cron job, save this Python script on your machine and make it executable. If your script is named <code>notionbackup.py</code>, for example, and assuming you're in the same directory as the script, run the following command from your terminal:</p>
-
-<pre><code>chmod 644 notionbackup.py</code></pre>
-
-  <p class="mt-8">Next, open up a text editor to create a cron entry:</p>
+  <p class="mt-8">Before setting up a cron job, save this Python script on your machine. Next, create a cron entry:</p>
 
 <pre><code>crontab -e</code></pre>
 
   <p class="mt-8">Crontab has a specific syntax, and there's plenty of material  <a href="https://crontab.guru/" target="_blank" rel="noopener" class="underline">on the Internets</a> about it. Let's say you want to run this script once every 6 hours. In the editor, opened by the previous command, paste the following:</p>
 
-<pre><code>0 */6 * * * ./notionbackup.py</code></pre>
+<pre><code>0 */6 * * * /usr/local/bin/python3 /full/path/to/notionbackup.py</code></pre>
+
+  <p class="mt-8">This assumes that the Python script is called notionbackup.py and the Python interpreter is located in <code>/usr/local/bin/python3</code>. If unsure, you can locate the full path to the Python 3 interpreter:</p>
+
+<pre><code>which python3</code></pre>
 
   <p class="mt-8">That's all, folks! You can find the full code <a href="https://github.com/NotionBackups/notion-backup-python" target="_blank" rel="noopener" class="underline">on Github</a>.</p>
 
