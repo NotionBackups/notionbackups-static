@@ -1,7 +1,46 @@
 ---
 title: Automatically Back Up and Restore your Notion Data
-description: Easily back up your Notion workspaces to Google Drive, Dropbox, and Amazon S3. Restore to a specific point in time with a few clicks.
+description: Easily back up your Notion workspaces to Google Drive, Dropbox, Amazon S3, and Backblaze B2. Restore to a specific point in time with a few clicks.
 ---
+
+<% content_for :head do %>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Notion Backups",
+    "description": "<%= @item[:description] %>",
+    "image": "https://notionbackups.com/assets/images/banner.png",
+    "brand": {
+      "@type": "Brand",
+      "name": "Notion Backups"
+    },
+    "offers": [{
+        "@type": "Offer",
+        "price": "9",
+        "priceCurrency": "USD"
+    }],
+    "review": [
+    {
+      "@type": "UserReview",
+      "reviewBody": "Great service, so far. I’ve been very happy with Notion Backups.",
+      "datePublished": "2022-10-06",
+      "author": {
+        "@type": "Person",
+        "name": "Oliver Spryn"
+      }
+    }, {
+      "@type": "UserReview",
+      "reviewBody": "Thanks for your amazing support.",
+      "datePublished": "2023-04-20",
+      "author": {
+        "@type": "Person",
+        "name": "Alejandro Sola"
+      }
+    }]
+  }
+  </script>
+<% end %>
 
 <script>
   "use strict";
