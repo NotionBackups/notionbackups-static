@@ -10,7 +10,7 @@ description: Explaining which Notion workspace data (pages, databases, blocks, m
     "@type": "TechArticle",
     "headline": "<%= @item[:title] %>",
     "datePublished": "2022-11-02",
-    "dateModified": "2023-02-16",
+    "dateModified": "2023-05-17",
     "description": "<%= @item[:description] %>",
     "inLanguage": "en-US",
     "image": {
@@ -44,9 +44,9 @@ description: Explaining which Notion workspace data (pages, databases, blocks, m
 
   <h2 class="my-8">Pages</h2>
 
-  <p class="mt-8">Notion Backups only backs up data (pages, databases, and blocks) you have explicitly authorized while connecting your Notion workspace. Pages created after authorization won't be backed up.</p>
+  <p class="mt-8">Notion Backups only backs up data (pages, databases, and blocks) you have explicitly authorized while connecting your Notion workspace. Top-level pages - private or public - created after authorization won't be accessible, whereas sub-pages will.</p>
 
-  <p class="mt-8">You can review and choose which pages Notion Backups has access to by reauthorizing in your workspace settings (it's a good idea to do it regularly).</p>
+  <p class="mt-8">You can review and choose which top-level pages Notion Backups has access to by reauthorizing in your workspace settings (it's a good idea to do it regularly).</p>
 
   <h2 class="my-8">Media files</h2>
 
@@ -68,7 +68,7 @@ description: Explaining which Notion workspace data (pages, databases, blocks, m
 
   <p class="mt-8">Backups are compressed and archived in the zip file to reduce bandwidth and storage costs.</p>
 
-  <p class="mt-8">Zip files are widely supported by most operating systems. If you have trouble unzipping files, try <a href="https://7-zip.org" class="underline" target="_blank" rel="noopener">7zip</a>.</p>
+  <p class="mt-8">Zip files are widely supported by most operating systems. If you have trouble unzipping files on Windows, try <a href="https://7-zip.org" class="underline" target="_blank" rel="noopener">7zip</a>.</p>
 
   <p class="mt-8">If you have questions about anything, feel free to <a href="mailto:support@notionbackups.com" class="underline">reach out</a>.</p>
 
