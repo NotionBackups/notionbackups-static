@@ -10,7 +10,7 @@ description: Explaining which Notion workspace data (pages, databases, blocks, m
     "@type": "TechArticle",
     "headline": "<%= @item[:title] %>",
     "datePublished": "2022-11-02",
-    "dateModified": "2023-05-17",
+    "dateModified": "2023-07-30",
     "description": "<%= @item[:description] %>",
     "inLanguage": "en-US",
     "image": {
@@ -38,13 +38,15 @@ description: Explaining which Notion workspace data (pages, databases, blocks, m
 
   <h2 class="my-8">Schedule</h2>
 
-  <p class="mt-8">Your first backup should start soon after you add your Notion workspace and at least one cloud storage provider. If the backup file doesn't appear in your cloud storage within 24 hours, please <a href="mailto:support@notionbackups.com" class="underline">reach out</a>.</p>
+  <p class="mt-8">Your first backup should start soon after you connect your Notion workspace and at least one cloud storage provider. You can also trigger the backup manually from the workspace settings.</p>
 
-  <p class="mt-8">By default, your workspace is backed up weekly, but you can choose daily or monthly backups in the workspace settings.</p>
+  <p class="mt-8">By default, your workspace is backed up weekly, but you can choose daily or monthly options in the workspace settings. For example, if a backup finishes on January 1st with the weekly setting, expect the next one on January 8th.</p>
+
+  <p class="mt-8">Backup completion typically takes a few hours, but large workspaces may require several days. Occasionally, Notion or cloud storage services may experience issues, which could delay the backup completion. If the backup file doesn't appear in your cloud storage within 3 days, please <a href="mailto:support@notionbackups.com" class="underline">reach out</a>.</p>
 
   <h2 class="my-8" id="top-level-pages">Top-level pages</h2>
 
-  <p class="mt-8">Notion Backups only backs up data (pages, databases, and blocks) you have explicitly authorized while connecting your Notion workspace. Top-level pages - private or public - created after authorization won't be accessible, whereas sub-pages will.</p>
+  <p class="mt-8">Notion Backups only backs up data (pages, databases, and blocks) you have explicitly authorized while connecting your Notion workspace. Top-level pages, whether private or public, created after authorization won't be accessible, whereas sub-pages will.</p>
 
   <p class="mt-8">You can manage which top-level pages Notion Backups has access to by reauthorizing in your workspace settings (it's a good idea to do it somewhat regularly).</p>
 
