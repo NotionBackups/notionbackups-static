@@ -39,12 +39,12 @@ description: Easily back up your Notion workspaces to Google Drive, Dropbox, Ama
     const interval = document.querySelector('#js-interval');
 
     monthlyToggle.addEventListener('click', () => {
-      price.textContent = "$9"
+      price.innerHTML = "<span class='text-gray-400 line-through'>$10</span> $9"
       interval.textContent = "per month";
     });
 
     yearlyToggle.addEventListener('click', () => {
-      price.textContent = "$90"
+      price.innerHTML = "<span class='text-gray-400 line-through'>$100</span> $90"
       interval.textContent = "per year";
     });
   })
@@ -171,7 +171,7 @@ description: Easily back up your Notion workspaces to Google Drive, Dropbox, Ama
                 early bird discount
               </p>
               <div class="mt-4 flex items-baseline text-6xl font-extrabold">
-                <span id="js-price">$9</span>
+                <span id="js-price"><span class="text-gray-400 line-through">$10</span> $9</span>
                 <span class="ml-2 text-3xl font-medium text-gray-500" id="js-interval">
                   per month
                 </span>
