@@ -10,6 +10,7 @@ description: Learn how you can restore a Notion workspace from one of your backu
     "@type": "TechArticle",
     "headline": "<%= @item[:title] %>",
     "datePublished": "2022-11-02",
+    "dateModified": "2023-08-03",
     "description": "<%= @item[:description] %>",
     "inLanguage": "en-US",
     "image": {
@@ -31,28 +32,21 @@ description: Learn how you can restore a Notion workspace from one of your backu
 <article class="px-4 mt-24 mb-12 sm:px-6 lg:px-8">
 <div class="max-w-prose mx-auto">
 
-  <h1 class="mt-2 text-center tracking-tight">
-    Restore Notion workspace
+  <h1 class="mt-2 text-center">
+    Restoring your Notion workspace
   </h1>
 
-  <p class="mt-8">Before you can restore your workspace content, your workspace needs to be backed up at least once.</p>
+  <p class="mt-8">Before you can restore your workspace, it needs to be backed up at least once. To make sure that the restore process goes as smoothly as possible, <a href="/docs/backups.html#top-level-pages" class="underline" target="_blank" rel="noopener">reauthorize your workspace</a> from the workspace settings and include all the pages you want to back up.</p>
 
-  <p class="mt-8">As of now, the restore functionality works by overwriting some of your Notion content, namely:</p>
+  <h2 class="my-8">Limitations</h2>
 
-  <ul class="mt-8 text-xl text-gray-700 leading-8">
-    <li>Page properties, like cover, icon, or title</li>
-    <li>Updated database/page/block content that was changed since the last backup</li>
+  <p class="mt-8">There are some limitations placed by Notion's API, which makes a complete restore impossible at this moment. Some of the current limitations:</p>
+
+  <ul class="text-xl text-gray-700 leading-8 m-4">
+    <li class="p-1">Creation of top-level pages</li>
+    <li class="p-1">File uploads (but they're backed up)</li>
+    <li class="p-1">Some block types</li>
   </ul>
 
-  <p class="mt-8">What restore functionality won't do:</p>
-
-  <ul class="mt-8 text-xl text-gray-700 leading-8">
-    <li>Remove or override newly added data</li>
-    <li>Restore files/media uploaded to Notion (unsupported by Notion's API)</li>
-    <li>Restore archived pages (in Trash)</li>
-    <li>Restore comments</li>
-    <li>Restore data that wasn't backed up</li>
-    <li>Restore deleted data (this is in the works)</li>
-  </ul>
 </div>
 </article>
