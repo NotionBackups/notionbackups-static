@@ -1,6 +1,6 @@
 ---
 title: Backups
-description: Explaining which Notion workspace data (pages, databases, blocks, media files and comments) gets backed up and how often.
+description: Automatically back up your Notion pages, databases, media files, and comments to the cloud storage provider of your choice. You can choose how often your workspace should be backed up and when to delete old backups.
 ---
 
 <% content_for :head do %>
@@ -10,7 +10,7 @@ description: Explaining which Notion workspace data (pages, databases, blocks, m
     "@type": "TechArticle",
     "headline": "<%= @item[:title] %>",
     "datePublished": "2022-11-02",
-    "dateModified": "2023-07-30",
+    "dateModified": "2023-08-03",
     "description": "<%= @item[:description] %>",
     "inLanguage": "en-US",
     "image": {
@@ -51,6 +51,8 @@ description: Explaining which Notion workspace data (pages, databases, blocks, m
   <p class="mt-8">You can manage which top-level pages Notion Backups has access to by reauthorizing in your workspace settings (it's a good idea to do it somewhat regularly).</p>
 
   <img src="/assets/images/reauthorize-notion-workspace.png" alt="A button to reauthorize your Notion workspace from the workspace settings" class="shadow-md rounded-lg my-8">
+
+  <p class="mt-8">You can also choose which pages Notion Backups has access to from your Notion workspace settings (Settings & members > My connections > click on the Notion Backups menu > Access selected pages).</p>
 
   <h2 class="my-8">Media files</h2>
 
