@@ -10,7 +10,7 @@ description: Learn how you can restore a Notion workspace from one of your backu
     "@type": "TechArticle",
     "headline": "<%= @item[:title] %>",
     "datePublished": "2022-11-02",
-    "dateModified": "2023-08-11",
+    "dateModified": "2023-09-06",
     "description": "<%= @item[:description] %>",
     "inLanguage": "en-US",
     "image": {
@@ -40,15 +40,17 @@ description: Learn how you can restore a Notion workspace from one of your backu
 
   <h2 class="my-8">Limitations</h2>
 
-  <p class="mt-8">There are some limitations placed by Notion's API, which makes a complete restore impossible at this moment. Some of the current limitations:</p>
+  <p class="mt-8">There are some limitations imposed by Notion's API, which make a complete restore impossible at this moment. Some of the current limitations are:</p>
 
   <ul class="text-xl text-gray-700 leading-8 m-4">
-    <li class="p-1">Creation of top-level pages (pages will be nested under another page)</li>
-    <li class="p-1">File uploads (but they're backed up)</li>
-    <li class="p-1">Some block types</li>
-    <li class="p-1">Some property types, namely Rollup, Created by, Created time, Last edited by, or Last edited time</li>
-    <li class="p-1">Database views</li>
+    <li class="p-1">Top-level pages should be nested under another page</li>
+    <li class="p-1">Not all block types are supported</li>
+    <li class="p-1">Property types such as Rollup, Created by, Created time, Last edited by, or Last edited time can't be restored accurately</li>
+    <li class="p-1"><a href="/docs/backups.html#media-files" target="_blank" class="underline">Media files</a> can't be uploaded</li>
+    <li class="p-1">Database views don't get restored</li>
     <li class="p-1">Embed blocks don't render fully</li>
+    <li class="p-1">The order of blocks might not always be preserved</li>
+    <li class="p-1">Comments will carry the integration's name and won't have accurate timestamps</li>
   </ul>
 
 </div>
