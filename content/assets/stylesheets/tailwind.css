@@ -12,7 +12,7 @@
   }
 
   h2 {
-    @apply text-3xl font-bold text-gray-900;
+    @apply text-3xl font-bold leading-tight tracking-tight text-gray-900;
   }
 
   h3 {
@@ -36,7 +36,7 @@
   }
 
   pre {
-    @apply my-4 rounded-md shadow-sm p-6 bg-gray-900 text-white overflow-scroll;
+    @apply my-4 rounded-md shadow-md p-6 bg-gray-900 text-white overflow-scroll;
   }
 
   ul {
