@@ -14,15 +14,6 @@ description: Easily back up your Notion workspaces to Google Drive, Dropbox, Ama
     "brand": {
       "@type": "Brand",
       "name": "Notion Backups"
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": "9",
-      "priceCurrency": "USD",
-      "hasMerchantReturnPolicy": {
-        "@type": "MerchantReturnPolicy",
-        "returnFees": "https://schema.org/FreeReturn"
-      }
     }
   }
   </script>
@@ -39,12 +30,12 @@ description: Easily back up your Notion workspaces to Google Drive, Dropbox, Ama
     const interval = document.querySelector('#js-interval');
 
     monthlyToggle.addEventListener('click', () => {
-      price.innerHTML = "<span class='text-gray-400 line-through'>$10</span> $9"
+      price.innerHTML = "$10"
       interval.textContent = "per month";
     });
 
     yearlyToggle.addEventListener('click', () => {
-      price.innerHTML = "<span class='text-gray-400 line-through'>$100</span> $90"
+      price.innerHTML = "$99"
       interval.textContent = "per year";
     });
   })
@@ -168,10 +159,10 @@ description: Easily back up your Notion workspaces to Google Drive, Dropbox, Ama
           <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
             <div class="px-6 py-8 bg-white sm:p-10 sm:pb-6">
               <p class="inline-flex px-4 py-1 rounded-full text-sm font-semibold tracking-wide uppercase bg-green-light" id="tier-starter">
-                early bird discount
+                starter
               </p>
-              <div class="mt-4 flex items-baseline text-6xl font-extrabold">
-                <span id="js-price"><span class="text-gray-400 line-through">$10</span> $9</span>
+              <div class="mt-4 flex items-baseline text-6xl font-extrabold tracking-tight">
+                <span id="js-price">$10</span>
                 <span class="ml-2 text-3xl font-medium text-gray-500" id="js-interval">
                   per month
                 </span>
@@ -220,7 +211,7 @@ description: Easily back up your Notion workspaces to Google Drive, Dropbox, Ama
                     <svg width="20" height="25" viewBox="0 0 29 33" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="m1 22-1-1 2-1 4-1h5c2 0 2 0 1-1V5l1-3c1-1 3-2 5 0l2 2-1 2-1 1v11l2 1 5-1h1v1c1 0 1-1 1 1l1 1v1l-8 2-1 1c1 2 1 4 3 5l1 1-1 1h-1c-3 0-5-3-6-6-1-2-1-2-3-2l-5 1-5-1-1-1v-1" fill="#000"/></svg>
                   </div>
                   <p class="ml-3 text-base text-gray-700">
-                    Back up comments <span class="inline-flex px-4 py-1 ml-1 rounded-full text-sm font-semibold uppercase bg-green-light">new</span>
+                    Back up comments
                   </p>
                 </li>
 
@@ -238,7 +229,7 @@ description: Easily back up your Notion workspaces to Google Drive, Dropbox, Ama
                     <svg width="20" height="25" viewBox="0 0 29 33" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="m1 22-1-1 2-1 4-1h5c2 0 2 0 1-1V5l1-3c1-1 3-2 5 0l2 2-1 2-1 1v11l2 1 5-1h1v1c1 0 1-1 1 1l1 1v1l-8 2-1 1c1 2 1 4 3 5l1 1-1 1h-1c-3 0-5-3-6-6-1-2-1-2-3-2l-5 1-5-1-1-1v-1" fill="#000"/></svg>
                   </div>
                   <p class="ml-3 text-base text-gray-700">
-                    Restore from your backups <span class="inline-flex px-4 py-1 ml-1 rounded-full text-sm font-semibold uppercase bg-red-300">coming soon</span>
+                    Markdown exports <span class="inline-flex px-4 py-1 ml-1 rounded-full text-sm font-semibold uppercase bg-red-300">coming soon</span>
                   </p>
                 </li>
 
@@ -267,7 +258,7 @@ description: Easily back up your Notion workspaces to Google Drive, Dropbox, Ama
     <section class="bg-gray-900">
       <div class="mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:px-8">
         <div class="max-w-2xl mx-auto text-center">
-          <h2 class="font-extrabold text-white sm:text-4xl lg:text-5xl tracking-tight">Frequently asked questions</h2>
+          <h2 class="font-extrabold text-white sm:text-4xl lg:text-5xl">Frequently asked questions</h2>
         </div>
         <div class="mt-20">
           <dl class="space-y-16 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-16 sm:space-y-0 lg:gap-x-10">
@@ -288,7 +279,7 @@ description: Easily back up your Notion workspaces to Google Drive, Dropbox, Ama
 
             <div>
               <dt class="text-base font-semibold leading-7 text-white">Where do you store my backups?</dt>
-              <dd class="mt-2 text-base leading-7 text-gray-400">As of now, you can store your backups on Google Drive, Dropbox, Amazon S3, and Backblaze B2. Support for more cloud storage providers is on the way. You have to connect at least one of them to get your workspace backed up.</dd>
+              <dd class="mt-2 text-base leading-7 text-gray-400">As of now, you can store your backups on Google Drive, Dropbox, Amazon S3, and Backblaze B2. You have to connect at least one of them to get your workspace backed up. We don't store data on your behalf.</dd>
             </div>
 
             <div>
@@ -361,7 +352,7 @@ description: Easily back up your Notion workspaces to Google Drive, Dropbox, Ama
         </div>
 
         <div class="py-2">
-          <p class="font-bold text-white text-center m-6 sm:text-3xl lg:text-4xl">Trusted by <mark class="p-1 rounded-md bg-green-light text-gray-800">hundreds</mark> of customers</p>
+          <p class="font-bold text-white text-center m-6 tracking-tight sm:text-3xl lg:text-4xl">Trusted by <mark class="p-1 rounded-md bg-green-light text-gray-800">hundreds</mark> of customers</p>
 
           <div class="rounded-md shadow mx-auto p-4 mt-5 md:mt-8 max-w-md">
             <a href="https://app.notionbackups.com/signup/new" class="w-full flex items-center justify-center px-8 py-3  text-base font-medium rounded-md text-gray-800 bg-gradient-to-r from-red-300 to-green-light md:py-4 md:text-lg md:px-10 hover:shadow-button duration-300" aria-describedby="tier-starter">
