@@ -8,6 +8,8 @@ prune:
 
 data_sources:
   - type: filesystem
+    extra_files:
+      - "/.well-known/**/*"
     encoding: utf-8
 
 base_url: 'https://notionbackups.com'
