@@ -10,7 +10,7 @@ description: Learn how to back up your Notion workspace to an Amazon S3 bucket a
     "@type": "TechArticle",
     "headline": "<%= @item[:title] %>",
     "datePublished": "2022-11-02",
-    "dateModified": "2023-03-12",
+    "dateModified": "2023-09-19",
     "dependencies": "AWS",
     "description": "<%= @item[:description] %>",
     "inLanguage": "en-US",
@@ -71,6 +71,12 @@ description: Learn how to back up your Notion workspace to an Amazon S3 bucket a
     "arn:aws:s3:::<em class="font-bold">yourbucket</em>/notion_backups/*"
 ]
 </code></pre>
+
+  <h2 class="my-8">Access keys</h2>
+
+  <p class="mt-8">Access Key ID and Security Access Key are both encrypted at rest with a separate layer of encryption.</p>
+
+  <p class="mt-8">Security Access Key can't be changed after creation.</p>
 
   <h2 class="my-8">Terraform</h2>
 
