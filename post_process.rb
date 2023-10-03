@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Remove .html extension from sitemap URLs
+# Remove the .html extension from sitemap URLs
 
 require 'nokogiri'
 

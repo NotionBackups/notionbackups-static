@@ -12,3 +12,11 @@ def create_canonical_path(full_file_path)
     '/' + file_name.downcase.split('.').first
   end
 end
+
+def set_image(image)
+  if image.nil?
+    "https://notionbackups.com/assets/images/banner.png"
+  else
+    image
+  end
+end

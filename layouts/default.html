@@ -16,7 +16,7 @@
 
   <meta property="og:title" content="<%= @item[:title] %> - Notion Backups">
   <meta property="og:description" content="<%= @item[:description] %>">
-  <meta property="og:image" content="https://notionbackups.com/assets/images/banner.png">
+  <meta property="og:image" content="<%= set_image(@item[:image]) %>">
   <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary_large_image">
@@ -24,7 +24,7 @@
   <meta name="twitter:creator" content="@jmstfv">
   <meta name="twitter:title" content="<%= @item[:title] %> - Notion Backups">
   <meta name="twitter:description" content="<%= @item[:description] %>">
-  <meta name="twitter:image" content="https://notionbackups.com/assets/images/banner.png">
+  <meta name="twitter:image" content="<%= set_image(@item[:image]) %>">
 
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Notion Backups">
