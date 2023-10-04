@@ -28,6 +28,7 @@
   to = "/guides/automated-notion-backup-api"
   status = 301
 
+[[redirects]]
   from = "/blog/notion-pages-privacy"
   to = "/guides/notion-pages-privacy"
   status = 301
