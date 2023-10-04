@@ -24,6 +24,10 @@
     X-XSS-Protection = "1; mode=block"
 
 [[redirects]]
-  from = "/docs/backup"
-  to = "/docs/backups"
+  from = "/blog/automated-notion-backup-api"
+  to = "/guides/automated-notion-backup-api"
+  status = 301
+
+  from = "/blog/notion-pages-privacy"
+  to = "/guides/notion-pages-privacy"
   status = 301
