@@ -2,6 +2,9 @@
 title: Automating Notion backups using Notion's API
 description: Learn how to back up your Notion workspace data using Python and Notion's official API.
 image: https://notionbackups.com/assets/images/noir-printing-press-charcoal.png
+kind: article
+created_at: 2021-06-02
+updated_at: 2023-05-02
 ---
 
 <% content_for :head do %>
@@ -21,8 +24,8 @@ image: https://notionbackups.com/assets/images/noir-printing-press-charcoal.png
     "@type": "TechArticle",
     "headline": "<%= item[:title] %>",
     "dependencies": "Python",
-    "datePublished": "2021-06-02",
-    "dateModified": "2023-05-02",
+    "datePublished": "<%= item[:created_at] %>",
+    "dateModified": "<%= item[:updated_at] %>",
     "image": "<%= item[:image] %>",
     "description": "<%= item[:description] %>",
     "inLanguage": "en-US",
@@ -49,7 +52,7 @@ image: https://notionbackups.com/assets/images/noir-printing-press-charcoal.png
     Automating Backups with Notion's API
   </h1>
 
-  <p class="mt-6 text-base text-gray-600 text-center">Updated: <time datetime="2023-05-02">May 2, 2023</time></p>
+  <p class="mt-6 text-base text-gray-600 text-center">Updated: <time datetime="<%= item[:updated_at] %>">May 2, 2023</time></p>
 
   <p class="mt-8">Backing up your data on a consistent schedule is like buying insurance: you think you don't need it until you need it. With <a class="underline" target="_blank" rel="noopener" href="https://www.notion.so">Notion</a> becoming a second brain and knowledge management for many folks and organizations alike, it's paramount to have consistent backups if things go south.</p>
 
