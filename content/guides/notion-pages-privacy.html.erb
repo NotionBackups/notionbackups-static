@@ -4,7 +4,7 @@ description: Understand Notion's default privacy settings for pages and workspac
 image: https://notionbackups.com/assets/images/magnifying-glass-manuscript.png
 kind: article
 created_at: 2023-09-30
-updated_at: 2023-10-03
+updated_at: 2023-10-09
 ---
 
 <% content_for :head do %>
@@ -44,11 +44,11 @@ updated_at: 2023-10-03
     Are Notion Pages Private by Default?
   </h1>
 
-  <p class="mt-6 text-base text-gray-600 text-center">Updated: <time datetime="<%= item[:updated_at] %>">October 3, 2023</time></p>
+  <p class="mt-6 text-base text-gray-600 text-center">Updated: <time datetime="<%= item[:updated_at] %>"><%= item[:updated_at].strftime("%B %-d, %Y") %></time></p>
 
   <p class="mt-8">One common question among Notion users, especially those who are just getting started, is about the privacy settings of Notion pages. Let's break it down.</p>
 
-  <p class="mt-8">First things first, when you create a new Notion page, by default, its visibility is set to private. This means that only you can view and edit the page. If you share the workspace with others, your page will be visible to the members of your workspace.</p>
+  <p class="mt-8">First things first, when you create a new Notion page, by default, its visibility is set to private. This means that only you can view and edit the page. But, if you create a page in a shared area like a workspace or teamspace, other members might see it too.</p>
 
   <h2 class="my-8">Can anyone outside of my workspace read Notion pages?</h2>
 
@@ -57,7 +57,7 @@ updated_at: 2023-10-03
   <ul class="mt-8 text-xl text-gray-700 leading-8">
     <li>Share the page with specific or all members of your workspace</li>
     <li>Create a public link that anyone with the link can view</li>
-    <li>Make the page publicly searchable by search engines</li>
+    <li>Make the page <a href="#publicly-accessible" class="underline">discoverable by search engines</a></li>
   </ul>
 
   <p class="mt-8">Always double-check the share settings of a particular page if you're unsure about its visibility.</p>
@@ -90,7 +90,7 @@ updated_at: 2023-10-03
 
   <p class="mt-8">It's worth noting that if you create new top-level pages, integrations won't automatically have access to them. You'd need to manually provide permissions for each new page you want the integration to access.</p>
 
-  <h2 class="mt-8">How to make a Notion page publicly accessible?</h2>
+  <h2 class="mt-8" id="publicly-accessible">How to make a Notion page publicly accessible?</h2>
 
   <p class="mt-8">If you wish to share your Notion page with anyone, you can create a shareable link for public access.
 

@@ -45,7 +45,7 @@ updated_at: 2023-10-03
   Recovering Your Lost Notion Data
 </h1>
 
-<p class="mt-6 text-base text-gray-600 text-center">Updated: <time datetime="<%= item[:updated_at] %>">October 3, 2023</time></p>
+<p class="mt-6 text-base text-gray-600 text-center">Updated: <time datetime="<%= item[:updated_at] %>"><%= item[:updated_at].strftime("%B %-d, %Y") %></time></p>
 
 <p class="mt-8">Data loss is terrible, especially when it involves valuable information you've meticulously organized on Notion. It could be a single page, a database, or your entire workspace that has gone missing.</p>
 
