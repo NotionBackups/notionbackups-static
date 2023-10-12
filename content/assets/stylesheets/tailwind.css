@@ -57,11 +57,15 @@
   [type="tel"],
   [type="text"],
   [type="url"] {
-    @apply appearance-none mt-1 shadow-sm focus:ring-black focus:border-black block w-full sm:text-sm border-gray-300 rounded-md pl-3 pr-10 py-2 text-base placeholder-gray-500 focus:outline-none;
+    @apply mt-1 shadow-sm focus:ring-1 focus:ring-black focus:border-black block w-full sm:text-sm border border-gray-300 rounded-md pl-3 pr-10 py-2 text-base placeholder-gray-500 focus:outline-none;
   }
 
   input[type="checkbox"] {
     @apply focus:ring-black h-4 w-4 text-black border-gray-300 rounded;
+  }
+
+  select {
+    @apply bg-gray-200;
   }
 }
 
