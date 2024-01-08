@@ -4,7 +4,7 @@ description: Learn how to back up your Notion workspace data using Python and No
 image: https://notionbackups.com/assets/images/printing-press-papers.png
 kind: article
 created_at: 2021-06-02
-updated_at: 2023-05-02
+updated_at: 2024-01-08
 ---
 
 <% content_for :head do %>
@@ -48,8 +48,21 @@ updated_at: 2023-05-02
 
 <% end %>
 
-<article class="px-4 mt-24 mb-12 sm:px-6 lg:px-8">
-<div class="max-w-prose mx-auto">
+<article class="block lg:flex px-4 mt-24 mb-12 sm:px-6 lg:px-8">
+  <div class="h-screen w-48 sticky top-0 m-4 p-2 hidden lg:block">
+    <nav>
+      <p class="m-1">Contents</p>
+        <ol>
+          <li><a href="#create-integration" class="underline p-1 inline-block">Create integration</a></li>
+          <li><a href="#share-pages" class="underline p-1 inline-block">Share pages</a></li>
+          <li><a href="#query-data" class="underline p-1 inline-block">Query data</a></li>
+          <li><a href="#store-data" class="underline p-1 inline-block">Store data</a></li>
+          <li><a href="#cron-job-setup" class="underline p-1 inline-block">Set up a cron job</a></li>
+        </ol>
+    </nav>
+  </div>
+
+<div class="max-w-screen-md mx-auto">
   <h1 class="mt-2 text-center">
     Automating Backups with Notion's API
   </h1>
@@ -58,14 +71,14 @@ updated_at: 2023-05-02
 
   <p class="mt-8">Backing up your data on a consistent schedule is like buying insurance: you think you don't need it until you need it. With <a class="underline" target="_blank" rel="noopener" href="https://www.notion.so">Notion</a> becoming a second brain and knowledge management for many folks and organizations alike, it's paramount to have consistent backups if things go south.</p>
 
-  <p class="mt-8">Up until this point, you had two options when it came to backing up your Notion data:</p>
+  <p class="mt-8">Before an official <a class="underline" target="_blank" rel="noopener" href="https://developers.notion.com/">Notion API</a> became publicly available, you had two options when it came to backing up your Notion data:</p>
   <ul class="mt-8 text-xl text-gray-700 leading-8">
-    <li><a class="underline" target="_blank" rel="noopener" href="https://www.notion.so/help/back-up-your-data">Export Notion data manually</a></li>
-    <li>Using a GitLab/Github CI with Notion's private API (the private API is subject to change at any time without notice)</li>
+    <li><a class="underline" target="_blank" rel="noopener" href="https://www.notion.so/help/back-up-your-data">Exporting Notion data manually</a> (which is easy to forget about)</li>
+    <li>Using a <abbr title="Continuous integration">CI</abbr> service with Notion's private <abbr title="Application programming interface">API</abbr> (the private API is subject to change at any time without notice)</li>
   </ul>
-  <p class="mt-8">Now that <a class="underline" target="_blank" rel="noopener" href="https://developers.notion.com/">Notion's API</a> is available, there's a more robust way of backing up your data.</p>
+  <p class="mt-8">Now that Notion's API is available, there's a more robust way of backing up your data.</p>
 
-  <h2 class="my-8">Step 1: Create an internal integration</h2>
+  <h2 class="my-8" id="create-integration">Step 1: Create an internal integration</h2>
 
   <p class="mt-8">Head over to <a class="underline" target="_blank" rel="noopener" href="https://www.notion.so/my-integrations">My integrations</a> page to create an internal integration. <a class="underline" target="_blank" rel="noopener" href="https://developers.notion.com/docs#internal-notion-integrations">Notion's docs</a> give a good overview of the process.</p>
 
@@ -73,13 +86,13 @@ updated_at: 2023-05-02
 
   <p class="mt-8">Once you're done, grab your Internal Integration Token. You will need it later to authenticate your API requests.</p>
 
-  <h2 class="my-8">Step 2: Share pages you want to back up</h2>
+  <h2 class="my-8" id="share-pages">Step 2: Share pages you want to back up</h2>
 
   <p class="mt-8">By default, your integration doesn't have access to any pages or databases. You have to manually add it to pages and databases you want to back up by using the invite function in the Share menu. Your integration won't be visible unless you click on the invite field.</p>
 
   <p class="mt-8"><a class="underline" target="_blank" rel="noopener" href="https://developers.notion.com/docs#step-2-share-a-database-with-your-integration">Notion's docs</a> cover this topic in more detail.</p>
 
-  <h2 class="my-8">Step 3: Query data</h2>
+  <h2 class="my-8" id="query-data">Step 3: Query data</h2>
 
   <p class="mt-8">Unless you intend to back up a specific page only, you'd want to grab all pages and databases. The Notion API exposes a <a class="underline" target="_blank" rel="noopener" href="https://developers.notion.com/reference/post-search">search</a> endpoint that returns the top-level pages and databases your integration has access to.</p>
 
@@ -109,7 +122,7 @@ response = requests.post(
 
   <p class="mt-8">In large workspaces, results are more likely to be paginated. To obtain all items, you will have to recursively query the <a class="underline" target="_blank" rel="noopener" href="https://developers.notion.com/reference/post-search">search</a> endpoint until the <code>has_more</code> parameter returns <code>false</code>.</p>
 
-  <h2 class="my-8">Step 4: Store your data</h2>
+  <h2 class="my-8" id="store-data">Step 4: Store data</h2>
 
   <p class="mt-8">One way of storing your Notion workspace data is to write top-level pages and databases to separate JSON files and write child pages under a directory named after their parent files.</p>
 
@@ -151,7 +164,7 @@ for block in response.json()['results']:
         file.write(json.dumps(child))</code>
 </pre>
 
-  <h2 class="my-8">Step 5: Set up a cron job</h2>
+  <h2 class="my-8" id="cron-job-setup">Step 5: Set up a cron job</h2>
 
   <p class="mt-8">Ideally, backups should be <em>set and forget</em>. Otherwise, you will probably forget about them.</p>
 
