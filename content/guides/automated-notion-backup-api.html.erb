@@ -4,7 +4,7 @@ description: Learn how to back up your Notion workspace data using Python and No
 image: https://notionbackups.com/assets/images/printing-press-papers.png
 kind: article
 created_at: 2021-06-02
-updated_at: 2024-01-08
+updated_at: 2024-01-09
 ---
 
 <% content_for :head do %>
@@ -80,17 +80,21 @@ updated_at: 2024-01-08
 
   <h2 class="my-8" id="create-integration">Step 1: Create an internal integration</h2>
 
-  <p class="mt-8">Head over to <a class="underline" target="_blank" rel="noopener" href="https://www.notion.so/my-integrations">My integrations</a> page to create an internal integration. <a class="underline" target="_blank" rel="noopener" href="https://developers.notion.com/docs#internal-notion-integrations">Notion's docs</a> give a good overview of the process.</p>
+  <p class="mt-8">Head over to <a class="underline" target="_blank" rel="noopener" href="https://www.notion.so/my-integrations">My integrations</a> page to create an internal integration. <a class="underline" target="_blank" rel="noopener" href="https://developers.notion.com/docs/getting-started">Notion's docs</a> give a good overview of the process.</p>
 
-  <p class="mt-8">If you want to back up your personal workspace, choose the internal integration. Keep in mind that you have to be an admin to access the workspace data.</p>
+  <img src="/assets/images/notion-internal-integration.png" alt="Creating internal integration in Notion" class="shadow-lg rounded-lg my-8 mx-auto w-full md:w-3/5 border border-gray-200" loading="lazy">
 
-  <p class="mt-8">Once you're done, grab your Internal Integration Token. You will need it later to authenticate your API requests.</p>
+  <p class="mt-8">Once you're done, grab your Internal Integration Secret. You will need it later to authenticate your API requests.</p>
 
   <h2 class="my-8" id="share-pages">Step 2: Share pages you want to back up</h2>
 
-  <p class="mt-8">By default, your integration doesn't have access to any pages or databases. You have to manually add it to pages and databases you want to back up by using the invite function in the Share menu. Your integration won't be visible unless you click on the invite field.</p>
+  <p class="mt-8">By default, your integration doesn't have access to any pages or databases. You have to manually add it to pages and databases you want to back up. You can grant access from the three-dot <span class="font-bold">···</span> menu in the upper-right corner of the page.</p>
 
-  <p class="mt-8"><a class="underline" target="_blank" rel="noopener" href="https://developers.notion.com/docs#step-2-share-a-database-with-your-integration">Notion's docs</a> cover this topic in more detail.</p>
+  <img src="/assets/images/add-connections-menu.png" alt="Giving our connection access to the page" class="shadow-lg rounded-lg my-8 mx-auto w-full md:w-3/5 border border-gray-200" loading="lazy">
+
+  <p class="mt-8">By granting your integration access to a specific page, you also gain access to its child pages and databases.</p>
+
+  <p class="mt-8"><a class="underline" target="_blank" rel="noopener" href="https://developers.notion.com/docs/create-a-notion-integration">Notion's docs</a> cover this topic in more detail.</p>
 
   <h2 class="my-8" id="query-data">Step 3: Query data</h2>
 
