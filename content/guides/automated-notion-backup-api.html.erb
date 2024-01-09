@@ -102,9 +102,9 @@ updated_at: 2024-01-09
 
   <pre><code>import requests
 
-# replace YOUR_INTEGRATION_TOKEN with your own secret token
+# replace INTERNAL_INTEGRATION_SECRET with your own secret token!
 headers = {
-  'Authorization': 'Bearer YOUR_INTEGRATION_TOKEN',
+  'Authorization': 'Bearer INTERNAL_INTEGRATION_SECRET',
   'Notion-Version': '2022-06-28',
   'Content-Type': 'application/json',
 }
@@ -143,9 +143,9 @@ folder = 'notionbackup_' + timestamp
 
 os.mkdir(folder)
 
-# replace YOUR_INTEGRATION_TOKEN with your own secret token
+# replace INTERNAL_INTEGRATION_SECRET with your own secret token!
 headers = {
-  'Authorization': 'Bearer YOUR_INTEGRATION_TOKEN',
+  'Authorization': 'Bearer INTERNAL_INTEGRATION_SECRET',
   'Notion-Version': '2022-06-28',
   'Content-Type': 'application/json',
 }
@@ -190,11 +190,6 @@ for block in response.json()['results']:
 
   <p class="mt-8">You can also use <a href="/" target="_blank" class="underline">Notion Backups</a> to easily back up your Notion data to a cloud storage provider of your choice. That way, you don't have to worry about your Notion data being lost.</p>
 
-  <div class="mt-8 bg-gray-900 p-12 rounded-lg">
-    <p class="mb-8 text-white text-center">Back up your Notion workspaces today</p>
-    <a href="https://app.notionbackups.com/signup/new" class="button p-4 text-base hover:shadow-button duration-300 focus:ring-0">
-      Get started
-    </a>
-  </div>
+  <%= render '/_cta.html' %>
 </div>
 </article>
