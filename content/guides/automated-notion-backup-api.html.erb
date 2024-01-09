@@ -4,7 +4,7 @@ description: Learn how to back up your Notion workspace data using Python and No
 image: https://notionbackups.com/assets/images/printing-press-papers.png
 kind: article
 created_at: 2021-06-02
-updated_at: 2024-01-09
+updated_at: 2024-01-10
 ---
 
 <% content_for :head do %>
@@ -49,15 +49,16 @@ updated_at: 2024-01-09
 <% end %>
 
 <article class="block lg:flex px-4 mt-24 mb-12 sm:px-6 lg:px-8">
-  <div class="h-screen w-48 sticky top-0 m-4 p-2 hidden lg:block">
+  <div class="h-screen w-48 sticky top-0 mx-2 my-4 py-2 hidden lg:block">
     <nav>
-      <p class="m-1">Contents</p>
-        <ol>
+      <p class="m-1 text-gray-600 text-base">Contents</p>
+        <ol class="text-sm">
           <li><a href="#create-integration" class="underline p-1 inline-block">Create integration</a></li>
           <li><a href="#share-pages" class="underline p-1 inline-block">Share pages</a></li>
           <li><a href="#query-data" class="underline p-1 inline-block">Query data</a></li>
           <li><a href="#store-data" class="underline p-1 inline-block">Store data</a></li>
           <li><a href="#cron-job-setup" class="underline p-1 inline-block">Set up a cron job</a></li>
+          <li><a href="#further-improvements" class="underline p-1 inline-block">Further improvements</a></li>
         </ol>
     </nav>
   </div>
@@ -185,6 +186,19 @@ for block in response.json()['results']:
   <p class="mt-8">This assumes that the Python script is called notionbackup.py and the Python interpreter is located in <code>/usr/local/bin/python3</code>. If unsure, you can locate the full path to the Python 3 interpreter:</p>
 
 <pre><code>which python3</code></pre>
+
+  <h2 class="my-8" id="further-improvements">Further improvements</h2>
+
+  <p class="mt-8">While the above code covers most of your data, there are additional items you might want to back up, namely:</p>
+
+  <ul class="mt-8 text-xl">
+    <li><a href="https://developers.notion.com/docs/working-with-files-and-media" class="underline" target="_blank" rel="noopener">Media files</a>
+      <p class="m-4">This includes images, audio, video, and PDF files.</p>
+    </li>
+    <li><a href="https://developers.notion.com/docs/working-with-comments" class="underline" target="_blank" rel="noopener">Comments</a>
+      <p class="m-4">Before fetching comments, you must first grant your integration the <a href="https://developers.notion.com/reference/capabilities#comment-capabilities" class="underline" target="_blank" rel="noopener">read comments</a> capability. As of this writing, Notion's API only returns the unresolved comments.</p>
+    </li>
+  </ul>
 
   <p class="mt-8">That's all, folks! You can find the full code <a href="https://github.com/NotionBackups/notion-backup-python" target="_blank" rel="noopener" class="underline">on Github</a>.</p>
 

@@ -36,7 +36,7 @@
   }
 
   pre {
-    @apply my-4 rounded-md shadow-md p-6 bg-gray-900 text-white overflow-scroll;
+    @apply text-sm my-4 rounded-md shadow-md p-6 bg-gray-900 text-white overflow-scroll;
   }
 
   ul {
