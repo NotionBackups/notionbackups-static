@@ -38,8 +38,22 @@ updated_at: 2024-01-10
 
 <% end %>
 
-<article class="px-4 mt-24 mb-12 sm:px-6 lg:px-8">
-<div class="max-w-prose mx-auto">
+<article class="block lg:flex px-4 mt-24 mb-12 sm:px-6 lg:px-8">
+  <div class="h-screen w-48 sticky top-0 mx-2 my-4 py-2 hidden lg:block">
+    <nav>
+      <p class="m-1 text-gray-600 text-base">Contents</p>
+        <ol class="text-sm">
+          <li><a href="#finding-deleted-pages" class="underline p-1 inline-block">Finding deleted pages</a></li>
+          <li><a href="#reverting-page-changes" class="underline p-1 inline-block">Reverting page changes</a></li>
+          <li><a href="#recovering-deleted-items" class="underline p-1 inline-block">Recovering deleted items</a></li>
+          <li><a href="#missing-workspace" class="underline p-1 inline-block">Missing workspace</a></li>
+          <li><a href="#extracting-backups" class="underline p-1 inline-block">Extracting backups</a></li>
+          <li><a href="#making-regular-backups" class="underline p-1 inline-block">Making regular backups</a></li>
+        </ol>
+    </nav>
+  </div>
+
+<div class="max-w-screen-md mx-auto">
 
 <h1 class="mt-2 text-center">
   Recovering Your Lost Notion Data
@@ -53,7 +67,7 @@ updated_at: 2024-01-10
 
 <p class="mt-8">This guide will provide you with a variety of solutions to recover your lost data.</p>
 
-<h2 class="my-8">Finding deleted pages</h2>
+<h2 class="my-8" id="finding-deleted-pages">Finding deleted pages</h2>
 
 <p class="mt-8">The first step when you notice that a page is missing is to check the Trash. Notion automatically moves deleted pages to the Trash, acting as an archive that you can recover from.</p>
 
@@ -61,7 +75,7 @@ updated_at: 2024-01-10
 
 <img src="/assets/images/notion-trash-pages.png" alt="Trash section in Notion, displaying deleted pages" class="shadow-lg rounded-lg my-8 mx-auto w-4/5 border border-gray-200" loading="lazy">
 
-<h2 class="my-8">Reverting back page changes</h2>
+<h2 class="my-8" id="reverting-page-changes">Reverting back page changes</h2>
 
 <p class="mt-8">Another feature Notion provides to help recover lost data is the Page History. Notion saves your data automatically, creating per-minute backups of your page content on their server. This allows you to view and revert to previous versions of a page for up to 7 days on the free plan (longer on paid plans). It can come in handy when you've accidentally deleted a part of a page or made changes that you want to undo.</p>
 
@@ -71,13 +85,13 @@ updated_at: 2024-01-10
 
 <img src="/assets/images/notion-page-updates.png" alt="Updates section, showing all page updates" class="shadow-lg rounded-lg my-8 mx-auto w-full border border-gray-200" loading="lazy">
 
-<h2 class="my-8">Recovering permanently deleted items</h2>
+<h2 class="my-8" id="recovering-deleted-items">Recovering permanently deleted items</h2>
 
 <p class="mt-8">If you've deleted a page from the Trash, it's gone from your account.</p>
 
 <p class="mt-8">However, you can still recover it by <a href="https://www.notion.so/help" class="underline" target="_blank" rel="noopener">contacting Notion</a>; your data could be restored for up to 30 days after deletion.</p>
 
-<h2 class="my-8">Missing workspace</h2>
+<h2 class="my-8" id="missing-workspace">Missing workspace</h2>
 
 <p class="mt-8">Sometimes, workspaces can disappear after you log out and log back in.</p>
 
@@ -87,15 +101,17 @@ updated_at: 2024-01-10
 
 <p class="mt-8">If you still can't access your workspace at all, or you've accidentally deleted it, reach out to <a href="https://www.notion.so/help" class="underline" target="_blank" rel="noopener">Notion's support</a> as soon as possible. <strong>DO NOT</strong> create a new account with the same email, as this email will be used for a restored account.</p>
 
-<h2 class="my-8">Extracting backups</h2>
+<h2 class="my-8" id="extracting-backups">Extracting backups</h2>
 
-<p class="mt-8">Notion exports backups in zip format. If you're getting the "The compressed (zipped) folder is invalid" error message with Windows' default archive extractor, consider using <a href="https://7-zip.org" class="underline" target="_blank" rel="noopener">7zip</a> instead.</p>
+<p class="mt-8">Notion exports backups in a zip archive. If you're getting the "The compressed (zipped) folder is invalid" error message with Windows' default archive extractor, consider using <a href="https://7-zip.org" class="underline" target="_blank" rel="noopener">7zip</a> instead.</p>
 
-<h2 class="my-8">Making regular backups</h2>
+<h2 class="my-8" id="making-regular-backups">Making regular backups</h2>
 
 <p class="mt-8">It's a good idea to regularly make backups of your workspace to avoid losing your data.</p>
 
-<p class="mt-8">You can <a href="https://www.notion.so/help/export-your-content" class="underline" target="_blank" rel="noopener">export your content</a> in Markdown/CSV, HTML, and PDF formats from your workspace settings.</p>
+<p class="mt-8">You can <a href="https://www.notion.so/help/export-your-content" class="underline" target="_blank" rel="noopener">export your content</a> in Markdown/CSV, HTML, and PDF formats from your workspace settings. You can also export individual pages or databases from the <span class="font-bold">···</span> menu in the upper-right corner.</p>
+
+<p class="mt-8">If you have some experience with programming, you can <a href="/guides/automated-notion-backup-api.html" class="underline" target="_blank">automate backups</a>.</p>
 
 <p class="mt-8">Another way of making regular backups is to use <a href="https://notionbackups.com" class="underline">Notion Backups</a>, so you won't have to manually export and manage your backups.</p>
 
