@@ -1,0 +1,56 @@
+---
+title: Team accounts
+description: Learn more about team accounts, different user roles, and their privileges
+---
+
+<% content_for :head do %>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "TechArticle",
+    "headline": "<%= @item[:title] %>",
+    "datePublished": "2024-05-03",
+    "dateModified": "2024-05-03",
+    "description": "<%= @item[:description] %>",
+    "inLanguage": "en-US",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://notionbackups.com/assets/images/banner.png"
+    },
+    "copyrightHolder": {
+      "@type": "Organization",
+      "name": "Notion Backups"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Notion Backups"
+    }
+  }
+  </script>
+<% end %>
+
+<article class="px-4 mt-24 mb-12 sm:px-6 lg:px-8">
+  <div class="max-w-prose mx-auto">
+    <h1 class="mt-2 text-center">
+      Team accounts
+    </h1>
+
+    <p class="mt-8">Customers subscribed to Pro plans can invite others to join their accounts.</p>
+
+    <h2 class="my-8">User roles</h2>
+
+    <p class="mt-8">There are 2 types of user roles: Admin and Member. Admins have unrestricted access to all account functions.</p>
+
+    <p class="mt-8">Members, on the other hand, have limited privileges:</p>
+
+    <ul class="mt-8 text-xl text-gray-700 leading-8">
+      <li>Members can't invite other users or cancel existing invitations</li>
+      <li>Members can't access or change billing settings</li>
+      <li>Members can't delete accounts</li>
+    </ul>
+
+    <p class="mt-8">There's no limit on the number of Admins or Members each account can have.</p>
+
+    <p class="mt-8">If you have questions about team accounts or anything else, feel free to <a href="/support.html" class="underline">reach out</a>.</p>
+  </div>
+</article>
