@@ -9,8 +9,8 @@
 
 [build.environment]
   NODE_ENV = "production"
-  NODE_VERSION = "16"
-  RUBY_VERSION = "3.1.4"
+  NODE_VERSION = "18"
+  RUBY_VERSION = "3.2.3"
 
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
