@@ -11,17 +11,21 @@ description: Learn about the measures we take to ensure the security of your Not
 
     <ul class="mt-8 text-xl text-gray-700 leading-8">
       <li>We stay on top of software security updates</li>
-      <li>Access to servers and third-party tools are secured with two-factor authentication</li>
+      <li>Access to third-party services are secured with two-factor authentication</li>
       <li>Passwords are hashed with a strong hashing algorithm</li>
-      <li>Servers are accessed via SSH with a password-protected key only</li>
-      <li>Multiple firewalls blocking unauthorized access</li>
-      <li>Database and server backups are encrypted</li>
-      <li>All connections going in and out of Notion Backups are encrypted</li>
+      <li>Servers are accessed via SSH using only a password-protected key</li>
+      <li>Firewalls blocking unauthorized access</li>
+      <li>Backups are encrypted at rest and in transit</li>
+      <li>All connections going in and out of Notion Backups are encrypted with SSL/TLS</li>
+      <li><a href="/docs/two-factor-authentication.html" target="_blank" class="underline">Two-factor authentication</a> capability for user accounts</li>
       <li>Payment information is transmitted and processed securely in a PCI-compliant manner</li>
-      <li>Two-factor authentication capability for user accounts</li>
     </ul>
 
-    <h2 class="my-8">Backups</h2>
+    <h2 class="my-8">Data center security</h2>
+
+    <p class="mt-8">Our server is located at Hetzner's Falkenstein data center. Hetzner Online GmbH is ISO 27001 certified, ensuring high standards in information security management. This data center employs strict physical access controls and 24/7 surveillance.</p>
+
+    <h2 class="my-8">Notion workspace data</h2>
 
     <p class="mt-8">Your Notion data is stored on our servers only during the backup process. Once the backup is complete and uploaded to a cloud storage provider of your choice, your data is permanently deleted from our servers.</p>
 
