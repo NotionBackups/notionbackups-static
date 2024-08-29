@@ -33,8 +33,4 @@ compile '/**/*' do
   write item.identifier.to_s
 end
 
-compile '/.well-known/*.json' do
-  write item.identifier.to_s
-end
-
 layout '/**/*', :erb
