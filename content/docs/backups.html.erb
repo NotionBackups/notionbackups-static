@@ -10,7 +10,7 @@ description: Automatically back up your Notion pages, databases, media files, an
     "@type": "TechArticle",
     "headline": "<%= @item[:title] %>",
     "datePublished": "2022-11-02",
-    "dateModified": "2024-05-29",
+    "dateModified": "2024-08-30",
     "description": "<%= @item[:description] %>",
     "inLanguage": "en-US",
     "image": {
@@ -40,9 +40,11 @@ description: Automatically back up your Notion pages, databases, media files, an
 
   <p class="mt-8">Your first backup should start soon after you connect your Notion workspace and at least one cloud storage provider. You can also trigger the backup manually from the workspace settings.</p>
 
-  <p class="mt-8">By default, your workspace is backed up weekly, but you can choose daily or monthly options in the workspace settings. For example, if a backup finishes on January 1st with the weekly setting, expect the next one on January 8th.</p>
+  <p class="mt-8">By default, your workspace is backed up weekly, but you can choose daily or monthly options as well. For example, if a backup finishes on January 1st with the weekly setting, expect the next one on January 8th. You can see the estimated time for the next backup in the workspace settings.</p>
 
-  <p class="mt-8">Backup completion typically takes a few hours, but large workspaces may require several days. Occasionally, Notion or cloud storage services may experience issues that could delay the backup completion. If the backup file doesn't appear in your cloud storage within 3 days, please <a href="/support.html" class="underline">reach out</a>.</p>
+  <img src="/assets/images/backup-schedule.png" alt="Backup schedule estimate in the workspace settings" class="shadow-lg rounded-lg my-8 mx-auto w-4/5 border border-gray-200" loading="lazy">
+
+  <p class="mt-8">Backup completion typically takes a few hours, but large workspaces may require several days. Occasionally, Notion or cloud storage services may experience issues that could delay the backup completion. If the backup file doesn't appear in your cloud storage within a few days, please <a href="/support.html" class="underline">reach out</a>.</p>
 
   <h2 class="my-8" id="top-level-pages">Top-level pages</h2>
 
@@ -72,7 +74,7 @@ description: Automatically back up your Notion pages, databases, media files, an
 
   <p class="mt-8">To preserve cloud storage space, you can choose to automatically delete backups older than 2, 4, or 8 weeks.</p>
 
-  <p class="mt-8">If you are subscribed to a Pro plan, you can select an advanced backup rotation schedule that will retain at least one weekly, one monthly, and one yearly backup. This approach provides snapshots covering a wide range of time while saving storage.</p>
+  <p class="mt-8">If you are subscribed to a Pro plan, you can select an advanced backup rotation schedule that will retain at least one weekly, one monthly, and one yearly backup (also known as Grandfather-father-son rotation scheme). This approach provides snapshots covering a wide range of time while saving storage.</p>
 
   <h2 class="my-8" id="compression">Compression</h2>
 
