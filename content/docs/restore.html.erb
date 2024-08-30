@@ -10,7 +10,7 @@ description: Learn how you can restore a Notion workspace from one of your backu
     "@type": "TechArticle",
     "headline": "<%= @item[:title] %>",
     "datePublished": "2022-11-02",
-    "dateModified": "2024-05-28",
+    "dateModified": "2024-08-30",
     "description": "<%= @item[:description] %>",
     "inLanguage": "en-US",
     "image": {
@@ -38,7 +38,9 @@ description: Learn how you can restore a Notion workspace from one of your backu
 
   <p class="mt-8">Before you can restore your workspace, it needs to be backed up at least once. To make sure that the restore process goes as smoothly as possible, <a href="/docs/backups.html#top-level-pages" class="underline" target="_blank" rel="noopener">reauthorize your workspace</a> from the workspace settings and include all the pages you want to back up.</p>
 
-  <p class="mt-8">If you're on the Starter plan, you can only restore your workspace under the same workspace. Your data will be nested under a newly created page, and your existing workspace data won't be overwritten. If you're on the Pro plan, you can restore your data to a different workspace as well.</p>
+  <p class="mt-8">If you're on the Starter plan, you can only restore your workspace under the same workspace. You will need to create an empty page called "Notion Backups Restore" and grant Notion Backups access to it. Your existing workspace data will not be overwritten.</p>
+
+  <p class="mt-8">If you're on the Pro plan, you can also restore your data to another workspace.</p>
 
   <h2 class="my-8">Limitations</h2>
 
@@ -52,6 +54,7 @@ description: Learn how you can restore a Notion workspace from one of your backu
     <li class="p-1">Database views don't get restored</li>
     <li class="p-1">Embed blocks don't render fully</li>
     <li class="p-1">The order of blocks might not always be preserved</li>
+    <li class="p-1">Only <a href="/docs/backups.html#comments" target="_blank" class="underline">unresolved comments</a> are restored</li>
     <li class="p-1">Comments will carry the integration's name and won't have accurate timestamps</li>
   </ul>
 
