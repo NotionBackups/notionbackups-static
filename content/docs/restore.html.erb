@@ -10,7 +10,7 @@ description: Learn how you can restore a Notion workspace from one of your backu
     "@type": "TechArticle",
     "headline": "<%= @item[:title] %>",
     "datePublished": "2022-11-02",
-    "dateModified": "2024-08-30",
+    "dateModified": "2024-09-01",
     "description": "<%= @item[:description] %>",
     "inLanguage": "en-US",
     "image": {
@@ -56,6 +56,7 @@ description: Learn how you can restore a Notion workspace from one of your backu
     <li class="p-1">The order of blocks might not always be preserved</li>
     <li class="p-1">Only <a href="/docs/backups.html#comments" target="_blank" class="underline">unresolved comments</a> are restored</li>
     <li class="p-1">Comments will carry the integration's name and won't have accurate timestamps</li>
+    <li class="p-1">Blocks with large text content (e.g. code, paragraphs, list items) will be split into smaller chunks</li>
   </ul>
 
   <p class="mt-8">If you're restoring to a different workspace, additional limitations may apply:</p>
