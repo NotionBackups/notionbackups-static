@@ -31,7 +31,7 @@ description: Easily back up your Notion workspaces to Google Drive, Microsoft On
     const interval = document.querySelectorAll('#js-interval');
 
     monthlyToggle.addEventListener('click', () => {
-      priceStarter.innerHTML = "$8 <strike class='text-gray-400 font-medium line-through'>$10</strike>"
+      priceStarter.innerHTML = "$10"
       pricePro.innerHTML = "$24"
       interval.forEach(text => {
         text.textContent = "per month";
@@ -39,7 +39,7 @@ description: Easily back up your Notion workspaces to Google Drive, Microsoft On
     });
 
     yearlyToggle.addEventListener('click', () => {
-      priceStarter.innerHTML = "$90 <strike class='text-gray-400 font-medium line-through'>$99</strike>"
+      priceStarter.innerHTML = "$99"
       pricePro.innerHTML = "$249"
       interval.forEach(text => {
         text.textContent = "per year";
@@ -289,7 +289,7 @@ description: Easily back up your Notion workspaces to Google Drive, Microsoft On
           starter
         </p>
         <p class="mt-4 flex items-baseline gap-x-2">
-          <span class="text-6xl font-extrabold tracking-tight text-gray-900" id="js-price-starter">$8 <strike class="text-gray-400 font-medium line-through">$10</strike></span>
+          <span class="text-6xl font-extrabold tracking-tight text-gray-900" id="js-price-starter">$10</span>
           <span class="text-gray-500 font-medium" id="js-interval">per month</span>
         </p>
         <p class="mt-6 text-base leading-7 text-gray-500">Everything you need to keep your Notion data secure.</p>
