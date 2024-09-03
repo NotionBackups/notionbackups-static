@@ -1,6 +1,6 @@
 ---
 title: Back up your Notion workspaces to Amazon S3
-description: Learn how to back up your Notion workspace to an Amazon S3 bucket and properly configure an IAM policy for secure storage of your backups.
+description: Automatically back up your Notion workspace to Amazon S3 bucket and learn how to configure IAM policies for secure backup storage.
 ---
 
 <% content_for :head do %>
@@ -10,7 +10,7 @@ description: Learn how to back up your Notion workspace to an Amazon S3 bucket a
     "@type": "TechArticle",
     "headline": "<%= @item[:title] %>",
     "datePublished": "2022-11-02",
-    "dateModified": "2023-09-19",
+    "dateModified": "2024-09-03",
     "dependencies": "AWS",
     "description": "<%= @item[:description] %>",
     "inLanguage": "en-US",
@@ -37,6 +37,14 @@ description: Learn how to back up your Notion workspace to an Amazon S3 bucket a
     Setting up Amazon S3
   </h1>
 
+  <p class="mt-8">To back up your Notion workspace to Amazon S3, connect Notion and add your S3 bucket details: access key, secret access key, region, bucket name, and optionally, a prefix.</p>
+
+  <h2 class="my-8">Access keys</h2>
+
+  <p class="mt-8">Access key and secret access key are both encrypted at rest with a separate layer of encryption.</p>
+
+  <p class="mt-8">Secret access key can't be changed after creation.</p>
+
   <h2 class="my-8">IAM policy</h2>
 
   <p class="mt-8">To allow Notion Backups to connect to your S3 bucket, attach the policy below to your <a href="https://console.aws.amazon.com/iamv2/home#/users" class="underline" target="_blank" rel="noopener">IAM user</a> (replace <em>yourbucket</em> with your bucket's name):</p>
@@ -58,25 +66,19 @@ description: Learn how to back up your Notion workspace to an Amazon S3 bucket a
       }]
 }</code></pre>
 
-  <p class="mt-8">It's better to create a new IAM user with only this policy attached to keep your AWS account secure.</p>
+  <p class="mt-8">It's better to create a new IAM user with just this policy attached to keep your AWS account secure.</p>
 
   <h2 class="my-8">Prefix</h2>
 
   <p class="mt-8">You can choose to organize your backups in a folder by specifying the prefix in the dashboard.</p>
 
-  <p class="mt-8">Furthermore, to limit your IAM user's access to a specific folder, include the prefix after the bucket name in your policy. For example, if you want to restrict access to the "notion_backups" folder within <em>yourbucket</em>, you can define your Resource in the following way:</p>
+  <p class="mt-8">If you want to limit your IAM user's access to a specific folder, include the prefix after the bucket name in your policy. For example, if you want to restrict access to the "notion_backups" folder within <em>yourbucket</em>, you can define your <code>Resource</code> in the following way:</p>
 
   <pre><code>"Resource": [
     "arn:aws:s3:::<em class="font-bold">yourbucket</em>",
     "arn:aws:s3:::<em class="font-bold">yourbucket</em>/notion_backups/*"
 ]
 </code></pre>
-
-  <h2 class="my-8">Access keys</h2>
-
-  <p class="mt-8">Access Key ID and Security Access Key are both encrypted at rest with a separate layer of encryption.</p>
-
-  <p class="mt-8">Security Access Key can't be changed after creation.</p>
 
   <h2 class="my-8">Terraform</h2>
 
