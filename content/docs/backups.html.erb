@@ -10,7 +10,7 @@ description: Automatically back up your Notion pages, databases, media files, an
     "@type": "TechArticle",
     "headline": "<%= @item[:title] %>",
     "datePublished": "2022-11-02",
-    "dateModified": "2024-08-30",
+    "dateModified": "2024-09-16",
     "description": "<%= @item[:description] %>",
     "inLanguage": "en-US",
     "image": {
@@ -44,7 +44,13 @@ description: Automatically back up your Notion pages, databases, media files, an
 
   <img src="/assets/images/backup-schedule.png" alt="Backup schedule estimate in the workspace settings" class="shadow-lg rounded-lg my-8 mx-auto w-4/5 border border-gray-200" loading="lazy">
 
-  <p class="mt-8">Backup completion typically takes a few hours, but large workspaces may require several days. Occasionally, Notion or cloud storage services may experience issues that could delay the backup completion. If the backup file doesn't appear in your cloud storage within a few days, please <a href="/support.html" class="underline">reach out</a>.</p>
+  <p class="mt-8">Backup completion typically takes a few hours, but large workspaces may require several days. Occasionally, Notion or cloud storage services may experience issues that could delay the backup completion. If the backup file doesn't appear in your cloud storage within a week, please <a href="/support.html" class="underline">reach out</a>.</p>
+
+  <h2 class="my-8" id="backup-formats">Backup formats</h2>
+
+  <p class="mt-8">By default, backups are created in JSON format. Although not easily readable, this format is essential for the restore functionality as it preserves metadata, ensuring a more complete backup.</p>
+
+  <p class="mt-8">We also offer backups in Markdown format, which is currently in beta. This format is more human-readable and allows for easier browsing of your content. Currently, the Markdown format only backs up pages.</p>
 
   <h2 class="my-8" id="top-level-pages">Top-level pages</h2>
 
