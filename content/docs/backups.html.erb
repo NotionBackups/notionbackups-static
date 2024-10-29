@@ -1,6 +1,6 @@
 ---
 title: Backups
-description: Automatically back up your Notion pages, databases, media files, and comments to the cloud storage provider of your choice. You can choose how often your workspace should be backed up and when to delete old backups.
+description: Automatically back up your Notion pages, databases, media files, and comments to the cloud. You can choose the format (JSON or Markdown), frequency, and rotation schedule of your backups.
 ---
 
 <% content_for :head do %>
@@ -10,7 +10,7 @@ description: Automatically back up your Notion pages, databases, media files, an
     "@type": "TechArticle",
     "headline": "<%= @item[:title] %>",
     "datePublished": "2022-11-02",
-    "dateModified": "2024-09-16",
+    "dateModified": "2024-10-29",
     "description": "<%= @item[:description] %>",
     "inLanguage": "en-US",
     "image": {
@@ -44,13 +44,33 @@ description: Automatically back up your Notion pages, databases, media files, an
 
   <img src="/assets/images/backup-schedule.png" alt="Backup schedule estimate in the workspace settings" class="shadow-lg rounded-lg my-8 mx-auto w-4/5 border border-gray-200" loading="lazy">
 
-  <p class="mt-8">Backup completion typically takes a few hours, but large workspaces may require several days. Occasionally, Notion or cloud storage services may experience issues that could delay the backup completion. If the backup file doesn't appear in your cloud storage within a week, please <a href="/support.html" class="underline">reach out</a>.</p>
+  <p class="mt-8">Backup completion typically takes a few hours, but large workspaces may require several days. Occasionally, Notion or cloud storage services may experience issues that could delay the backup completion.</p>
+
+  <p class="mt-8">If the backup file doesn't appear in your cloud storage within a week, please <a href="/support.html" class="underline">reach out</a>.</p>
 
   <h2 class="my-8" id="backup-formats">Backup formats</h2>
 
-  <p class="mt-8">By default, backups are created in JSON format. Although not easily readable, this format is essential for the restore functionality as it preserves metadata, ensuring a more complete backup.</p>
+  <p class="mt-8">Backups are available in JSON and Markdown formats.</p>
 
-  <p class="mt-8">We also offer backups in Markdown format, which is currently in beta. This format is more human-readable and allows for easier browsing of your content. Currently, the Markdown format only backs up pages.</p>
+  <h3 class="mt-4" id="json-format">JSON</h3>
+
+  <p class="mt-8">By default, backups are created in JSON format. While not easily readable, this format is essential for restore functionality, as it preserves metadata, ensuring a more complete backup.</p>
+
+  <p class="mt-8">JSON backups also cover more ground, as some data couldn't be converted to Markdown.</p>
+
+  <h3 class="mt-4" id="markdown-format">Markdown</h3>
+
+  <p class="mt-8">Backups can also be created in Markdown format, which is currently in beta. This format is more human-readable, allowing for easier browsing of content.</p>
+
+  <p class="mt-8">Unlike Notion's built-in Markdown export, our backups are exclusively in Markdown and contain no CSV files.<p>
+
+  <p class="mt-8">Current limitations of the Markdown format:</p>
+
+  <ul class="mt-8 text-xl text-gray-700 leading-8 list-outside m-4">
+    <li class="mt-4">Some database properties might not be included, such as buttons</li>
+    <li class="mt-4">Formatting for some database properties might not be preserved</li>
+    <li class="mt-4">Media files aren't included (work in progress)</li>
+  </ul>
 
   <h2 class="my-8" id="top-level-pages">Top-level pages</h2>
 
@@ -64,11 +84,9 @@ description: Automatically back up your Notion pages, databases, media files, an
 
   <h2 class="my-8" id="media-files">Media files</h2>
 
-  <p class="mt-8">By default, media files uploaded directly to Notion (including images, audio, video, and PDF files) will be backed up. This also includes custom covers/icons and attachments in properties. This can significantly increase your backup size.</p>
+  <p class="mt-8">By default, media files uploaded directly to Notion (including images, audio, video, and PDF files) will be backed up. This also includes custom covers/icons and attachments in properties. This can significantly increase your backup size (you can disable the backing up of media files in your workspace settings).</p>
 
   <p class="mt-8">For <em>externally-hosted</em> media files, only URLs will be included in your backups, not the files themselves.</p>
-
-  <p class="mt-8">You can disable the backing up of media files in your workspace settings.</p>
 
   <h2 class="my-8" id="comments">Comments</h2>
 
