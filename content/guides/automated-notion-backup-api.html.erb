@@ -127,8 +127,8 @@ updated_at: 2024-01-10
 
   <p class="mt-8">Before an official <a class="underline" target="_blank" rel="noopener" href="https://developers.notion.com/">Notion API</a> became publicly available, you had two options when it came to backing up your Notion data:</p>
   <ul class="mt-8 text-xl text-gray-700 leading-8">
-    <li><a class="underline" target="_blank" rel="noopener" href="https://www.notion.so/help/back-up-your-data">Exporting Notion data manually</a> (which is easy to forget about)</li>
-    <li>Using a <abbr title="Continuous integration">CI</abbr> service with Notion's private <abbr title="Application programming interface">API</abbr> (the private API is subject to change at any time without notice)</li>
+    <li class="mt-2"><a class="underline" target="_blank" rel="noopener" href="https://www.notion.so/help/back-up-your-data">Exporting Notion data manually</a> (which is easy to forget about)</li>
+    <li class="mt-2">Using a <abbr title="Continuous integration">CI</abbr> service with Notion's private <abbr title="Application programming interface">API</abbr> (the private API is subject to change at any time without notice)</li>
   </ul>
   <p class="mt-8">Now that Notion's API is available, there's a more robust way of backing up your data.</p>
 
@@ -244,7 +244,7 @@ for block in response.json()['results']:
 
   <p class="mt-8">While the above code covers most of your data, there are additional items you might want to back up, namely:</p>
 
-  <ul class="mt-8 text-xl">
+  <ul class="mt-8 text-xl text-gray-700 leading-8">
     <li><a href="https://developers.notion.com/docs/working-with-files-and-media" class="underline" target="_blank" rel="noopener">Media files</a>
       <p class="m-4">This includes images, audio, video, and PDF files.</p>
     </li>
