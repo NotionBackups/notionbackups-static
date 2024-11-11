@@ -1,0 +1,71 @@
+---
+title: Back up your Notion workspaces to S3-compatible storage providers
+description: Automatically back up your Notion workspace to S3-compatible object storage providers such as Oracle, Cloudflare R2, Digital Ocean Spaces, MinIO, Storj, Upcloud, and others.
+---
+
+<% content_for :head do %>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "TechArticle",
+    "headline": "<%= @item[:title] %>",
+    "datePublished": "2024-11-11",
+    "dateModified": "2024-11-11",
+    "dependencies": "Backblaze",
+    "description": "<%= @item[:description] %>",
+    "inLanguage": "en-US",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://notionbackups.com/assets/images/banner.png"
+    },
+    "copyrightHolder": {
+      "@type": "Organization",
+      "name": "Notion Backups"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Notion Backups"
+    }
+  }
+  </script>
+<% end %>
+
+<article class="px-4 mt-24 mb-12 sm:px-6 lg:px-8">
+  <div class="max-w-prose mx-auto">
+    <h1 class="mt-2 text-center">
+      S3-compatible object storage
+    </h1>
+
+    <p class="mt-8">We support various cloud object storage providers that are compatible with the S3 API, such as:</p>
+
+    <ul class="mt-8 text-xl text-gray-700 leading-8">
+      <li class="mt-2"><a href="https://developers.cloudflare.com/r2/api/s3/tokens/" target="_blank" rel="noopener" class="underline">Cloudflare R2</a></li>
+      <li class="mt-2"><a href="https://docs.digitalocean.com/products/spaces/how-to/manage-access/#access-keys" target="_blank" rel="noopener" class="underline">Digital Ocean Spaces</a></li>
+      <li class="mt-2"><a href="https://docs.oracle.com/en-us/iaas/Content/Object/Tasks/s3compatibleapi.htm" target="_blank" rel="noopener" class="underline">Oracle Object Storage</a></li>
+      <li class="mt-2"><a href="https://upcloud.com/docs/products/managed-object-storage/features/s3-standard-compatibility/" target="_blank" rel="noopener" class="underline">Upcloud Object Storage</a></li>
+      <li class="mt-2"><a href="https://storj.dev/dcs/api/s3/credentials" target="_blank" rel="noopener" class="underline">Storj</a></li>
+      <li class="mt-2"><a href="https://min.io/docs/minio/linux/administration/identity-access-management/minio-user-management.html#id3" target="_blank" rel="noopener" class="underline">MinIO</a></li>
+      <li class="mt-2"><a href="https://docs.selectel.ru/cloud/object-storage/manage/manage-access/#issue-s3-key" target="_blank" rel="noopener" class="underline">Selectel</a></li>
+    </ul>
+
+    <h2 class="my-8">Configuration</h2>
+
+    <p class="mt-8">To connect to an S3-compatible object storage provider, use the <a href="https://app.notionbackups.com/backblaze_b2_storages/new" rel="nofollow noopener" target="_blank" class="underline">Backblaze B2 interface</a>. Enter your Access Key in the "Key ID" field and your Secret Access Key in the "Application Key" field.</p>
+
+    <p class="mt-8">Specify the endpoint, which is usually assigned by your provider. For instance, the endpoint for DigitalOcean Spaces might look like the following: <pre><code>https://nyc3.digitaloceanspaces.com</code></pre></p>
+
+    <p class="mt-8">Finally, provide the bucket name, which you typically set when creating the bucket.</p>
+
+    <h2 class="my-8">Prefix</h2>
+
+    <p class="mt-8">If supported by your provider, you can organize your backups into a folder by specifying a prefix in the dashboard.</p>
+
+    <h2 class="my-8">Access keys</h2>
+
+    <p class="mt-8">The Key ID and Application Key are both encrypted at rest with an additional layer of encryption.</p>
+
+    <p class="mt-8">The Application Key cannot be changed after creation.</p>
+
+    <p class="mt-8">If you need help setting up your account, feel free to <a href="/support.html" class="underline">reach out</a>.</p>
+  </div>
+</article>
