@@ -1,10 +1,10 @@
 ---
 title: Are Notion pages private by default?
-description: Understand Notion's default privacy settings for pages and workspaces. Learn how to make a page publicly accessible and the difference between Workspaces, Teamspaces, Shared and Private pages.
+description: Understanding Notion's privacy settings for pages and workspaces. Learn how to make a page publicly accessible and the difference between Workspaces, Teamspaces, Shared and Private pages.
 image: https://notionbackups.com/assets/images/magnifying-glass-manuscript.png
 kind: article
 created_at: 2023-09-30
-updated_at: 2024-08-29
+updated_at: 2024-11-13
 ---
 
 <% content_for :head do %>
@@ -70,7 +70,7 @@ updated_at: 2024-08-29
           "name": "Can Notion integrations read my pages?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, if you grant an integration read access to a specific Notion page, it can access that page and its subpages. New top-level pages need manual permission for integrations."
+            "text": "Yes, if you grant an integration read access to a specific Notion page, it can access that page and its subpages. New top-level pages need an explicit permission for integrations."
           }
         },
         {
@@ -78,7 +78,7 @@ updated_at: 2024-08-29
           "name": "How to make a Notion page publicly accessible?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You can create a shareable link for public access or make your pages discoverable by search engines if you're on a Plus plan."
+            "text": "If you're on a Plus plan, you can create a shareable link for public access or make your pages discoverable by search engines."
           }
         },
         {
@@ -86,12 +86,11 @@ updated_at: 2024-08-29
           "name": "Is Notion encrypted?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "While Notion provides robust sharing and permission settings, it is not end-to-end encrypted. It's advisable not to store highly sensitive information in Notion."
+            "text": "No, Notion is not end-to-end encrypted. Avoid storing sensitive information like passwords, personal IDs, or confidential business data in your workspace."
           }
         }
       ]
     }
-
   </script>
 
 <% end %>
@@ -118,57 +117,53 @@ updated_at: 2024-08-29
     <li class="mt-2">Make the page <a href="#publicly-accessible" class="underline">discoverable by search engines</a></li>
   </ul>
 
-  <p class="mt-8">Always double-check the share settings of a particular page if you're unsure about its visibility.</p>
+  <p class="mt-8">When in doubt, double-check the Share settings of a particular page.</p>
+
+  <h2 class="mt-8">Can Notion integrations read my pages?</h2>
+
+  <p class="mt-8">Yes, but only pages you specifically allow. When you grant read access, an integration can view both the top-level page and all its nested pages.</p>
+
+  <p class="mt-8">However, new top-level pages remain private by default – you'll need to manually grant access to each one you want the integration to read.</p>
+
+  <h2 class="mt-8">Is Notion encrypted?</h2>
+
+  <p class="mt-8">No, Notion is not end-to-end encrypted. Avoid storing sensitive information like passwords, personal IDs, or confidential business data in your workspace.</p>
 
   <h2 class="mt-8">What's the difference between Workspace, Teamspaces, Shared and Private sections?</h2>
 
   <h3 class="mt-8">Workspace</h3>
 
-  <p class="mt-8">A Workspace in Notion serves as the main container for all your content. Think of it as the home where your individual pages and databases reside.</p>
-
-  <p class="mt-8">Every user starts with a workspace, and depending on your goals, you can either keep your work within one workspace or create multiple ones. By default, the entirety of the workspace's content isn't accessible to others unless you invite them or make specific pages public.</p>
+  <p class="mt-8">A Workspace is your main container in Notion where all your pages and databases live. You can create multiple workspaces or keep everything in one. By default, your workspace is private – others can only access content when you specifically invite them or make pages public.</p>
 
   <h3 class="mt-8">Teamspaces</h3>
 
   <p class="mt-8">This is a shared space where multiple members can collaborate. Any page created within a teamspace can be viewed and edited by members of that teamspace, depending on the permissions set by the admin.
 
-  <p class="mt-8">It's ideal for collaborative projects, team notes, or any content that requires input from multiple members. Within a Teamspace, you can still set specific pages or pages as private, limiting access to specific members or just yourself.</p>
+  <p class="mt-8">Teamspaces let multiple members collaborate on projects and notes, with the option to set specific pages as private for selected team members or individual use.</p>
 
-  <p class="mt-8">You can also use <a class="underline" href="https://www.notion.so/help/guides/grant-access-teamspaces#use-custom-groups-to-adjust-permission-levels-for-multiple-people-at-once" target="_blank" rel="noopener">custom groups</a> to manage page permissions and members in teamspace easily. Teamspaces and groups work together, allowing for precise control over content accessibility based on roles, teams, and company levels.</p>
+  <p class="mt-8"><a class="underline" href="https://www.notion.so/help/guides/grant-access-teamspaces#use-custom-groups-to-adjust-permission-levels-for-multiple-people-at-once" target="_blank" rel="noopener">Custom groups</a> help manage page permissions and member access. By combining groups with Teamspaces, you can control who sees what based on roles and team hierarchies.</p>
 
   <h3 class="mt-8">Shared</h3>
 
-  <p class="mt-8">Shared sections are specific pages or databases within a workspace or teamspace that you've chosen to share with particular individuals or groups.
+  <p class="mt-8">Shared sections are pages or databases that you share with specific people or groups.</p>
 
-  <p class="mt-8">Unlike Teamspaces where every member typically has access to content, shared sections let you handpick who gets to see or edit a specific page. This granularity ensures that even within a broader collaborative environment, you can have controlled pockets of shared content.</p>
+  <p class="mt-8">Unlike Teamspaces which are open to all members, shared sections give you precise control over who can view or edit individual pages. This helps maintain privacy while still enabling collaboration.</p>
 
   <h3 class="mt-8">Private</h3>
 
-  <p class="mt-8">Private pages are only accessible to the individual who created it, unless it's specifically shared with others.
+  <p class="mt-8">Private pages stay hidden from other Teamspace members. These are perfect for personal notes, drafts, or any content you want to keep to yourself – like having your own private workspace within the team environment.</p>
 
-  <p class="mt-8">Even within a teamspace, you can create private pages that are hidden from other members. Think of it as your personal corner within a bustling office – your personal notes, drafts, or any information you're not ready (or don't need) to share.</p>
-
-  <p class="mt-8">Basically, Workspace is the main container for all content, Teamspaces are shared spaces for collaboration, Shared sections are specific pages shared with selected individuals or groups, and Private pages are only accessible to the individual who created them.</p>
-
-  <h2 class="mt-8">Can Notion integrations read my pages?</h2>
-
-  <p class="mt-8">When you grant an integration read access to a specific Notion page, it can access page content and all child pages nested inside it. When authorizing an integration to your Notion workspace, you can grant access to just one individual page or multiple pages.</p>
-
-  <p class="mt-8">It's worth noting that if you create new top-level pages, integrations won't automatically have access to them. You'd need to manually provide permissions for each new page you want the integration to access.</p>
+  <p class="mt-8">To sum up, Workspace is the main container for all content, Teamspaces are shared spaces for collaboration, Shared sections are specific pages shared with selected individuals or groups, and Private pages are only accessible to the individual who created them.</p>
 
   <h2 class="mt-8" id="publicly-accessible">How to make a Notion page publicly accessible?</h2>
 
   <p class="mt-8">If you wish to share your Notion page with anyone, you can create a shareable link for public access.
 
-  <p class="mt-8">Additionally, if you  are subscribed to a Plus plan, you can make your pages discoverable by search engines, which could be useful if you're creating public documentation, a portfolio, or any content that you want to be easily discoverable online.</p>
+  <p class="mt-8">Plus plan subscribers can make pages visible to search engines – useful for public documentation, portfolios, or any content you want people to find online.</p>
 
   <img src="/assets/images/notion-search-engine-indexing.png" alt="Toggle switch to make public Notion pages indexable by search engines" class="shadow-lg rounded-lg my-8 mx-auto w-4/5 border border-gray-200" loading="lazy">
 
   <p class="mt-8">You can control who has access to your pages by setting <a class="underline" href="https://www.notion.so/help/sharing-and-permissions#how-to-edit-permissions" target="_blank" rel="noopener">different permission levels</a> such as <em>full access</em>, <em>can edit</em>, <em>can comment</em>, or <em>can view</em>. This way, you can easily grant the right level of access to different individuals or groups.</p>
-
-  <h2 class="mt-8">Is Notion encrypted?</h2>
-
-  <p class="mt-8">While Notion provides robust sharing and permission settings, it's not end-to-end encrypted. Therefore, it's advisable not to store highly sensitive information, like personal identification numbers, confidential business data, or passwords, in Notion.</p>
 
   <%= render '/_cta.html' %>
 </div>
