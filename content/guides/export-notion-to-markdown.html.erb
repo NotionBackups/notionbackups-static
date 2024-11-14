@@ -155,7 +155,7 @@ const notion = new Client({
 const n2m = new NotionToMarkdown({ notionClient: notion });
 
 (async () => {
-  # page ID goes in here
+  // page ID goes in here
   const mdblocks = await n2m.pageToMarkdown("target_page_id");
   const mdString = n2m.toMarkdownString(mdblocks);
   console.log(mdString.parent);
@@ -163,7 +163,7 @@ const n2m = new NotionToMarkdown({ notionClient: notion });
 
   <h2 class="my-8">Notion Backups</h2>
 
-  <p class="mt-8">Notion Backups allows you to easily <a href="/docs/backups.html#markdown-format" class="underline" target="_blank" rel="noopener">export your Notion data to Markdown</a> and save it in the cloud storage provider of your choice. Unlike Notion's built-in Markdown export, our backups are exclusively in Markdown and contain no CSV files</p>
+  <p class="mt-8">Notion Backups allows you to easily <a href="/docs/backups.html#markdown-format" class="underline" target="_blank" rel="noopener">export your Notion data to Markdown</a> and save it in the cloud storage provider of your choice. Unlike Notion's built-in Markdown export, our backups are exclusively in Markdown and contain no CSV files.</p>
 
   <p class="mt-8">Make sure you check the "Back up in Markdown format" option in the workspace settings.</p>
 
