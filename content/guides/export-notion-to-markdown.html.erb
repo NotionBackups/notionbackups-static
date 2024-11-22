@@ -4,7 +4,7 @@ description: Learn about all the possible ways to convert your Notion pages and 
 image: https://notionbackups.com/assets/images/papers.png
 kind: article
 created_at: 2024-11-12
-updated_at: 2024-11-14
+updated_at: 2024-11-22
 ---
 
 <% content_for :head do %>
@@ -138,9 +138,9 @@ updated_at: 2024-11-14
 
   <p class="mt-8">First, create an internal integration and <a href="/guides/automated-notion-backup-api.html#create-integration" target="_blank" rel="noopener" class="underline">grab an authentication token</a>.</p>
 
-  <p class="mt-8">You can use of of the many third-party packages, such as <a href="https://github.com/souvikinator/notion-to-md" target="_blank" rel="noopener" class="underline">notion-to-md</a>. Replace the <code>your integration token</code> placeholder with your own authentication token.</p>
+  <p class="mt-8">You can use one of the many third-party packages, such as <a href="https://github.com/souvikinator/notion-to-md" target="_blank" rel="noopener" class="underline">notion-to-md</a>. Replace the <code>your-token</code> placeholder with your own authentication token.</p>
 
-  <p class="mt-8">Next, replace the <code>target_page_id</code> with the page ID you want to back up. You can find the page ID from the URL.</p>
+  <p class="mt-8">Next, replace the <code>target-page-id</code> with the page ID you want to back up. You can find the page ID from the URL.</p>
 
   <img src="/assets/images/notion-page-id-url.png" alt="Notion page ID in a URL" class="shadow-lg rounded-lg mx-auto w-4/5 md:w-full border border-gray-200 my-8" loading="lazy">
 
@@ -151,14 +151,14 @@ const fs = require('fs');
 // import {NotionToMarkdown} from "notion-to-md";
 
 const notion = new Client({
-  auth: "your integration token",
+  auth: "your-token",
 });
 
 const n2m = new NotionToMarkdown({ notionClient: notion });
 
 (async () => {
   // page ID goes in here
-  const mdblocks = await n2m.pageToMarkdown("target_page_id");
+  const mdblocks = await n2m.pageToMarkdown("target-page-id");
   const mdString = n2m.toMarkdownString(mdblocks);
   console.log(mdString.parent);
 })();</code></pre>
