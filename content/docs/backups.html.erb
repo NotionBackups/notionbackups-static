@@ -10,7 +10,7 @@ description: Automatically back up your Notion pages, databases, media files, an
     "@type": "TechArticle",
     "headline": "<%= @item[:title] %>",
     "datePublished": "2022-11-02",
-    "dateModified": "2024-10-29",
+    "dateModified": "2024-11-22",
     "description": "<%= @item[:description] %>",
     "inLanguage": "en-US",
     "image": {
@@ -40,9 +40,11 @@ description: Automatically back up your Notion pages, databases, media files, an
 
   <p class="mt-8">Your first backup should start soon after you connect your Notion workspace and at least one cloud storage provider. You can also trigger the backup manually from the workspace settings.</p>
 
-  <p class="mt-8">By default, your workspace is backed up weekly, but you can choose daily or monthly options as well. For example, if a backup finishes on January 1st with the weekly setting, expect the next one on January 8th. You can see the estimated time for the next backup in the workspace settings.</p>
-
   <img src="/assets/images/backup-schedule.png" alt="Backup schedule estimate in the workspace settings" class="shadow-lg rounded-lg my-8 mx-auto w-4/5 border border-gray-200" loading="lazy">
+
+  <p class="mt-8">There are 3 possible backup statuses: Scheduled, In progress, or Error.</p>
+
+  <p class="mt-8">By default, your workspace is backed up weekly, but you can choose daily or monthly options as well. For example, if a backup finishes on January 1st with the weekly setting, expect the next one on January 8th. You can see the estimated time for the next backup in the workspace settings.</p>
 
   <p class="mt-8">Backup completion typically takes a few hours, but large workspaces may require several days. Occasionally, Notion or cloud storage services may experience issues that could delay the backup completion.</p>
 
@@ -52,13 +54,13 @@ description: Automatically back up your Notion pages, databases, media files, an
 
   <p class="mt-8">Backups are available in JSON and Markdown formats.</p>
 
-  <h3 class="mt-4" id="json-format">JSON</h3>
+  <h3 class="mt-8" id="json-format">JSON</h3>
 
   <p class="mt-8">By default, backups are created in JSON format. While not easily readable, this format is essential for restore functionality, as it preserves metadata, ensuring a more complete backup.</p>
 
   <p class="mt-8">JSON backups also cover more ground, as some data couldn't be converted to Markdown.</p>
 
-  <h3 class="mt-4" id="markdown-format">Markdown</h3>
+  <h3 class="mt-8" id="markdown-format">Markdown</h3>
 
   <p class="mt-8">Backups can also be created in Markdown format, which is currently in beta. This format is more human-readable, allowing for easier browsing of content.</p>
 
