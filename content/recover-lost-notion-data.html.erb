@@ -4,7 +4,7 @@ description: Learn how you can recover lost Notion workspaces, databases, pages,
 image: https://notionbackups.com/assets/images/neoclassical-archival-room.png
 kind: article
 created_at: 2023-06-18
-updated_at: 2024-11-11
+updated_at: 2024-11-26
 ---
 
 <% content_for :head do %>
@@ -47,6 +47,7 @@ updated_at: 2024-11-11
           <li><a href="#reverting-page-changes" class="underline p-1 inline-block">Reverting page changes</a></li>
           <li><a href="#recovering-deleted-items" class="underline p-1 inline-block">Recovering deleted items</a></li>
           <li><a href="#missing-workspace" class="underline p-1 inline-block">Missing workspace</a></li>
+          <li><a href="#missing-pages-blocks" class="underline p-1 inline-block">Missing pages or blocks</a></li>
           <li><a href="#notion-is-down" class="underline p-1 inline-block">Notion is down</a></li>
           <li><a href="#extracting-backups" class="underline p-1 inline-block">Extracting backups</a></li>
           <li><a href="#making-regular-backups" class="underline p-1 inline-block">Making regular backups</a></li>
@@ -102,6 +103,16 @@ updated_at: 2024-11-11
 
 <p class="mt-8">If you still can't access your workspace at all, or you've accidentally deleted it, reach out to <a href="https://www.notion.so/help" class="underline" target="_blank" rel="noopener">Notion's support</a> as soon as possible. <strong>DO NOT</strong> create a new account with the same email, as this email will be used for a restored account.</p>
 
+<h2 class="my-8" id="missing-pages-blocks">Missing pages or blocks</h2>
+
+<p class="mt-8">Sometimes, pages or blocks may disappear suddenly. Usually, this resolves on its own after a while, but there are a few things you can try in the meantime.</p>
+
+<p class="mt-8">Use the <a href="/guides/essential-notion-keyboard-shortcuts.html#quick-search" class="underline" target="_blank" rel="noopener">search function</a> to look for the missing page.</p>
+
+<p class="mt-8">If you're using the Notion app, try reloading it from View > Reload.</p>
+
+<img src="/assets/images/notion-macos-app-view-reload.png" alt="Reloading Notion MacOS app view" class="shadow-lg rounded-lg my-8 mx-auto w-full border border-gray-200" loading="lazy">
+
 <h2 class="my-8" id="notion-is-down">Notion is down</h2>
 
 <p class="mt-8">Every once in a while, Notion stops working — you can't access your workspace, your changes don't get saved, and you're typically greeted with a message saying <em>"Something's not right"</em>, complete with a retry timer and debug info.</p>
@@ -111,8 +122,7 @@ updated_at: 2024-11-11
 <ul class="mt-8 text-xl text-gray-700 leading-8">
   <li class="mt-4"><a href="https://httpguides.com/status/400-bad-request" class="underline" target="_blank" rel="noopener">Http400: Bad Request</a> - Invalid data format. Try upgrading your app/browser version or changing your browser.</li>
   <li class="mt-4"><a href="https://httpguides.com/status/429-too-many-requests" class="underline" target="_blank" rel="noopener">Http429: Rate Limited</a> - You've reached the limits imposed by Notion. Try again later.</li>
-  <li class="mt-4"><a href="https://httpguides.com/status/502-bad-gateway" class="underline" target="_blank" rel="noopener">Http502: Bad Gateway</a> - Notion is experiencing temporary problems. Not much can be done on your end.</li>
-  <li class="mt-4"><a href="https://httpguides.com/status/504-gateway-timeout" class="underline" target="_blank" rel="noopener">Http504: Gateway Timeout</a> - Notion is experiencing temporary problems. Not much can be done on your end.</li>
+  <li class="mt-4"><a href="https://httpguides.com/status/502-bad-gateway" class="underline" target="_blank" rel="noopener">Http502: Bad Gateway</a> or <a href="https://httpguides.com/status/504-gateway-timeout" class="underline" target="_blank" rel="noopener">Http504: Gateway Timeout</a> - Notion is experiencing temporary problems. Not much can be done on your end.</li>
 </ul>
 
 <p class="mt-8">If you have unsaved changes, keep the browser tab/Notion app open for a while to ensure they can be saved once Notion is up and running again.</p>
