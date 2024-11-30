@@ -1,0 +1,262 @@
+---
+title: Автоматизация бэкапа Notion с помощью API
+description: Автоматизация резервного копирования данных (бэкапов) Ноушен с помощью официального Notion API и Python.
+image: https://notionbackups.com/assets/images/printing-press-papers.png
+kind: article
+created_at: 2024-11-30
+updated_at: 2024-11-30
+---
+
+<% content_for :head do %>
+  <meta property="og:locale" content="ru_RU">
+  <meta name="robots" content="max-image-preview:large">
+  <link rel="alternate" hreflang="en-US" href="https://notionbackups.com/guides/automated-notion-backup-api">
+
+  <script src="/assets/javascripts/highlight.min.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      hljs.highlightAll();
+
+      const copyButtonLabel = "Copy";
+
+      // use a class selector if available
+      let blocks = document.querySelectorAll("pre");
+
+      blocks.forEach((block) => {
+        // only add button if browser supports Clipboard API
+        if (navigator.clipboard) {
+          let button = document.createElement("button");
+
+          button.innerText = copyButtonLabel;
+          block.appendChild(button);
+          block.setAttribute("tabindex", 0);
+
+          button.addEventListener("click", async () => {
+            await copyCode(block, button);
+          });
+        }
+      });
+
+      async function copyCode(block, button) {
+        let code = block.querySelector("code");
+        let text = code.innerText;
+
+        await navigator.clipboard.writeText(text);
+
+        // visual feedback that task is completed
+        button.innerText = "Copied";
+
+        setTimeout(() => {
+          button.innerText = copyButtonLabel;
+        }, 900);
+      }
+    })
+  </script>
+
+  <link rel="stylesheet" href="/assets/stylesheets/apprentice.min.css">
+
+  <style>
+    pre {
+      position: relative;
+      overflow: auto;
+    }
+
+    pre code + button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 0.25rem;
+    }
+
+    pre code + button:hover {
+      cursor: pointer;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@id": "https://notionbackups.com/guides/ru/avtomatizaciya-bekapa-notion-s-pomoshyu-api",
+    "@type": "TechArticle",
+    "headline": "<%= item[:title] %>",
+    "dependencies": "Python",
+    "datePublished": "<%= item[:created_at] %>",
+    "dateModified": "<%= item[:updated_at] %>",
+    "image": "<%= item[:image] %>",
+    "description": "<%= item[:description] %>",
+    "inLanguage": "ru-RU",
+    "copyrightHolder": {
+      "@type": "Organization",
+      "name": "Notion Backups"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Notion Backups"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Notion Backups"
+    }
+  }
+  </script>
+<% end %>
+
+<article class="block lg:flex px-4 mt-24 mb-12 sm:px-6 lg:px-8">
+  <div class="h-screen w-64 sticky top-0 mx-2 my-4 py-2 hidden lg:block">
+    <nav>
+      <p class="m-1 text-gray-600 text-base">Contents</p>
+        <ol class="text-sm">
+          <li><a href="#sozdanie-integracii" class="underline p-1 inline-block">Создание интеграции</a></li>
+          <li><a href="#predostavlenie-dostupa-k-stranicam" class="underline p-1 inline-block">Предоставление доступа</a></li>
+          <li><a href="#zapros-dannyx" class="underline p-1 inline-block">Запрос данных</a></li>
+          <li><a href="#soxraneniye-dannyx" class="underline p-1 inline-block">Сохранение данных</a></li>
+          <li><a href="#nastroyka-cron" class="underline p-1 inline-block">Настройка cron</a></li>
+          <li><a href="#dalneyshiye-shagi" class="underline p-1 inline-block">Дальнейшие шаги</a></li>
+        </ol>
+    </nav>
+  </div>
+
+<div class="max-w-screen-md mx-auto">
+  <h1 class="mt-2 text-center">
+    Автоматизация бэкапа Notion с помощью API
+  </h1>
+
+  <p class="mt-6 text-base text-gray-600 text-center">Updated: <time datetime="<%= item[:updated_at] %>"><%= item[:updated_at].strftime("%B %-d, %Y") %></time></p>
+
+  <p class="mt-8">Регулярное создание резервных копий (бэкапов) сравнимо со страховкой: вы думаете, что она вам не нужна, пока она вам не понадобится. Поскольку Notion стал «вторым мозгом» для многих, крайне важно иметь бэкапы на всякий случай.</p>
+
+  <p class="mt-8">До того, как <a class="underline" target="_blank" rel="noopener" href="https://developers.notion.com/">официальный API</a> стал общедоступным, было 2 варианта экспорта данных Notion:</p>
+  <ul class="mt-8 text-xl text-gray-700 leading-8">
+    <li class="mt-2"><a href="https://www.notion.so/help/back-up-your-data" class="underline" target="_blank" rel="noopener">вручную экспортировать данные</a> (легко забыть)</li>
+    <li class="mt-2">использовать приватный API (который мог измениться в любой момент без предупреждения)</li>
+  </ul>
+  <p class="mt-8">Теперь с официальным API это стало более доступным.</p>
+
+  <h2 class="my-8" id="sozdanie-integracii">Шаг 1: Создание интеграции</h2>
+
+  <p class="mt-8">Перейдите на страницу "Мои интеграции" (<a href="https://www.notion.so/my-integrations" class="underline" target="_blank" rel="noopener">My Integrations</a>), чтобы создать внутреннюю интеграцию. В <a href="https://developers.notion.com/docs/getting-started" class="underline" target="_blank" rel="noopener">документации Notion</a> есть подробное описание процесса.</p>
+
+  <img src="/assets/images/notion-internal-integration.png" alt="Создание интеграции в Ноушен" class="shadow-lg rounded-lg my-8 mx-auto w-full md:w-3/5 border border-gray-200" loading="lazy">
+
+  <p class="mt-8">После завершения вы получите секретный ключ (убедитесь, что вы являетесь администратором этого рабочего пространства). Он понадобится вам позже для аутентификации API запросов.</p>
+
+  <h2 class="my-8" id="predostavlenie-dostupa-k-stranicam">Шаг 2: Предоставление доступа к страницам</h2>
+
+  <p class="mt-8">По умолчанию ваша интеграция не имеет доступа ни к каким страницам или базам данных. Вы можете предоставить доступ через меню с тремя точками <span class="font-bold">···</span> в правом верхнем углу страницы.</p>
+
+  <img src="/assets/images/add-connections-menu.png" alt="Giving our connection access to the page" class="shadow-lg rounded-lg my-8 mx-auto w-full md:w-3/5 border border-gray-200" loading="lazy">
+
+  <p class="mt-8">Предоставляя вашей интеграции доступ к определенной странице, вы также получаете доступ к ее дочерним страницам и базам данных.</p>
+
+  <p class="mt-8"><a href="https://developers.notion.com/docs/create-a-notion-integration" class="underline" target="_blank" rel="noopener">Документация</a> освещает эту тему более подробно.</p>
+
+  <h2 class="my-8" id="zapros-dannyx">Шаг 3: Запрос данных</h2>
+
+  <p class="mt-8">Если вы не собираетесь сохранять сугубо определенную страницу, вам понадобится получить доступ ко всем данным. API предоставляет нам эндпоинт <a class="underline" target="_blank" rel="noopener" href="https://developers.notion.com/reference/post-search">search</a>, который возвращает верхнеуровневые страницы и базы данных, к которым интеграция имеет доступ.</p>
+
+  <pre><code>import requests
+
+# замените INTERNAL_INTEGRATION_SECRET на ваш собственный ключ!
+headers = {
+  'Authorization': 'Bearer INTERNAL_INTEGRATION_SECRET',
+  'Notion-Version': '2022-06-28',
+  'Content-Type': 'application/json',
+}
+
+response = requests.post(
+  'https://api.notion.com/v1/search',
+  headers=headers,
+)
+</code></pre>
+
+  <p class="mt-8">Учтите, что эндпоинт <a class="underline" target="_blank" rel="noopener" href="https://developers.notion.com/reference/post-search">search</a> не возвращает дочерние страницы. Чтобы заполучить их, используйте эндпоинт <a class="underline" target="_blank" rel="noopener" href="https://developers.notion.com/reference/get-block-children">/blocks/{block_id}/children</a> (замените <code>block_id</code> на ID вашего блока).</p>
+
+<pre><code>for block in response.json()['results']:
+  child_blocks = requests.get(
+    f'https://api.notion.com/v1/blocks/{block["id"]}/children',
+    headers=headers,
+  )
+</code></pre>
+
+  <p class="mt-8">В больших рабочих пространствах результаты, вероятно, будут разбиты на страницы. Чтобы получить все элементы, вам нужно рекурсивно запрашивать эндпоинт <a class="underline" target="_blank" rel="noopener" href="https://developers.notion.com/reference/post-search">search</a>, пока параметр <code>has_more</code> не вернет <code>false</code>.</p>
+
+  <h2 class="my-8" id="soxraneniye-dannyx">Шаг 4: Сохранение данных</h2>
+
+  <p class="mt-8">Один из способов сохранить данные вашего рабочего пространства Notion — записать верхнеуровневые страницы и базы данных в отдельные JSON-файлы и поместить дочерние страницы в папку с названием их родительских файлов.</p>
+
+  <p class="mt-8">Вот как выглядит итоговый скрипт:</p>
+
+<pre>
+<code>import requests
+import os
+import datetime
+import json
+
+timestamp = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
+folder = 'notionbackup_' + timestamp
+
+os.mkdir(folder)
+
+# замените INTERNAL_INTEGRATION_SECRET на ваш собственный ключ!
+headers = {
+  'Authorization': 'Bearer INTERNAL_INTEGRATION_SECRET',
+  'Notion-Version': '2022-06-28',
+  'Content-Type': 'application/json',
+}
+
+response = requests.post('https://api.notion.com/v1/search', headers=headers)
+
+for block in response.json()['results']:
+  with open(f'{folder}/{block["id"]}.json', 'w') as file:
+    file.write(json.dumps(block))
+
+  child_blocks = requests.get(
+    f'https://api.notion.com/v1/blocks/{block["id"]}/children',
+    headers=headers,
+  )
+  if child_blocks.json()['results']:
+    os.mkdir(folder + f'/{block["id"]}')
+
+    for child in child_blocks.json()['results']:
+      with open(f'{folder}/{block["id"]}/{child["id"]}.json', 'w') as file:
+        file.write(json.dumps(child))</code>
+</pre>
+
+  <h2 class="my-8" id="nastroyka-cron">Шаг 5: Настройка cron</h2>
+
+  <p class="mt-8">В идеале резервные копии должны создаваться автоматически. В противном случае вы, скорее всего, забудете о них.</p>
+
+  <p class="mt-8">В системах, похожих на UNIX (macOS, Linux, BSD), вы можете настроить cron-задание, которое будет запускать скрипт с заданным интервалом.</p>
+
+  <p class="mt-8">Перед настройкой cron-задания сохраните этот Python-скрипт на вашем компьютере. Затем создайте запись в crontab:</p>
+
+<pre><code>crontab -e</code></pre>
+
+  <p class="mt-8">Crontab имеет специфический синтаксис (в интернете <a class="underline" target="_blank" rel="noopener" href="https://crontab.guru/">много материалов</a> на эту тему). Допустим, вы хотите запускать этот скрипт каждые 6 часов. В редакторе, открывшемся после предыдущей команды, вставьте следующее:</p>
+
+<pre><code>0 */6 * * * /usr/local/bin/python3 /full/path/to/notionbackup.py</code></pre>
+
+  <p class="mt-8">Это предполагает, что Python-скрипт называется <code>notionbackup.py</code>, а интерпретатор Python находится в <code>/usr/local/bin/python3</code>. Найти полный путь к интерпретатору Python 3 можно и так:</p>
+
+<pre><code>which python3</code></pre>
+
+  <h2 class="my-8" id="dalneyshiye-shagi">Дальнейшие шаги</h2>
+
+  <p class="mt-8">Хотя приведенный выше код охватывает большую часть ваших данных, вы, возможно, захотите сохранить следующeе:</p>
+
+  <ul class="mt-8 text-xl text-gray-700 leading-8">
+    <li><a href="https://developers.notion.com/docs/working-with-files-and-media" class="underline" target="_blank" rel="noopener">Медиафайлы</a>
+      <p class="m-4">Изображения, аудио, видео и PDF-файлы</p>
+    </li>
+    <li><a href="https://developers.notion.com/docs/working-with-comments" class="underline" target="_blank" rel="noopener">Комменты</a>
+      <p class="m-4">Вы должны сначала предоставить вашей интеграции <a href="https://developers.notion.com/reference/capabilities#comment-capabilities" class="underline" target="_blank" rel="noopener">доступа к чтению комментариев</a> (API возвращает только нерешенные комментарии)</p>
+    </li>
+  </ul>
+
+  <p class="mt-8">Вот и всё! Исходный код также опубликован <a href="https://github.com/NotionBackups/notion-backup-python" target="_blank" rel="noopener" class="underline">на GitHub</a>.</p>
+
+  <p class="mt-8">Вы также можете использовать <a href="/" target="_blank" class="underline">Notion Backups</a> для бэкапа данных Notion в облачные хранилища. Таким образом, вы можете не беспокоиться о потере своих данных.</p>
+
+  <%= render '/_cta.html' %>
+</div>
+</article>
