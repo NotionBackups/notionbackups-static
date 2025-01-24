@@ -4,7 +4,7 @@ description: Cheat sheet for essential and useful Notion keyboard shortcuts that
 image: https://notionbackups.com/assets/images/typewriter-large-windows.png
 kind: article
 created_at: 2023-10-12
-updated_at: 2024-11-14
+updated_at: 2025-01-24
 ---
 
 <% content_for :head do %>
@@ -61,31 +61,27 @@ updated_at: 2024-11-14
     const shortcutMappings = {
       mac: {
         action1: '⌘ + K',
-        action2: '⌘ + Shift + Up',
-        action3: '⌘ + Shift + Down',
-        action4: '⌘ + Enter',
-        action5: '⌘ + ⌥ + T',
-        action6: '⌘ + Shift + U',
-        action7: '⌘ + [',
-        action8: '⌘ + ]',
-        action9: '⌘ + Delete',
+        action2: 'Shift + Enter',
+        action3: '⌘ + Shift + Up',
+        action4: '⌘ + Shift + Down',
+        action5: '⌘ + Enter',
+        action6: '⌘ + ⌥ + T',
+        action7: '⌘ + Shift + U',
+        action8: '⌘ + [',
+        action9: '⌘ + ]',
         action10: '⌘ + D',
-        action11: '⌘ + Shift + M',
-        action12: '⌘ + E',
       },
       default: {
         action1: 'Ctrl + P',
-        action2: 'Ctrl + Shift + Up',
-        action3: 'Ctrl + Shift + Down',
-        action4: 'Ctrl + Enter',
-        action5: 'Ctrl + Alt + T',
-        action6: 'Ctrl + Shift + U',
-        action7: 'Ctrl + [',
-        action8: 'Ctrl + ]',
-        action9: 'Ctrl + Backspace',
+        action2: 'Ctrl + Enter',
+        action3: 'Ctrl + Shift + Up',
+        action4: 'Ctrl + Shift + Down',
+        action5: 'Ctrl + Enter',
+        action6: 'Ctrl + Alt + T',
+        action7: 'Ctrl + Shift + U',
+        action8: 'Ctrl + [',
+        action9: 'Ctrl + ]',
         action10: 'Ctrl + D',
-        action11: 'Ctrl + Shift + M',
-        action12: 'Ctrl + E',
       }
     };
 
@@ -122,16 +118,12 @@ updated_at: 2024-11-14
       <p class="m-1 text-gray-600 text-base">Contents</p>
         <ul class="text-sm">
           <li><a href="#quick-search" class="underline p-1 inline-block">Quick Search</a></li>
+          <li><a href="#new-database-row" class="underline p-1 inline-block">New Database Row</a></li>
           <li><a href="#move-text-up-down" class="underline p-1 inline-block">Move Text Up or Down</a></li>
-          <li><a href="#new-row" class="underline p-1 inline-block">New Row</a></li>
           <li><a href="#toggle-options" class="underline p-1 inline-block">Toggle Options</a></li>
           <li><a href="#navigate-to-upper-directory" class="underline p-1 inline-block">Navigate to Upper Directory</a></li>
           <li><a href="#move-between-pages" class="underline p-1 inline-block">Move Between Pages</a></li>
-          <li><a href="#delete-block" class="underline p-1 inline-block">Delete Block</a></li>
           <li><a href="#duplicate-block" class="underline p-1 inline-block">Duplicate Block</a></li>
-          <li><a href="#new-comment" class="underline p-1 inline-block">New Comment</a></li>
-          <li><a href="#insert-quote" class="underline p-1 inline-block">Insert Quote</a></li>
-          <li><a href="#inline-code" class="underline p-1 inline-block">Inline Code</a></li>
         </ul>
     </nav>
   </div>
@@ -160,72 +152,47 @@ updated_at: 2024-11-14
 
   <p class="mt-8">Activate the search bar to find pages, databases, or blocks. It may take a few seconds for results to appear.</p>
 
-  <h2 class="my-8" id="move-text-up-down">Move Text Up or Down</h2>
+  <h2 class="my-8" id="new-database-row">New Database Row</h2>
 
-  <pre><code><kbd data-shortcut="action2">Cmd/Ctrl + Shift + Up</kbd></code></pre>
-  <pre><code><kbd data-shortcut="action3">Cmd/Ctrl + Shift + Down</kbd></code></pre>
-
-  <p class="mt-8">Reorder text blocks up or down. If you're moving checkboxes or list items, it will first attempt to place the item as the child element of the adjacent item before moving it up or down.</p>
-
-  <h2 class="my-8" id="new-row">New Row</h2>
-
-  <pre><code><kbd>Shift + Enter</kbd></code></pre>
+  <pre><code><kbd data-shortcut="action2">Shift + Enter</kbd></code></pre>
 
   <p class="mt-8">Create a new row in a table or a database.</p>
 
+  <h2 class="my-8" id="move-text-up-down">Move Text Up or Down</h2>
+
+  <pre><code><kbd data-shortcut="action3">Cmd/Ctrl + Shift + Up</kbd></code></pre>
+  <pre><code><kbd data-shortcut="action4">Cmd/Ctrl + Shift + Down</kbd></code></pre>
+
+  <p class="mt-8">Reorder text blocks up or down. If you're moving checkboxes or list items, it will first attempt to place the item as the child element of the adjacent item before moving it up or down.</p>
+
   <h2 class="my-8" id="toggle-options">Toggle Options</h2>
 
-  <pre><code><kbd data-shortcut="action4">Cmd/Ctrl + Enter</kbd></code></pre>
+  <pre><code><kbd data-shortcut="action5">Cmd/Ctrl + Enter</kbd></code></pre>
 
   <p class="mt-8">Open a toggle while editing or highlighting one.</p>
 
-  <pre><code><kbd data-shortcut="action5">Cmd/Ctrl + Option/Alt + T</kbd></code></pre>
+  <pre><code><kbd data-shortcut="action6">Cmd/Ctrl + Option/Alt + T</kbd></code></pre>
 
   <p class="mt-8">Open or close all toggles on a page.</p>
 
   <h2 class="my-8" id="navigate-to-upper-directory">Navigate to Upper Directory</h2>
 
-  <pre><code><kbd data-shortcut="action6">Cmd/Ctrl + Shift + U</kbd></code></pre>
+  <pre><code><kbd data-shortcut="action7">Cmd/Ctrl + Shift + U</kbd></code></pre>
 
   <p class="mt-8">Navigate back to the upper directory.</p>
 
   <h2 class="my-8" id="move-between-pages">Move Between Pages</h2>
 
-  <pre><code><kbd data-shortcut="action7">Cmd/Ctrl + [</kbd></code></pre>
-  <pre><code><kbd data-shortcut="action8">Cmd/Ctrl + ]</kbd></code></pre>
+  <pre><code><kbd data-shortcut="action8">Cmd/Ctrl + [</kbd></code></pre>
+  <pre><code><kbd data-shortcut="action9">Cmd/Ctrl + ]</kbd></code></pre>
 
   <p class="mt-8">Move between pages forward or backward.</p>
-
-  <h2 class="my-8" id="delete-block">Delete Block</h2>
-
-  <pre><code><kbd data-shortcut="action9">Cmd/Ctrl + Delete/Backspace</kbd></code></pre>
-
-  <p class="mt-8">Remove the content of the block. When pressed twice, removes the block completely.</p>
 
   <h2 class="my-8" id="duplicate-block">Duplicate Block</h2>
 
   <pre><code><kbd data-shortcut="action10">Cmd/Ctrl + D</kbd></code></pre>
 
   <p class="mt-8">Duplicate blocks for consistent layout or content reuse.</p>
-
-  <h2 class="my-8" id="new-comment">New Comment</h2>
-
-  <pre><code><kbd data-shortcut="action11">Cmd/Ctrl + Shift + M</kbd></code></pre>
-
-  <p class="mt-8">Insert a comment to the highlighted/focused element.</p>
-
-  <h2 class="my-8" id="insert-quote">Insert Quote</h2>
-
-  <pre><code><kbd>" + Space</kbd></code></pre>
-  <pre><code><kbd>/quote</kbd></code></pre>
-
-  <p class="mt-8">Create a quote block.</p>
-
-  <h2 class="my-8" id="inline-code">Inline Code</h2>
-
-  <pre><code><kbd data-shortcut="action12">Cmd/Ctrl + E</kbd></code></pre>
-
-  <p class="mt-8">Convert selected text to inline code. When not selected, it will mark new text as inline code.</p>
 
   <%= render '/_cta.html' %>
 </div>
