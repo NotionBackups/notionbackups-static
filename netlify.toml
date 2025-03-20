@@ -9,7 +9,7 @@
 
 [build.environment]
   NODE_ENV = "production"
-  NODE_VERSION = "18"
+  NODE_VERSION = "22"
   RUBY_VERSION = "3.2.3"
 
 [[headers]]
