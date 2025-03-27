@@ -4,7 +4,7 @@ description: Learn more about Notion's privacy settings, encryption, how to mana
 image: https://notionbackups.com/assets/images/magnifying-glass-manuscript.png
 kind: article
 created_at: 2023-09-30
-updated_at: 2024-11-13
+updated_at: 2025-03-27
 ---
 
 <% content_for :head do %>
@@ -83,7 +83,7 @@ updated_at: 2024-11-13
         },
         {
           "@type": "Question",
-          "name": "Is Notion encrypted?",
+          "name": "Is Notion end-to-end encrypted?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "No, Notion is not end-to-end encrypted. Avoid storing sensitive information like passwords, personal IDs, or confidential business data in your workspace."
@@ -125,9 +125,21 @@ updated_at: 2024-11-13
 
   <p class="mt-8">However, new top-level pages remain private by default – you'll need to manually grant access to each one you want the integration to read.</p>
 
-  <h2 class="mt-8">Is Notion encrypted?</h2>
+  <h2 class="mt-8">Is Notion end-to-end encrypted?</h2>
 
-  <p class="mt-8">No, Notion is not end-to-end encrypted. Avoid storing sensitive information like passwords, personal IDs, or confidential business data in your workspace.</p>
+  <p class="mt-8">Notion encrypts data both at rest and in transit, but it does not offer end-to-end encryption (which means that your data is encrypted on your device and only decrypted on the recipient's device, so Notion cannot access your data without your permission)</p>
+
+  <p class="mt-8">Avoid storing sensitive information such as passwords, personal IDs, or confidential business data in your workspace.</p>
+
+  <h2 class="mt-8" id="publicly-accessible">How to make a Notion page publicly accessible?</h2>
+
+  <p class="mt-8">If you wish to share your Notion page with anyone, you can create a shareable link for public access.
+
+  <p class="mt-8">Plus plan subscribers can make pages visible to search engines – useful for public documentation, portfolios, or any content you want people to find online.</p>
+
+  <img src="/assets/images/notion-search-engine-indexing.png" alt="Toggle switch to make public Notion pages indexable by search engines" class="shadow-lg rounded-lg my-8 mx-auto w-4/5 border border-gray-200" loading="lazy">
+
+  <p class="mt-8">You can control who has access to your pages by setting <a class="underline" href="https://www.notion.so/help/sharing-and-permissions#how-to-edit-permissions" target="_blank" rel="noopener">different permission levels</a> such as <em>full access</em>, <em>can edit</em>, <em>can comment</em>, or <em>can view</em>. This way, you can easily grant the right level of access to different individuals or groups.</p>
 
   <h2 class="mt-8">What's the difference between Workspace, Teamspaces, Shared and Private sections?</h2>
 
@@ -154,16 +166,6 @@ updated_at: 2024-11-13
   <p class="mt-8">Private pages stay hidden from other Teamspace members. These are perfect for personal notes, drafts, or any content you want to keep to yourself – like having your own private workspace within the team environment.</p>
 
   <p class="mt-8">To sum up, Workspace is the main container for all content, Teamspaces are shared spaces for collaboration, Shared sections are specific pages shared with selected individuals or groups, and Private pages are only accessible to the individual who created them.</p>
-
-  <h2 class="mt-8" id="publicly-accessible">How to make a Notion page publicly accessible?</h2>
-
-  <p class="mt-8">If you wish to share your Notion page with anyone, you can create a shareable link for public access.
-
-  <p class="mt-8">Plus plan subscribers can make pages visible to search engines – useful for public documentation, portfolios, or any content you want people to find online.</p>
-
-  <img src="/assets/images/notion-search-engine-indexing.png" alt="Toggle switch to make public Notion pages indexable by search engines" class="shadow-lg rounded-lg my-8 mx-auto w-4/5 border border-gray-200" loading="lazy">
-
-  <p class="mt-8">You can control who has access to your pages by setting <a class="underline" href="https://www.notion.so/help/sharing-and-permissions#how-to-edit-permissions" target="_blank" rel="noopener">different permission levels</a> such as <em>full access</em>, <em>can edit</em>, <em>can comment</em>, or <em>can view</em>. This way, you can easily grant the right level of access to different individuals or groups.</p>
 
   <%= render '/_cta.html' %>
 </div>
