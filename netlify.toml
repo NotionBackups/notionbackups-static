@@ -32,3 +32,8 @@
   from = "/blog/notion-pages-privacy"
   to = "/guides/notion-pages-privacy"
   status = 301
+
+[[redirects]]
+  from = "/guides/notion-mail"
+  to = "/guides/notion-offline-mode"
+  status = 301
