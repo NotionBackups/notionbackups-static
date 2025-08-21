@@ -4,7 +4,7 @@ description: Learn about the upcoming Notion offline mode and how it will affect
 image: https://notionbackups.com/assets/images/papers.png
 kind: article
 created_at: 2025-03-20
-updated_at: 2025-05-03
+updated_at: 2025-08-21
 ---
 
 <article class="px-4 mt-24 mb-12 sm:px-6 lg:px-8">
@@ -15,36 +15,88 @@ updated_at: 2025-05-03
 
 <p class="mt-6 text-base text-gray-600 text-center">Updated: <time datetime="<%= item[:updated_at] %>"><%= item[:updated_at].strftime("%B %-d, %Y") %></time></p>
 
-<p class="mt-8">Notion, after a long wait, is set to introduce an offline mode, which has been highly anticipated by users. This feature will allow you to work on your pages without an internet connection.</p>
+<p class="mt-8">After years of being the most requested feature by users, Notion's offline mode has officially launched. If you've ever been stuck on a plane trying to finish that important document, or found yourself in a coffee shop with terrible WiFi, this update is going to change how you work. But like many long-awaited features, the reality comes with some compromises.</p>
 
-<h2 class="my-8">What we know so far</h2>
+    <h2 class="my-8">What Actually Works Now</h2>
 
-<p class="mt-8 mb-8">Based on recent announcements by Notion's founder, Ivan Zhao, the offline mode will initially support per-page access with a toggle, meaning you can choose which pages are available offline without needing to pre-open them online first.
+    <p class="mt-8">Let's cut to the chase: Notion's offline mode does what it says on the tin, but you'll need to plan ahead. The system works by letting you download specific pages before you lose your internet connection. Think of it like downloading a Netflix episode before a flight - except instead of entertainment, it's your work documents.</p>
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Testing offline ☺️ <a href="https://t.co/QFkxujBCKm">pic.twitter.com/QFkxujBCKm</a></p>&mdash; Ivan Zhao (@ivanhzhao) <a href="https://twitter.com/ivanhzhao/status/1901672634687033442?ref_src=twsrc%5Etfw">March 17, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p class="mt-8">Here's what you can actually do offline:</p>
+    <ul class="mt-8 text-xl text-gray-700 leading-8 list-outside m-4">
+        <li class="mt-2">Write and edit text (the bread and butter stuff)</li>
+        <li class="mt-2">Work with basic formatting and most standard blocks</li>
+        <li class="mt-2">Edit existing database entries - but only the first 50 rows of your first view</li>
+        <li class="mt-2">Create new pages (though they'll only live locally until you sync)</li>
+    </ul>
 
-<p class="mt-8 mb-8">It's expected to be available on both mobile and desktop apps, with further improvements planned throughout 2025.</p>
+    <h2 class="my-8">The Setup Process (And Why It's a Bit Annoying)</h2>
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Offline mode in <a href="https://twitter.com/NotionHQ?ref_src=twsrc%5Etfw">@NotionHQ</a> went out to 200 external alpha testers this week. Will gradually open up to more <a href="https://t.co/P7XZZ1M3nz">https://t.co/P7XZZ1M3nz</a></p>&mdash; Ivan Zhao (@ivanhzhao) <a href="https://twitter.com/ivanhzhao/status/1917945420975841318?ref_src=twsrc%5Etfw">May 1, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p class="mt-8">Here's where things get tedious. Unlike competitors like Apple Notes or even OneNote, you can't just open Notion and expect everything to work offline. Instead, you need to manually enable offline access for each page you might want to work on.</p>
 
-<p class="mt-8 mb-8">It's currently available to a small group of alpha users and will be rolled out to all users in the coming months.</p>
+    <ol class="mt-8 text-xl text-gray-700 leading-8 list-outside m-4">
+        <li class="mt-2">Open the page you want available offline</li>
+        <li class="mt-2">Click the three dots (•••) in the top-right corner</li>
+        <li class="mt-2">Toggle on "Available offline"</li>
+        <li class="mt-2">Wait for it to download</li>
+        <li class="mt-2">Repeat for every single page you might need</li>
+    </ol>
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">WOAH <a href="https://twitter.com/NotionHQ?ref_src=twsrc%5Etfw">@NotionHQ</a> offline is pure delight🪄<br>flawless sync, even with multiple editors<br>zero conflicts. no lost work<br>uninterrupted flow, finally real<br><br>you can feel the complex years of engineering...<br>...all coming together seamlessly<br><br>it just works. and that’s the magic <a href="https://t.co/lVTbaKXGc7">https://t.co/lVTbaKXGc7</a> <a href="https://t.co/aI3fx3BAhv">pic.twitter.com/aI3fx3BAhv</a></p>&mdash; John Paul (@jpaulpoliquit) <a href="https://twitter.com/jpaulpoliquit/status/1917982670740685237?ref_src=twsrc%5Etfw">May 1, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <p class="mt-8">Oh, and here's the kicker: you need to do this separately on each device. Your phone won't automatically sync the offline pages from your laptop. If you're someone who switches between devices frequently, this manual setup process is going to test your patience.</p>
 
-<p class="mt-8">While offline mode will help with slow page loading, it might not fully address issues like laggy scrolling in large databases, and there could be challenges like update conflicts when syncing back online.</p>
+    <h3 class="mt-8">The Database Limitation That Nobody Talks About</h3>
 
-<p class="mt-8">Storage space is another concern, especially on mobile devices, where filling up limited storage (e.g., 32GB iPhones) could be an issue (that could be the reason for the per-page toggle).</p>
+    <p class="mt-8">If you're a heavy database user (and let's be honest, that's half the reason people love Notion), you'll hit some walls pretty quickly. When you download a database, you only get the first 50 rows of the first view. Got a project database with 200 tasks sorted by priority? Hope the important ones are in that first 50, because the rest won't be available offline.</p>
 
-<h2 class="my-8">How it differs from the existing "Offline" mode</h2>
+    <p class="mt-8">Subpages are another gotcha. They don't automatically download with their parent pages, so you'll need to remember to mark each important subpage individually. Miss one, and you'll be staring at a grayed-out link when you need it most.</p>
 
-<p class="mt-8">Notion currently lets you edit pages offline, but you must open them while still online. With the new offline mode, you can allegedly open and edit pages entirely offline.</p>
+    <h2 class="my-8">What Doesn't Work (And Why It Matters)</h2>
 
-<img src="/assets/images/notion-offline-label.png" alt="Offline label in Notion" class="shadow-lg rounded-lg my-8 mx-auto w-3/5 md:w-2/5 border border-gray-200" loading="lazy">
+    <p class="mt-8">Let's talk about the elephant in the room: this isn't really a full offline mode. AI features don't work, you can't use embeds, forms, or buttons, and you can't share pages or change permissions. For many power users, these limitations significantly reduce Notion's usefulness offline.</p>
 
+    <p class="mt-8">Some users are already voicing frustration with these constraints:</p>
 
-<h2 class="my-8">Importance of Backups</h2>
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">[Tweet content from Adam Bartas about Notion offline mode limitations]</p>&mdash; Adam Bartas (@AdamBartas) <a href="https://twitter.com/AdamBartas/status/1958096852693463086?ref_src=twsrc%5Etfw">August 21, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-<p class="mt-8">While offline mode is a great step forward, it doesn't protect against data loss from device failures, accidental deletions, or other issues. This is why you should always have a backup of your data.</p>
+    <ul class="mt-8 text-xl text-gray-700 leading-8 list-outside m-4">
+        <li class="mt-2">No Notion AI means no writing assistance or content generation</li>
+        <li class="mt-2">Embedded YouTube videos, Google Maps, and other integrations won't load</li>
+        <li class="mt-2">Complex automation and workflow features are completely inaccessible</li>
+        <li class="mt-2">Mobile syncing requires Wi-Fi - cellular data won't cut it</li>
+    </ul>
+
+    <h2 class="my-8">The Mobile Experience: A Mixed Bag</h2>
+
+    <p class="mt-8">Mobile offline mode works, but it comes with extra friction. Unlike some competitors that are designed to work offline by default, Notion's approach requires the same manual setup process on mobile, and syncing only works over Wi-Fi, not cellular data. If you're someone who does a lot of mobile work, this could be a dealbreaker.</p>
+
+    <p class="mt-8">Storage is another concern, especially on phones with limited space. The manual download requirement exists partly because of storage constraints - nobody wants their 32GB iPhone filled up with cached Notion pages.</p>
+
+    <h2 class="my-8">The Conflict Resolution Challenge</h2>
+
+    <p class="mt-8">What happens when multiple team members edit the same content while offline? Notion handles text-based conflicts reasonably well, automatically merging changes where possible. But non-text elements are trickier. If two people update a database property while offline, only one change will ultimately stick, potentially leading to lost work.</p>
+
+    <p class="mt-8">This isn't necessarily Notion's fault - it's a genuinely hard technical problem. But it does mean that offline mode works best for individual use rather than collaborative work.</p>
+
+    <h2 class="my-8">The Reality Check: Is This Enough?</h2>
+
+    <p class="mt-8">After five years of requests, Notion's offline mode feels like a solid first attempt rather than a complete solution. It's functional for basic writing and planning tasks, but it's not the seamless offline experience that many users were hoping for.</p>
+
+    <p class="mt-8">Compare this to alternatives like Craft or Obsidian, which are designed with offline-first approaches, and the limitations become more apparent. While this gives you maximum control over local storage, it differs greatly from apps that work offline by default everywhere.</p>
+
+    <p class="mt-8">Some users have already started exploring workarounds, using third-party apps to bridge the gap or relying on Notion in conjunction with other tools that offer better offline capabilities.</p>
+
+    <h2 class="my-8">Why You Still Need Backups</h2>
+
+    <p class="mt-8">Here's something that hasn't changed: offline mode doesn't replace the need for proper data protection. While Notion's automatic syncing has gotten more reliable, device failures, accidental deletions, and software bugs can still happen. As one expert noted, "using Notion offline is not ideal and may lead to synchronization problems and data loss."</p>
+
+    <p class="mt-8">Offline mode is a productivity feature, not a backup strategy. If your Notion workspace contains critical information - whether it's client data, project documentation, or your personal knowledge base - you need a separate backup solution that protects against all the things offline mode doesn't: corruption, accidental deletion, account issues, and service outages.</p>
+
+    <h2 class="my-8">The Bottom Line</h2>
+
+    <p class="mt-8">Notion's offline mode is a welcome addition that solves real problems for many users. If you primarily use Notion for writing, note-taking, and basic project management, it'll probably meet your needs. The manual setup is annoying, but it works.</p>
+
+    <p class="mt-8">However, if you're a power user who relies heavily on databases, integrations, AI features, or collaborative workflows, you might find the limitations frustrating. The feature feels more like "basic offline functionality" than true offline mode.</p>
+
+    <p class="mt-8">That said, Notion has a track record of iterating on features based on user feedback. This first version establishes the foundation - future updates will likely expand what works offline and reduce the setup friction.</p>
 
 <%= render '/_cta.html' %>
 
