@@ -29,6 +29,8 @@ updated_at: 2025-08-21
         <li class="mt-2">Create new pages (though they'll only live locally until you sync)</li>
     </ul>
 
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Understanding what works and what doesn&#39;t work in the new Notion Offline Mode can be tricky - so I created a handy flowchart 😎<br><br>tl/dr:<br><br>✅ simple edits of pages<br><br>✅ modifying simple properties in databases<br><br>❌ anything that requires heaver computation (like formulas, roll-ups… <a href="https://t.co/ZUbYyk39Xs">pic.twitter.com/ZUbYyk39Xs</a></p>&mdash; Matthias 🔥 (@MFreihaendig) <a href="https://twitter.com/MFreihaendig/status/1958076552585076946?ref_src=twsrc%5Etfw">August 20, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
     <h2 class="my-8">The Setup Process (And Why It's a Bit Annoying)</h2>
 
     <p class="mt-8">Here's where things get tedious. Unlike competitors like Apple Notes or even OneNote, you can't just open Notion and expect everything to work offline. Instead, you need to manually enable offline access for each page you might want to work on.</p>
@@ -47,6 +49,8 @@ updated_at: 2025-08-21
 
     <p class="mt-8">If you're a heavy database user (and let's be honest, that's half the reason people love Notion), you'll hit some walls pretty quickly. When you download a database, you only get the first 50 rows of the first view. Got a project database with 200 tasks sorted by priority? Hope the important ones are in that first 50, because the rest won't be available offline.</p>
 
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Databases were another beast — each cell can link to pages upon pages, infinitely deep. For this v1, we start with 50 rows per database by default when offline. (More to come in v2!) <br><br>5/n</p>&mdash; Ivan Zhao (@ivanhzhao) <a href="https://twitter.com/ivanhzhao/status/1957827815136481738?ref_src=twsrc%5Etfw">August 19, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
     <p class="mt-8">Subpages are another gotcha. They don't automatically download with their parent pages, so you'll need to remember to mark each important subpage individually. Miss one, and you'll be staring at a grayed-out link when you need it most.</p>
 
     <h2 class="my-8">What Doesn't Work (And Why It Matters)</h2>
@@ -55,7 +59,7 @@ updated_at: 2025-08-21
 
     <p class="mt-8">Some users are already voicing frustration with these constraints:</p>
 
-    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">[Tweet content from Adam Bartas about Notion offline mode limitations]</p>&mdash; Adam Bartas (@AdamBartas) <a href="https://twitter.com/AdamBartas/status/1958096852693463086?ref_src=twsrc%5Etfw">August 21, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">It took Notion 9 years to add offline mode<br><br>and its terrible<br><br>- Pages have to be downloaded manually<br>- Only first 50 rows of a database are downloaded<br>- Auto favorite/recents downloads are a Paid feature<br><br>Come on.. <a href="https://t.co/LOlZ58LvGd">pic.twitter.com/LOlZ58LvGd</a></p>&mdash; Adam Barta (@AdamBartas) <a href="https://twitter.com/AdamBartas/status/1958096852693463086?ref_src=twsrc%5Etfw">August 20, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
     <ul class="mt-8 text-xl text-gray-700 leading-8 list-outside m-4">
         <li class="mt-2">No Notion AI means no writing assistance or content generation</li>
@@ -75,6 +79,8 @@ updated_at: 2025-08-21
     <p class="mt-8">What happens when multiple team members edit the same content while offline? Notion handles text-based conflicts reasonably well, automatically merging changes where possible. But non-text elements are trickier. If two people update a database property while offline, only one change will ultimately stick, potentially leading to lost work.</p>
 
     <p class="mt-8">This isn't necessarily Notion's fault - it's a genuinely hard technical problem. But it does mean that offline mode works best for individual use rather than collaborative work.</p>
+
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">The hardest part: resolve conflict when multiple people edit the same content offline. <br><br>Our team built one of the largest production CRDT systems (Conflict‑free Replicated Data Types). One teammate even wrote a PhD thesis about it! 4/n <a href="https://t.co/Fcj9HpJaoc">pic.twitter.com/Fcj9HpJaoc</a></p>&mdash; Ivan Zhao (@ivanhzhao) <a href="https://twitter.com/ivanhzhao/status/1957827812208808053?ref_src=twsrc%5Etfw">August 19, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
     <h2 class="my-8">The Reality Check: Is This Enough?</h2>
 
