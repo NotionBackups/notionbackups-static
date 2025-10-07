@@ -1,0 +1,76 @@
+---
+title: Fixing common Notion issues
+description: Troubleshooting Notion - step-by-step fixes for common errors, sync issues, database glitches, and template problems.
+kind: article
+created_at: 2025-10-08
+updated_at: 2025-10-08
+---
+
+<% content_for :head do %>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@id": "https://notionbackups.com/guides/notion-problems",
+    "@type": "TechArticle",
+    "headline": "<%= @item[:title] %>",
+    "datePublished": "<%= item[:created_at] %>",
+    "dateModified": "<%= item[:updated_at] %>",
+    "description": "<%= @item[:description] %>",
+    "inLanguage": "en-US",
+    "copyrightHolder": {
+      "@type": "Organization",
+      "name": "Notion Backups"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Notion Backups"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Notion Backups"
+    }
+  }
+  </script>
+<% end %>
+
+<article class="px-4 mt-24 mb-12 sm:px-6 lg:px-8">
+<div class="max-w-prose mx-auto">
+  <h1 class="mt-2 text-center">
+    Troubleshooting Notion errors
+  </h1>
+
+  <p class="mt-8">Below we've compiled some of the common issues with Notion and ways of fixing them.</p>
+
+  <h2 class="my-8">Template won't duplicate</h2>
+
+  <p class="mt-8">What’s happening: It’s often a temporary glitch or a permissions problem inside the template’s nested pages (usually databases). Fixes:</p>
+
+  <ul class="mt-8 text-xl text-gray-700 leading-8">
+    <li class="mt-4">Try duplicating from the mobile app - it often bypasses the hiccup.</li>
+    <li class="mt-4">Check sharing on every page and database inside the template. If a sub-page has stricter permissions, duplication can fail even if the top page is shared. Explicitly share all nested pages/databases, not just the parent. Make sure the share chain doesn’t stop where permissions change.</li>
+    <li class="mt-4">If all else fails, wait a bit and try again - this is a known issue on Notion’s side.</li>
+  </ul>
+
+  <h2 class="my-8">Notion won’t load at all</h2>
+
+  <p class="mt-8">What’s happening: Network/DNS issues or a glitch in the desktop app. Fixes:</p>
+
+  <ul class="mt-8 text-xl text-gray-700 leading-8">
+    <li class="mt-4">Switch your DNS to 8.8.8.8 (Google DNS) or 1.1.1.1 (Cloudflare). Some networks block Notion at the DNS level.</li>
+    <li class="mt-4">Desktop app → View → Force Reload. This clears cached junk without a full reinstall.</li>
+    <li class="mt-4">If the web app loads but the desktop app doesn’t, reinstall the desktop app. (You’ll keep your data—it lives in the cloud.)</li>
+  </ul>
+
+  <h2 class="my-8">Export fails</h2>
+
+  <p class="mt-8">What’s happening: Big workspaces take time; the export job can stall. Fixes:</p>
+
+  <ul class="mt-8 text-xl text-gray-700 leading-8">
+    <li class="mt-4">Try again. For large exports, give it time - Notion processes in the background.</li>
+    <li class="mt-4">If the ZIP won’t open, use 7-Zip to extract—more forgiving than default tools.</li>
+    <li class="mt-4">PDF export caveats: Expect layout quirks—page breaks, wide tables, toggles, code blocks, and embeds don’t always render cleanly. Inline images can shift; complex databases flatten. For share-ready PDFs, you may need manual cleanup.</li>
+  </ul>
+
+  <%= render '/_cta.html' %>
+</div>
+</article>
