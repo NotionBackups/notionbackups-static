@@ -4,7 +4,7 @@ description: Learn how you can recover lost Notion workspaces, databases, pages,
 image: https://notionbackups.com/assets/images/neoclassical-archival-room.png
 kind: article
 created_at: 2023-06-18
-updated_at: 2025-06-11
+updated_at: 2025-11-18
 ---
 
 <% content_for :head do %>
@@ -49,6 +49,7 @@ updated_at: 2025-06-11
           <li><a href="#missing-workspace" class="underline p-1 inline-block">Missing workspace</a></li>
           <li><a href="#missing-pages-blocks" class="underline p-1 inline-block">Missing pages or blocks</a></li>
           <li><a href="#notion-is-down" class="underline p-1 inline-block">Notion is down</a></li>
+          <li><a href="#notion-not-loading" class="underline p-1 inline-block">Notion not loading</a></li>
           <li><a href="#extracting-backups" class="underline p-1 inline-block">Extracting backups</a></li>
           <li><a href="#making-regular-backups" class="underline p-1 inline-block">Making regular backups</a></li>
         </ol>
@@ -133,6 +134,12 @@ updated_at: 2025-06-11
 
 <p class="mt-8">If you have unsaved changes, keep the browser tab/Notion app open for a while to ensure they can be saved once Notion is up and running again.</p>
 
+<h2 class="my-8" id="notion-not-loading">Notion won’t load at all</h2>
+
+<p class="mt-8">If you can't load Notion from your browser, it could be a network/DNS issue. Try switching your DNS to 8.8.8.8 (Google DNS) or 1.1.1.1 (Cloudflare). Some corporate networks block Notion at the DNS level.</p>
+
+<p class="mt-8">If the problem persists, try reinstalling the desktop app. You won't lose your data.</p>
+
 <h2 class="my-8" id="extracting-backups">Extracting backups</h2>
 
 <p class="mt-8">Notion exports backups in a zip archive. If you're getting the "The compressed (zipped) folder is invalid" error message with Windows' default archive extractor, consider using <a href="https://7-zip.org" class="underline" target="_blank" rel="noopener">7zip</a> instead.</p>
@@ -141,7 +148,7 @@ updated_at: 2025-06-11
 
 <p class="mt-8">It's a good idea to regularly make backups of your workspace to avoid losing your data.</p>
 
-<p class="mt-8">You can <a href="https://www.notion.so/help/export-your-content" class="underline" target="_blank" rel="noopener">export your content</a> in Markdown/CSV, HTML, and PDF formats from your workspace settings. You can also export individual pages or databases from the <span class="font-bold">···</span> menu in the upper-right corner.</p>
+<p class="mt-8">You can <a href="https://www.notion.so/help/export-your-content" class="underline" target="_blank" rel="noopener">export your content</a> in Markdown/CSV, HTML, and PDF formats from your workspace settings. Large or complex workspace exports can take time - up to several days. You can also export individual pages or databases from the <span class="font-bold">···</span> menu in the upper-right corner.</p>
 
 <p class="mt-8">If you have some experience with programming, you can <a href="/guides/automated-notion-backup-api.html" class="underline" target="_blank">automate backups</a>.</p>
 
