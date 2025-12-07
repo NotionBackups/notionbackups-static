@@ -1,0 +1,289 @@
+---
+title: Free Notion to PDF Exporter
+description: Export any public Notion page as a beautifully formatted PDF for free. Customize fonts, margins, page size, while preserving the formatting and layout.
+---
+
+<% content_for :head do %>
+<style>
+  details[open] > summary svg { transform: rotate(90deg); }
+  details summary::-webkit-details-marker { display: none; }
+  details summary { list-style: none; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Notion to PDF Exporter",
+  "description": "Convert public Notion pages to beautifully formatted PDFs",
+  "url": "https://notionbackups.com/tools/notion-to-pdf",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "creator": {
+    "@type": "Organization",
+    "name": "Notion Backups"
+  }
+}
+</script>
+<% end %>
+
+<% content_for :main do %>
+<div class="bg-white py-16 sm:py-24">
+  <div class="mx-auto max-w-3xl px-6 lg:px-8">
+    <div class="text-center">
+      <h1 class="mt-2">Notion to PDF Exporter</h1>
+      <p class="mt-4">Convert any public Notion page to a beautifully formatted PDF for free.</p>
+    </div>
+
+    <div class="mt-12">
+      <form id="pdf-form" class="space-y-8">
+        <!-- Notion URL Input -->
+        <div>
+          <label for="notion-url" class="font-semibold text-gray-900">Notion Page URL</label>
+          <div class="mt-2">
+            <input type="url" id="notion-url" name="notion-url" required
+              placeholder="https://notion.site/your-page or notion.so/your-page"
+              class="py-3">
+          </div>
+          <p class="mt-2 text-sm text-gray-500">The page must be shared publicly via "Share to web"</p>
+        </div>
+
+        <!-- Customization Options (Collapsible) -->
+        <details class="border-t border-gray-200 pt-6">
+          <summary class="cursor-pointer text-lg font-semibold text-gray-900 hover:text-gray-700 flex items-center gap-2">
+            <svg class="h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+            Customize PDF
+            <span class="text-sm font-normal text-gray-500">(optional)</span>
+          </summary>
+
+          <div class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <!-- Page Size -->
+            <div>
+              <label for="page-size">Page Size</label>
+              <select id="page-size" name="page-size">
+                <option value="A4" selected>A4</option>
+                <option value="Letter">Letter</option>
+                <option value="Legal">Legal</option>
+              </select>
+              <p class="mt-1 text-xs text-gray-500">A4 is standard outside the US. Letter is common in North America.</p>
+            </div>
+
+            <!-- Page Orientation -->
+            <div>
+              <label for="orientation">Orientation</label>
+              <select id="orientation" name="orientation">
+                <option value="portrait" selected>Portrait</option>
+                <option value="landscape">Landscape</option>
+              </select>
+              <p class="mt-1 text-xs text-gray-500">Use landscape for wide tables or databases.</p>
+            </div>
+
+            <!-- Margins -->
+            <div>
+              <label for="margins">Margins</label>
+              <select id="margins" name="margins">
+                <option value="none">None</option>
+                <option value="small">Small</option>
+                <option value="normal" selected>Normal</option>
+                <option value="large">Large</option>
+              </select>
+            </div>
+
+            <!-- Scale -->
+            <div>
+              <label for="scale">Scale</label>
+              <select id="scale" name="scale">
+                <option value="0.8">80%</option>
+                <option value="1" selected>100%</option>
+                <option value="1.2">120%</option>
+              </select>
+              <p class="mt-1 text-xs text-gray-500">Shrink to fit more content or enlarge for readability.</p>
+            </div>
+
+            <!-- Font Family -->
+            <div>
+              <label for="font-family">Font Family</label>
+              <select id="font-family" name="font-family">
+                <option value="system-ui" selected>System Default</option>
+                <option value="Georgia, serif">Serif (Georgia)</option>
+                <option value="ui-monospace, monospace">Monospace</option>
+                <option value="Inter, sans-serif">Inter</option>
+              </select>
+            </div>
+
+            <!-- Font Size -->
+            <div>
+              <label for="font-size">Font Size</label>
+              <select id="font-size" name="font-size">
+                <option value="14px">Small (14px)</option>
+                <option value="16px" selected>Medium (16px)</option>
+                <option value="18px">Large (18px)</option>
+              </select>
+            </div>
+
+            <!-- Line Height -->
+            <div>
+              <label for="line-height">Line Height</label>
+              <select id="line-height" name="line-height">
+                <option value="1.4">Compact (1.4)</option>
+                <option value="1.6" selected>Normal (1.6)</option>
+                <option value="1.8">Relaxed (1.8)</option>
+              </select>
+              <p class="mt-1 text-xs text-gray-500">Space between lines. Increase for easier reading.</p>
+            </div>
+          </div>
+
+          <!-- Checkbox Options -->
+          <div class="mt-6 space-y-4">
+            <div class="flex items-start">
+              <input type="checkbox" id="hide-title" name="hide-title" class="mt-0.5">
+              <div class="ml-3">
+                <label for="hide-title" class="text-sm text-gray-700">Hide page title, icon, and cover image</label>
+                <p class="text-xs text-gray-500">Clean look without the Notion header elements.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <input type="checkbox" id="page-numbers" name="page-numbers" class="mt-0.5">
+              <div class="ml-3">
+                <label for="page-numbers" class="text-sm text-gray-700">Show page numbers in footer</label>
+                <p class="text-xs text-gray-500">Adds "1 / 5" style numbering at the bottom of each page.</p>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- Submit Button -->
+        <div class="pt-4 text-center">
+          <button type="submit" id="submit-btn"
+            class="button-action w-full py-4 text-lg font-semibold">
+            Generate PDF
+          </button>
+        </div>
+
+        <!-- Status Messages -->
+        <div id="status" class="hidden">
+          <div id="loading" class="hidden text-center py-4">
+            <svg class="animate-spin h-8 w-8 mx-auto text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <p class="mt-3 text-base text-gray-600">Generating your PDF... This may take a few seconds.</p>
+          </div>
+          <div id="error" class="hidden bg-red-50 border border-red-200 rounded-md p-4">
+            <p class="text-base text-red-800" id="error-message"></p>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- How it works -->
+    <div class="mt-16 border-t border-gray-200 pt-12">
+      <h2>How it works</h2>
+      <ol class="mt-6 space-y-4 text-base text-gray-700">
+        <li>Make sure your Notion page is shared publicly ("Share to web" enabled)</li>
+        <li>Copy the page URL and paste it above</li>
+        <li>Customize the PDF appearance to your liking</li>
+        <li>Click "Generate PDF" and download your file</li>
+      </ol>
+    </div>
+
+    <!-- FAQ -->
+    <div class="mt-12 border-t border-gray-200 pt-12">
+      <h2>Frequently Asked Questions</h2>
+      <dl class="mt-6 space-y-8">
+        <div>
+          <dt class="text-lg font-medium text-gray-900">Is this tool free?</dt>
+          <dd class="mt-2 text-base text-gray-700">Yes, completely free. No signup or payment required.</dd>
+        </div>
+        <div>
+          <dt class="text-lg font-medium text-gray-900">Do you preserve the formatting and layout of my page?</dt>
+          <dd class="mt-2 text-base text-gray-700">Yes, we preserve the formatting and layout of your page and give the ability to customize the PDF appearance.</dd>
+        </div>
+        <div>
+          <dt class="text-lg font-medium text-gray-900">Why does my page need to be public?</dt>
+          <dd class="mt-2 text-base text-gray-700">We need to access your page to convert it. Without "Share to web" enabled, we can't fetch the page content. We don't store any of your content.</dd>
+        </div>
+        <div>
+          <dt class="text-lg font-medium text-gray-900">Need automated backups instead?</dt>
+          <dd class="mt-2 text-base text-gray-700">Check out <a href="/" class="underline">Notion Backups</a> for automatic, scheduled backups of your entire Notion workspace to cloud storage.</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('pdf-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const statusDiv = document.getElementById('status');
+  const loadingDiv = document.getElementById('loading');
+  const errorDiv = document.getElementById('error');
+  const errorMessage = document.getElementById('error-message');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // Reset state
+    statusDiv.classList.remove('hidden');
+    loadingDiv.classList.remove('hidden');
+    errorDiv.classList.add('hidden');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Generating...';
+
+    const formData = {
+      url: document.getElementById('notion-url').value,
+      fontFamily: document.getElementById('font-family').value,
+      fontSize: document.getElementById('font-size').value,
+      lineHeight: document.getElementById('line-height').value,
+      margins: document.getElementById('margins').value,
+      pageSize: document.getElementById('page-size').value,
+      orientation: document.getElementById('orientation').value,
+      scale: document.getElementById('scale').value,
+      hideTitle: document.getElementById('hide-title').checked,
+      pageNumbers: document.getElementById('page-numbers').checked
+    };
+
+    try {
+      const response = await fetch('/.netlify/functions/generate-pdf', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to generate PDF');
+      }
+
+      // Get the PDF blob and trigger download
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'notion-page.pdf';
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      a.remove();
+
+      loadingDiv.classList.add('hidden');
+    } catch (error) {
+      loadingDiv.classList.add('hidden');
+      errorDiv.classList.remove('hidden');
+      errorMessage.textContent = error.message || 'Something went wrong. Please try again.';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Generate PDF';
+    }
+  });
+});
+</script>
+<% end %>

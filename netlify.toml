@@ -6,6 +6,10 @@
   # been specified, include it in the publish directory path.
   command = "bundle exec nanoc compile --env=prod && bundle exec nanoc check mixed_content stale ilinks && bundle exec ruby post_process.rb && npx tailwindcss build -i content/assets/stylesheets/tailwind.css -o output/assets/stylesheets/tailwind.css --minify"
   publish = "output/"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
 
 [build.environment]
   NODE_ENV = "production"
