@@ -192,6 +192,19 @@ export async function handler(event) {
     addStyleTag: [
       { content: customCSS }
     ],
+    addScriptTag: [
+      {
+        // Add NotionBackups branding to PDF title metadata
+        content: `
+          setTimeout(() => {
+            const originalTitle = document.title.replace(/ \\| Notion$/, '').trim();
+            if (originalTitle) {
+              document.title = originalTitle + ' - NotionBackups';
+            }
+          }, 1000);
+        `
+      }
+    ],
     // Wait for Notion page content to load
     waitForSelector: {
       selector: 'div[data-content-editable-root="true"], .notion-page-content, .notion-app-inner',
