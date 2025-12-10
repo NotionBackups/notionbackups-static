@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-ruby "3.2.3"
+ruby "3.4.7"
 
 gem "builder", "~> 3.2"
 gem "kramdown", "~> 2.4"
