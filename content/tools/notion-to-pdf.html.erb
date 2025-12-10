@@ -231,19 +231,27 @@ description: Export any public Notion page as a beautifully formatted PDF for fr
     <!-- Example -->
     <div class="mt-12 border-t border-gray-200 pt-12">
       <h2>Example</h2>
-      <p class="mt-4 text-base text-gray-700">Here's an example of a PDF generated from <a href="https://colorful-shamrock-200.notion.site/Sample-Complicated-Notion-Page-194a4f431b9a800893f1d672493a924c" target="_blank" rel="noopener" class="underline">this Notion page</a>. The page has a two-column layout with images, so the default settings didn't produce the best result. We customized it with the following settings:</p>
+      <p class="mt-4 text-base text-gray-700">Here's a comparison between Notion's default PDF export and our customized export from <a href="https://colorful-shamrock-200.notion.site/Sample-Complicated-Notion-Page-194a4f431b9a800893f1d672493a924c" target="_blank" rel="noopener" class="underline">this Notion page</a>. The page has a two-column layout with images, so the default settings didn't produce the best result. Both PDFs were scaled to 80% for better comparison.</p>
 
-      <ul class="mt-4 space-y-1 text-base text-gray-700 list-disc list-inside">
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div>
+          <p class="text-sm font-semibold text-gray-700 mb-2 text-center">Notion's default export</p>
+          <img src="/assets/images/notion-default-pdf-export.png" alt="Notion's default PDF export showing the page with title, icon, and default formatting" class="rounded-lg shadow-md border border-gray-200" loading="lazy">
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-gray-700 mb-2 text-center">Our customized export</p>
+          <img src="/assets/images/example-generated-pdf-notion-page.png" alt="Customized PDF export with landscape orientation, smaller margins, and hidden title" class="rounded-lg shadow-md border border-gray-200" loading="lazy">
+        </div>
+      </div>
+
+      <p class="mt-6 text-base text-gray-700">Settings used for the customized export:</p>
+      <ul class="mt-2 space-y-1 text-base text-gray-700 list-disc list-inside">
         <li>Orientation: <strong>Landscape</strong></li>
         <li>Scale: <strong>80%</strong></li>
         <li>Margins: <strong>Small</strong></li>
         <li>Font Size: <strong>Small (14px)</strong></li>
         <li>Hide page title, icon, and cover image: <strong>checked</strong></li>
       </ul>
-
-      <div class="mt-6">
-        <img src="/assets/images/example-generated-pdf-notion-page.png" alt="Example PDF generated from a Notion page showing a resume-style layout with contact info, skills, and professional experience" class="rounded-lg shadow-md border border-gray-200 max-w-lg mx-auto" loading="lazy">
-      </div>
     </div>
 
     <!-- FAQ -->
